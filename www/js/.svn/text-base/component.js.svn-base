@@ -1,0 +1,814 @@
+//Begin of ui_com
+//通用组件库，实现一些与具体App类型无关的，基础通用的组件,追求完全的数据驱动
+var ui_com = new function() {
+	//通用页面组件
+	this.CommonPage_to_html = function(comp) {
+		var page = new Object();
+		if (comp.header) {
+			page.header = comp_to_html(comp.header);
+		}
+		if (comp.content) {
+			page.content = comp_to_html(comp.content);
+			if(comp.content_bgcolor){
+				$(".page").css("background",comp.content_bgcolor);
+			}
+		}
+		if (comp.footer) {
+			page.footer = comp_to_html(comp.footer);
+		}
+		return page;
+	}
+
+	this.CompactBlockList_to_html = function(comp) {
+		var html='';
+		for (var i in comp.items) {
+			html += '<div class="compitem">' + comp_to_html(comp.items[i]) + '</div>';
+		}
+		return html;
+	}
+	
+
+	this.btn_to_html = function(comp) {
+		var html = "";
+		if(comp.icon){/*制定图片的button*/
+			html = nano('<input class="btn" type="image" src="{icon}"', comp);
+			if (comp.href) {
+				html += $.app.link_attr(comp);
+			}
+			html += '/>';
+		}else{/*没有图片的普通button*/
+			
+		}
+		
+		return html;
+	}
+
+	this.link_to_html = function(comp) {
+		var html = '<a';
+		if (comp.href) {
+			html += $.app.link_attr(comp);
+		}
+		html += '>';
+		if (comp.text) {
+			html += comp_to_html(comp.text);
+		}
+		html += '</a>';
+		return html;
+	}
+
+	this.text_to_html = function(comp) {
+		return comp.text;
+	}
+
+	this.HeaderBarBlock_to_html = function(comp){
+		var html = '';
+		if (comp.left) {			
+			html += '<div class="header_left"' + $.app.link_attr(comp.left) +'>' + comp_to_html(comp.left) + '</div>';
+		}
+		
+		if (comp.center) {//这里限制标题不能太长
+			$('title').text(comp.center.text);
+			if(comp.center.text.length>8){
+				html += '<div class="title">' + comp.center.text.substr(0,8) + '…</div>';
+			}else{
+				html += '<div class="title">' + comp.center.text + '</div>';
+			}
+		}else {
+			$('title').text('');
+		}
+		
+		if (comp.right) {
+			html += '<div class="header_right"' + $.app.link_attr(comp.right) +'>';
+			html += comp_to_html(comp.right);
+		}else{
+			html += '<div class="header_right">';
+		}
+		html +='</div>';
+		return html;
+	}
+
+	this.TabBarBlock_to_html = function(comp) {
+		var items = comp.items;
+		var html = '<div class="iostab">';
+
+		for (var i in items) {
+			html += '<div class="';
+			if (i == 0) {//是否是第一个nav栏目，因为第一个有圆角
+				html += ' tabfirst';
+			}else if (i == items.length - 1) {//最后一个
+				html += ' tablast';
+			}else {//中间块
+				html += ' tabmid';
+			}
+			if (items[i].active) {//当前选中的tab
+				html += ' seltab';
+			}
+			html += '"' + $.app.link_attr(items[i]) + '">' + comp_to_html(items[i]) + '</div>';
+		}
+		html += '</div>';
+		return html;
+		
+	}
+	/*this.TabBarBlock_to_html = function(comp) {
+		var items = comp.items;
+		var html = '<div class="tabbar">';
+		var t;
+		for (var i in items) {
+			html += '<div class="botnav">' + comp_to_html(items[i]) + '</div>';
+		}
+		html += '</div>';
+		return html;
+		
+	}*/
+
+	this.SimpleListBlock_to_html = function(comp){
+		var html = '<ul class="singlelist" data-role="listview">';
+		var items = comp.items;
+		var t;
+		for (var i in items) {
+			t = items[i];
+			html += '<li' + $.app.link_attr(t) + '><a>' + t.title + '</a></li>';
+		}
+		html += '</ul>';
+		return html;
+	}
+
+	this.ComplexListBlock_to_html = function(comp){
+		var html = '<ul class="comlist" data-role="listview">';
+		var items = comp.items;
+		var t;
+		for (var i in items) {
+			t = items[i];
+			var time =new Date(t.inputtime);
+			var timestr = time.getFullYear() + "/" + time.getMonth() + "/" + time.getDay();
+			html += '<li class="listitem"' + $.app.link_attr(t) +'>'+
+						'<div class="listtext">'+
+							'<div class="listtile">'+ t.title.substr(0,20)+ '</div>'+
+							'<div class="listdes">' + t.desc.substr(0,30) + '</div>'+
+							'<div class="newstime">' + timestr + '</div>'+
+						'</div>';
+			if(t.thumb){
+				html += '<img src="' + nano(t.thumb) + '" class="listpic">';
+			}	
+		}
+		html += '</li></ul>';
+		return html;
+	}
+
+	this.IframeBlock_to_html = function(comp) {
+		var screen_height = document.body.offsetHeight;
+		var header_height = $(".header").height();
+		var nav_height =$(".")
+		var iframe_height = screen_height-header_height;
+		
+		
+		return nano('<iframe frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; margin-bottom: -1px;" height="'+ iframe_height +'" src="{src}"/>', comp);
+	}
+
+	this.ColumnBlock_to_html = function(comp) {
+		var html ='';
+		html = '<div class="doc_info_item">'+
+					'<div class="title">'+
+						'<div class="lbtitle greent">'+comp_to_html(comp.title)+'</div>'+
+					'</div>'+
+					'<div class="context">'+ comp.content.text +'</div>'+
+				'</div>';
+		return html;
+	}
+
+	this.NavBlock_to_html = function(comp){
+		var html = '<div class="box_ver">';
+		var line = Math.ceil(comp.items.length/2);
+		for(var i=0; i<line;i++){
+			
+			html += '<div class="item_ver">';
+			html += '<div class="cateitem action" ' + $.app.link_attr(comp.items[i*2]) + '>\
+						<img src="'+ nano(comp.items[i*2].thumb) +'" />\
+						<div class="catetext">'+ comp.items[i*2].title +'</div>\
+					</div>';
+		 	if(comp.items.length!=i*2+1){
+				html += '<div class="cateitem action" ' + $.app.link_attr(comp.items[i*2+1]) + '>\
+							<img src="'+ nano(comp.items[i*2+1].thumb) +'" />\
+							<div class="catetext">'+ comp.items[i*2+1].title +'</div>\
+						</div>';
+			}				
+			html += '</div>';
+		}
+		html += '</div>';
+		return html;
+	}
+
+	this.BannerBlock_to_html = function(comp){
+		if(comp.items.length==1){//只有一张图的情况，也就是直接显示图片块而非图片滚动
+			var html = '<img class="bannerpic" data-aspect-ratio="0.4" src="'+nano(comp.items[0].thumb)+'" />';
+		}else{
+			var html = '<div id="slider" class="ui-slider">';
+			html += '<div class="ui-slider-group">';
+			
+			for (var i in comp.items) {
+				html += nano('<div class="ui-slider-item" data-index="'+ i +'" >\
+								<a' + $.app.link_attr(comp.items[i]) + '><img src="' + nano(comp.items[i].thumb) + '" /></a>\
+								<p>{title}</p>\
+							</div>', comp.items[i]);
+			}
+			html += '</div>';
+			html += '<p class="ui-slider-dots">';
+			for(var i in comp.items){
+				html +='<b class=""></b>';
+			}
+			html += '</p>';
+			html += '</div>';	
+		}
+		return html;
+	}
+	
+	
+	this.PageTurningBlock_to_html = function(comp){
+		var html = '<div class="moreinfo">';
+		if (comp.pre_page) {
+			html += nano('<a' + $.app.link_attr(comp.pre_page) + '>{pre_page.text}</a>&nbsp;', comp);
+		}
+		if (comp.next_page) {
+			html += nano('<a' + $.app.link_attr(comp.next_page) + '>{next_page.text}</a>', comp);
+		}
+		html += '</div>';
+		return html;
+	}
+	this.TextBlock_to_html = function(comp) {
+		return '<div class="text_block">' + comp.text + '</div>';
+	}
+
+	this.ScrollBlock_to_html = function(comp){//这是一个定制页面，根据数据驱动解决通用性
+		var html = '';
+		for (var i in comp.items) {
+			if(comp.items[i].ui_type=="com.TextBlock"){
+				html += nano('<div class="scroll_block">\
+								<div>\
+									<div class="attention">挂号须知</div>{text}\
+								</div>\
+							</div>', comp.items[i]);
+				html += nano('<div>\
+								<div class="showmore" data-click="showConsent()">展开</div>\
+								<div class="downarr"><img data-click="showConsent()" src="{local_path}image/cms/{theme}/downarr.png" /></div>\
+							</div>\
+							<div class="state">\
+								<div class="check">\
+									<img id="trc" title="TRcheck" data-click="Consent(this)" src="{local_path}image/cms/{theme}/checkbox2.png" />\
+								</div>\
+								<div class="agree">我已阅读并同意声明</div>\
+							</div>', comp.items[i]);
+			}else if(comp.items[i].ui_type=="com.VerticalBtnGroupBlock"){
+				html += '<div class="verticalbtn">';
+				for(var j in comp.items[1].items){
+					html += '<div class="btn"' + $.app.link_attr(comp.items[1].items[j]) +' data-click="chkgo(e,target)">'+ comp.items[1].items[j].text +'</div>';
+				}
+				html +='</div>';
+			}
+		}
+		return html;
+	}
+
+	this.VerticalBtnGroupBlock_to_html = function(comp) {
+		var html = '';
+		html +='<div class="verticalbtn">';
+		for (var i in comp.items) {
+			html += '<div class="btn"' + $.app.link_attr(comp.items[i]) + '>'+ comp.items[i].text +'</div>';
+		}
+		html +="</div>";
+		return html;
+	}
+
+	this.ProgressBlock_to_html = function(comp) {
+		var html = '<div class="progress"><div class="step">';
+		switch(comp.step){
+			case 1: html +=nano('<img src="{local_path}image/cms/{theme}/step1.png" /></div><div class="steptext">');break;
+			case 2: html +=nano('<img src="{local_path}image/cms/{theme}/step2.png" /></div><div class="steptext">');break;
+			case 3: html +=nano('<img src="{local_path}image/cms/{theme}/step3.png" /></div><div class="steptext">');break;
+			case 4: html +=nano('<img src="{local_path}image/cms/{theme}/step4.png" /></div><div class="steptext">');break;
+			default:break;
+		
+		}
+		for(var i in comp.items){
+			if(i<comp.step){
+				html +='<div class="nowstep">'+comp.items[i]+'</div>';
+			}else{
+				html +='<div>'+comp.items[i]+'</div>';
+			}
+			
+			
+		}
+		html +='</div></div>';
+		return html;
+	}
+}
+
+//End of ui_com
+
+//CMS组件库
+var ui_cms = new function() { 
+	//构造函数
+	this.init = function() {
+		//组件库构造函数
+	}
+
+
+	this.SearchBlock_to_html = function(comp) {
+			
+		var html =  nano('<form action={action} method="GET" data-submit="common_form_submit_cbk(response, url)">\n', comp);
+		html += '<div class="search">';
+		for (var i in comp.hidden_items) {
+			html += nano('<input type="hidden" name="{name}" value="{value}"/>\n', comp.hidden_items[i]);
+		}
+		if (comp.title) {
+			html += nano('<input type="search" placeholder="关键词"  class="searchtext" name="{name}" value="{value}"/>', comp.title);
+		}else if(comp.keywords){
+			html += nano('<input type="search" placeholder="关键词"  class="searchtext" name="{name}" value="{value}"/>', comp.keywords);
+		}else{
+			html += nano('<input type="search" placeholder="关键词" class="searchtext" name="info[title]" value="" />');
+		}
+		html += '<input type="submit" value="搜索" class="btn searchbtn" /></div></form>';
+		var agent = navigator.userAgent.toLowerCase();
+		return html;
+	}
+
+	this.comment_info_to_html = function(comp) {
+		return nano('<div class="headertext"><a' + $.app.link_attr(comp) + '>评论({comment_num})</a></div>', comp);
+	}
+
+
+	this.CmsContentPage_to_html = function(comp){
+		var page = new Object();
+		if (typeof(comp.headerbar) != 'undefined') {
+			page.header = comp_to_html(comp.headerbar);
+		}
+		page.content = '<div class="aticleCon">'+comp_to_html(comp.content)+'</div>';
+		if (typeof(comp.comment) != 'undefined') {
+			page.content += comp_to_html(comp.comment); 
+		}
+		page.footer = comp_to_html(comp.nav1);
+		return page;
+	}
+
+	this.ContentBlock_to_html = function(comp){
+		var html = nano('<div class="title">{title}</div>\
+						 <div class="comefrom">作者：{auth}&nbsp; 来源：{copyfrom}</div>\
+						 <div class="text">{content}</div>', comp);
+		return html;
+	}
+
+	this.CmsMsgPage_to_html = function(comp){
+		var page = new Object();
+		var msg_height = document.body.offsetHeight - $(".header").height()+"px";
+		if ($.app.pure_url(comp.info.href) == location.href) { //防止死循环跳转
+			comp.info.href = $.app.index_url;
+		}
+		page.header = nano('<div class="header_left"><div class="com_btn"><input class="btn" type="image" src="statics/images/hospital/back.png" href="index.php?m=webapp_member&c=index&a=login&forward=index.php%3Fm%3Dwebapp_member%26c%3Dhospital%26a%3Dpatient_profile"></div></div><div class="title">提示</div><div class="header_right"></div>');
+		page.content = nano('<div class="msgbg" style="height:'+ msg_height +';">\
+								<div class="msgborder">\
+									<div class="msgcontain">\
+										<div class="msgtitle">提示信息</div>\
+										<div class="msgtext">\
+											<a '+ $.app.link_attr(info) + ' data-loaded="if (__item.getAttribute(\'href\') != location.href) {setTimeout(function() {$.app.action_open_page(e, __item)}, {delay});}">{info.text}</a>\
+										</div>\
+									</div>\
+								</div>\
+							</div>', comp);
+	
+		return page;
+	}
+	
+	this.CmsLogin1Page_to_html = function(comp){
+		var page = new Object();
+		comp.forward = $.app.get_url_param('forward');
+		if (comp.forward) {
+			comp.forward = encodeURIComponent(comp.forward);
+		}else{
+			comp.forward = "index.php%3Fm%3Dwebapp_member%26c%3Dhospital%26a%3Dpatient_profile";
+		}
+		page.header = nano('<div class="header_left"><div class="com_btn"><input class="btn" type="image" src="statics/images/hospital/back.png" href="#goback"></div></div><div class="title">登录</div><div class="header_right"></div>');
+		page.content = nano('<form method="post" action="./index.php?m=webapp_member&c=index&a=login" id="myform" data-submit="login1_callback(response)">\
+									<div class="loginbox">\
+										<input name="forward" type="hidden" value="{forward}"/>\
+										<div class="loginitem"><label>手机号码：</label><input id="username" name="username" type="text" /></div>\
+										<hr />\
+										<div class="loginitem"><label>密　码：</label><input id="password" name="password" type="password" /></div>\
+										<hr />\
+										<div class="loginitem"><label>验证码：</label><div class="yanzheng"><input id="code" name="code"  type="text" /><img id="code_img"onclick=\'this.src=this.src+"&"+Math.random()\' src="./api.php?op=checkcode&code_len=5&font_size=14&width=120&height=26&font_color=&background=" style="width:5em;height:1.8em;" /></div></div>\
+									</div>\
+									<div class="chelogin"><div class="chebox"><input type="checkbox" name="cookietime" value="2592000" id="cookietime" />记住密码</div><div class="chebox"><a href="index.php?m=webapp_member&c=index&a=public_forget_password_mobile&siteid=1">忘记密码？</a></div></div>\
+									<div class="chelogin"><input class="btn action" name="dosubmit" id="dosubmit" type="submit" value="登录" /><button name="register"  href="index.php?m=webapp_member&c=index&a=register&modelid=13&siteid=1#tpl=register1" class="btn action">注册</button></div>\
+								</form>',comp);
+		return page;
+	}
+	
+	this.CmsRegister1Page_to_html = function(comp){
+		var page = new Object();
+		page.header = nano('<div class="header_left"><div class="com_btn"><input class="btn" type="image" src="{local_path}image/cms/hospital/back.png" href="#goback"></div></div><div class="title">注册</div><div class="header_right"></div>');
+		page.content = nano('<form method="post" action="./index.php?m=webapp_member&c=index&a=register&siteid={siteid}" id="myform" data-submit="register1_callback(response)">\
+								<input type="hidden" name="siteid" value="{siteid}"/>\
+								<input name="modelid" type="hidden" value="{modelid}"/>\
+								<div class="loginbox">\
+									<div class="loginitem">\
+										<label> 手机号码：</label>\
+										<div class="form">\
+											<div id="mobile_div">\
+												<input type="text" name="mobile" id="mobile" value=""> \
+												<button onclick="get_verify()" type="button" class="btn">获取短信验证码</button>\
+											</div>\
+											<div id="mobile_send_div" style="display:none">验证码已发送到<span id="mobile_send"></span>，<span id="edit_mobile" style="display:none"><a href="javascript:void();" onclick="edit_mobile()">修改号码</a>，</span> 若超过90秒未收到，请重新获取。<br>\
+												<button type="button" id="GetVerify" onclick="get_verify()" class="hqyz">重获短信验证码</button>\
+											</div> \
+										</div>\
+									</div>\
+									<hr />\
+									<div class="loginitem"><label>短信验证码：</label><input type="text" name="mobile_verify" id="mobile_verify" placeholder="请输入手机校验码" /></div>\
+									<hr />\
+									<div class="loginitem"><label>密　码：</label><input id="password" name="password"  type="password" /></div>\
+									<hr />\
+									<div class="loginitem"><label>确认密码：</label><input type="password" name="pwdconfirm" id="pwdconfirm" /></div>\
+								</div>\
+								<div class="chelogin"><div class="chebox" style="text-align:center;"><input type="checkbox"  value="" name="protocol" id="protocol" /><a href="./index.php?m=member&c=index&a=register&protocol=1" class="blue">点击阅读注册协议</a></div></div>\
+								<div class="chelogin"><input class="btn" name="dosubmit" type="submit" value="同意注册协议，提交注册" /></div>\
+							</form>',comp);
+		return page;
+	}
+
+	this.ForgetPasswordMobileStep1Block_to_html = function(comp) {
+		var html = '<form method="post" action="index.php?m=webapp_member&c=index&a=public_forget_password_mobile&siteid=1" data-submit="common_form_submit_cbk(response, url)">';
+		html += '<div class="box_ver lidiv">';
+		html += '<div class="item_ver liborder listyle1"><div>手机号码：</div><input type="text" id="username" name="username"  class="input_text"></div>';
+		html += '<div class="item_ver liborder listyle1"><div>验证码：</div><input type="text" id="code" name="code"   class="input_text" /><img id="code_img" onclick="this.src=this.src+&quot;&amp;&quot;+Math.random()" src="http://appbuilder.studyinhand.com/apps/1/server/modules/cms/api.php?op=checkcode&amp;code_len=4&amp;font_size=14&amp;width=80&amp;height=24&amp;font_color=&amp;background="/></div>';
+		html += '<input type="hidden" name="step" value="2"/>';
+		html += '<input class="btn greenbt" type="submit" name="dosubmit" value="提交"/>';
+		html += '</div>';
+		html += '</form>';
+		return html;
+		/*return '<form method="post" action="index.php?m=webapp_member&c=index&a=public_forget_password_mobile&siteid=1" data-submit="common_form_submit_cbk(response, url)">\
+				<label>手机号码：</label><input type="text" id="username" name="username" size="36"/><br/>\
+				<label>验证码：</label><input type="text" id="code" name="code" size="10"/><img id="code_img" onclick="this.src=this.src+&quot;&amp;&quot;+Math.random()" src="http://appbuilder.studyinhand.com/apps/1/server/modules/cms/api.php?op=checkcode&amp;code_len=4&amp;font_size=14&amp;width=80&amp;height=24&amp;font_color=&amp;background="/>\
+				<input type="hidden" name="step" value="2"/>\
+				<input type="submit" name="dosubmit" value="提交"/>\
+				</form>';*/
+	}
+	
+	this.ForgetPasswordMobileStep2Block_to_html = function(comp) {
+		return nano('<form method="post" action="index.php?m=webapp_member&c=index&a=public_forget_password_mobile&siteid=1" data-submit="common_form_submit_cbk(response, url)">\
+						<div class="box_ver lidiv">\
+			<div class="item_ver liborder listyle1"><div>您绑定的手机号码为：</div>{phone}</div>\
+			<div class="item_ver liborder listyle1"><input type="hidden" name="step" value="3"/><span id="mobile_div"><button onclick="get_verify()" type="button">获取短信校验码</button></span><span id="mobile_send" style="display:none">短信已发送成功，请查收，短信如在10分钟内没有收到，请重试其他方法</span></div>\
+			<script type="text/javascript">\
+			function get_verify() {\
+				$.get("api.php?op=sms",{ session_code: "{code}",random:Math.random()}, function(data){\
+						if(data=="0") {\
+						$("#mobile_div").hide();\
+						$("#mobile_send").show();\
+						} else if(data=="-1") {\
+						alert("你今天获取验证码次数已达到上限");\
+						} else {\
+						alert("短信发送失败");\
+						}\
+					});\
+			}\
+			<\/script>\
+			<div class="item_ver liborder listyle1"><div>短信校验码：</div><input type="text" name="mobile_verify" id="mobile_verify" value="" /></div>\
+			<input class="btn greenbt" type="submit" name="dosubmit" value="提交"/>\
+			</div>\
+			</form>', comp);
+	}
+	
+	this.CmsMemberPage_to_html = function(comp){
+		var page = new Object();
+		page.content = nano('<h1>{nickname}</h1><br/>头像：<img src="{avatar.src}" width="60" height="60" onerror="this.src=\'{server_url_prefix}modules/cms/phpsso_server/statics/images/member/nophoto.gif\'"/><br/>Email: {email}<br/>', comp);
+		page.footer = comp_to_html(comp.nav1);
+		return page;
+	}
+
+	this.CmsCommentPage_to_html = function(comp){
+		var page = new Object();
+		//page.header = nano('<h1><a' + $.app.link_attr(article) + '>{article.text}</a></h1>', comp);
+		page.header =  comp_to_html(comp.header) ;
+		page.content = '<div>' + comp_to_html(comp.comment) + '</div>';
+		page.content += comp_to_html(comp.pt);
+		page.content += comp_to_html(comp.comment_form);
+		page.footer = comp_to_html(comp.nav1);
+		return page;
+	}
+
+	this.CommentBlock_to_html = function(comp){
+		var html = '<ul data-role="listview">';
+		var items = comp.items;
+		var t;
+		for (var i in items) {
+			t = items[i];
+			//html += '<li>' + t.username + '&nbsp;' + t.creat_at + '<br/><p>' + t.content + '</p></li>\n';
+			html += '<li class="comli">'+
+						'<div class="comuser">'+
+							'<div class="username">'+ t.username +'</div>'+
+							'<div class="comtime">'+ t.creat_at +'</div>'+
+						'</div>'+
+						'<div class="comtext">'+
+						'<div class="dialoglef">&nbsp;</div>'+
+						'<div class="dialogtext">'+ t.content +'</div>'+
+						'</div>'+
+					'</li>';
+		}
+		html += '</ul>';
+		return html;
+	}
+
+	this.CmsCommentFormBlock_to_html = function(comp){
+		var html = nano('<form action="' + $.app.link_attr(comp.action) + '" method="post" data-submit="common_form_submit_cbk(response, url)">\
+				   <input type="hidden" name="title" value="{input.title}">\
+				   <input type="hidden" name="url" value="{input.url}">\
+				   <div class="lbtitle greenLb">我来说两句</div>\
+				   <div style="padding:0.8em">\
+				   <textarea class="inparea" name="content"></textarea>\
+				   </div>\
+				   <input class="btn greenbt" style="margin-top:0.5em" type="submit" value="发表评论">\
+				   </form>', comp);
+		return html;
+	}
+
+	this.UserProfileAppendBlock_to_html = function(comp) {		
+		var html = nano('<form action="{action}" data-submit="common_form_submit_cbk(response, url)" method="post">\
+						 <div class="box_ver lidiv">\
+						 <div class="item_ver liborder listyle1"><div>昵称：</div><input id="nickname" name="nickname" value="{nickname}" class="input_text" type="text" /></div>', comp)
+		for (var i in comp.forminfos) {	
+			var v = comp.forminfos[i];
+			html += nano('<div class="item_ver liborder listyle1"><div>{name}：</div>',v);
+			html += v.form;		
+			if (v.isbase != '0') {
+				html += '<font color="red">*</font>';
+			}
+			if (v.tips) {
+				html += '（' + v.tips + '）';
+			}
+			html += '</div>';
+		}
+		html +='</div>';
+		html += '<input name="dosubmit" class="btn greenbt" type="submit" id="dosubmit" value="提交"/>';
+		html += '</form>';
+		return html;
+	}
+
+	this.ChangePasswordBlock_to_html = function(comp) {
+		return nano('<form action="{action}" data-submit="common_form_submit_cbk(response, url)" method="post">\
+					<div class="box_ver lidiv">\
+						<div class="item_ver settitle passtitle">密码修改</div>\
+						<div class="item_ver liborder listyle1"><div>原密码：</div><input name="info[password]" class="input_text" type="password" /></div>\
+						<div class="item_ver liborder listyle1"><div>新密码：</div><input name="info[newpassword]" class="input_text" type="password" /></div>\
+						<div class="item_ver liborder listyle1"><div>确认密码：</div><input name="info[renewpassword]" class="input_text" type="password" /></div>\
+					</div>\
+					<input class="btn greenbt" name="dosubmit" type="submit" value="提交"/>\
+					</form>', comp);
+	}
+
+}
+
+//在被引入的时候调用构造函数
+ui_cms.init();
+
+//医院App组件库
+var ui_hospital = new function() {
+	this.init = function() {
+	}
+
+	this.QueueBlock_to_html = function(comp) {
+			var html = nano('<div class="kestitle">{department}</div>\
+								<div class="numbg">{No}</div>\
+								<div>\
+									<div class="grayt" style="margin-top:1em;">该号被叫距离现在时间</div>',comp);
+			html +='<div class="timecontain sec" data-loaded="set_queue_refresh_timer()" data-val="'+ comp.update_time +'">'+timeFormat(comp.update_time)+'</div>'+
+					'</div>';
+			return html; 
+	}
+	this.QueueListBlock_to_html = function(comp){
+		var html = '<div class="box_ver" data-loaded="set_queue_refresh_timer()">';
+		
+		for (var i in comp.items) {
+			
+			html += nano('<div class="item_ver">\
+							<div class="numinfo">\
+								<div class="numbelong">{title}</div>\
+								<div class="num" href="{href}">{No}</div>\
+							</div>',comp.items[i]);
+			
+			//计算时间格式
+			var timenum = comp.items[i].update_time;		
+        	html +='<div class="time sec" data-val="'+ timenum +'" >'+ timeFormat(timenum) +'</div></div>';
+		}
+		html +='</div>';
+		return html;
+	}
+	this.DoctorListBlock_to_html = function(comp){
+		var html = '<ul class="comlist1" data-role="listview">';
+		var items = comp.items;
+		var t;
+		
+		for (var i in items) {
+			t = items[i];
+			html += '<li' + $.app.link_attr(t) + '>'+
+						'<div class="pictext">'+
+							'<img src="' + nano(t.thumb) + '" />'+
+							'<div class="doctor">'+
+								'<div class="name"><span>' + t.title + '</span>' + t.keywords + '</div>'+
+								'<div class="info">' + t.desc + '</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="rightarr">'+
+							nano('<img class="rightarr" src="{local_path}image/cms/hospital/rightarr.png" />')+
+						'</div>'+
+					'</li>';
+			/*if(t.thumb){
+				html += '<li class="listitem"' + $.app.link_attr(t) + '><img class="listpic" src="' + nano(t.thumb) + '"/><div class="listtext"><div class="listtile"><a>' + t.title.substr(0,33) + '</a>' + (t.keywords ? ('&nbsp;' + t.keywords.substr(0, 12)) : '') + ' ' + t.regs_remain_count + '</div><div class="listdes">' + t.desc.substr(0,66) + '</div></li>';
+			}else{
+				html += '<li class="listitem"' + $.app.link_attr(t) + '><div class="listtext"><div class="listtile"><a>' + t.title.substr(0,40) + '</a>' + (t.keywords ? ('&nbsp;' + t.keywords.substr(0, 12)) : '') + ' ' + t.regs_remain_count + '</div><div class="listdes">' + t.desc.substr(0,80) + '</div></li>';
+			}*/
+			
+		}
+		html += '</ul>';
+		return html;
+	}
+	this.RegSourceListBlock_to_html = function(comp) {
+		var time = comp.items[0].date;
+		var timestop = time.indexOf(" ");
+		var daystr = "挂号时间 " + time.substr(0,timestop);
+		var html ='<div class="timecontain registime">'+ daystr +'</div>';
+		html += '<div class="chose">';
+		html += '<table cellspacing="0" cellpadding="0">';
+		html += '<tr class="tabtitle"><th>操作</th><th>时间</th><th>挂号费</th><th>剩余号</th><th>可挂号</th></tr>';
+		for (var i in comp.items) {
+			var fee = nano('{fee}',comp.items[i])/100;
+			if(comp.items[i].remain==0){
+				html += '<tr class="nodo">\
+							<td><div class="yelcircle">已满</div></td>\
+							<td>'+ comp.items[i].date.substr(timestop) +'</td>\
+							<td>'+ fee +'</td>\
+							<td>'+ comp.items[i].remain +'</td>\
+							<td>'+ comp.items[i].total +'</td>\
+						</tr>';
+			}else{
+				html += '<tr '+ $.app.link_attr(comp.items[i]) + '>\
+							<td><div class="grecircle">可选</div></td>\
+							<td>'+ comp.items[i].date.substr(timestop) +'</td>\
+							<td>'+ fee +'</td>\
+							<td>'+ comp.items[i].remain +'</td>\
+							<td>'+ comp.items[i].total +'</td>\
+						</tr>';
+			}
+			
+		}
+		html += '</table></div>';
+		return html;
+	}
+
+	this.DoctorProfileBlock_to_html = function(comp) {
+		return nano('<div class="avatar">\
+            	<img src="{avatar}" />\
+                <div class="text">\
+                	<div class="name">{name}</div>\
+                    <div class="info">{chief}</div>\
+                </div>\
+            </div>',comp);
+		//return nano('<img src="{avatar}"/><h3>{name}</h3><span>{chief}</span>', comp);
+	}
+	
+	this.RegistrationNoticeBlock_to_html = function(comp) {
+		return comp_to_html(comp.notice);
+	}
+
+	this.DepartmentRegistrationBlock_to_html = function(comp) {
+									
+		var html = '<div class="departime">' + comp.sum + '</div>';
+		html +=nano('<div>\
+						<div class="showmore" data-click="moreinfo()">展开</div>\
+						<div class="downarr">\
+							<img data-click="moreinfo()" src="{local_path}image/cms/hospital/downarr.png">\
+						</div>\
+					</div>',comp);	
+		return html;
+	}
+	this.PatientProfileAppendBlock_to_html = function(comp) {
+		var html ='<div class="box perinfo">'+
+						'<div class="box title"><div class="titlestyle">&nbsp;</div><div class="text">个人信息</div></div>'+
+						'<div class="btn">代人挂号</div>'+
+				   '</div>';
+		html +=  nano('<form action="{action}" method="post" data-submit="common_form_submit_cbk(response, url)">\
+				<div class="infoContain">\
+				<input type="hidden" name="obj_id" value="{obj_id}">\
+				<input type="hidden" name="type" value="{type}">\
+				<input type="hidden" name="see_date" value="{see_date}">\
+				<input type="hidden" name="see_time" value="{see_time}">\
+				<div class="infoli">患者姓名：<input type="text" name="name" value="{name}"></div>\
+				<div class="infoli">手机号码：<input type="text" name="phone" value="{phone}"></div>', comp);
+		html += nano('<div class="infoli">就诊卡号：<input type="text" name="med_card_no" value="{med_card_no}"></div>\
+				<div class="infoli">身份证号：<input type="text" name="id_no" value="{id_no}"></div>', comp);
+		if (comp.sex == '女') {
+			html += '<div class="infoli">患者性别：<input type="radio" name="sex" value="1">男&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" checked="checked" value="0">女</div></div>';
+		}else {
+			html += '<div class="infoli">患者性别：<input type="radio" name="sex" checked="checked" value="1">男&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="0">女</div>';
+		}
+		html +='<div class="getnum"><a' + $.app.link_attr(comp.get_med_card_method) + '>如何获取就诊卡号</a></div>'
+		html +='<input type="submit" class="btn" value="确认"></div></form>';
+		return html;
+	}
+	this.PatientProfileBlock_to_html = function(comp) {
+		var html = '';		
+		html += nano('<form>\
+			<div class="username">\
+				<div class="userpic">\
+					<div class="userhead"><img onerror="picErrLoad(this)" src="{avatar.src}"/></div>\
+					<div class="userinfo">\
+						<div>{name}</div>\
+						<div>{sex} {age}岁</div>\
+					</div>\
+				</div>\
+				<div class="edituser action" href="{manage_info_url}">编辑</div>\
+			</div>\
+			<div class="userset">\
+				<div class="settitle"><div class="bakgreen">&nbsp;</div>账户设置</div>\
+				<div class="change action">\
+					<img src="statics/images/hospital/clock.png" />\
+					<div class="changetext" href="{change_password_url}">修改密码</div>\
+					<img src="statics/images/hospital/changepass.png"/>\
+				</div>\
+				<div class="change">\
+					<img src="statics/images/hospital/tuisong.png" />\
+					<div class="changetext">健康新闻推送</div>\
+					<img title="pushon" data-click="acceptInfo(this)" src="{local_path}image/cms/{theme}/radio.png" />\
+				</div>\
+				<div class="circlediv">\
+					<canvas id="circle1" width="300" height="300" class="item" href="{my_registration_url}" >{undue_registration_count}</canvas>\
+					<canvas id="circle2" width="300" height="300" class="item" href="{my_sheet_url}" >{sheet_count}</canvas>\
+					<canvas id="circle3" width="300" height="300" class="item" href="{my_miss_registration_url}" ><span id="nowmiss">{miss_registration_count}</span><span id="allmiss">{registration_count}</span></canvas>\
+				</div>\
+				<input class="btn action" type="submit" value="退出登录" href="{logout_url}"/>\
+			</div>\
+			</form>', comp);
+		html += nano('<script>canvasCircle()</script>');		
+		return html;
+	}
+
+	this.RegistrationListBlock_to_html = function(comp)
+	{
+		var html ='<table class="report" width="100%" border="0" cellpadding="0" cellspacing="0">'+
+              '<tr class="th">'+
+                '<td class="greent">普通/专家</td>'+
+                '<td class="greent">时间</td>'+
+                '<td class="greent">科室</td>'+
+                '<td class="greent">预约号</td>'+
+              '</tr>';
+		var t;
+		for (var i in comp.items) {
+			t = comp.items[i];
+			html += nano('<tr '+ $.app.link_attr(comp.items[i]) +'>\
+						<td>{name}</td>',t);
+			html += '<td>'+ t.date.substr(5); +'</td>';
+			html += nano('<td>消化内科</td>\
+						<td>{number}</td>\
+					  </tr>',t);
+		}
+		html += '</table>';
+		return html;
+	}
+
+	this.RegistrationBlock_to_html = function(comp)
+	{
+		var html = nano('<div class="compitem">\
+							<div class="rig_suc_notice">{status}</div>\
+							<div class="stick">\
+								<div class="box_ver table2">\
+								<div class="item_ver tableitem"><div class="td1">患者姓名:</div><div class="greent">{name}</div></div>\
+								<div class="item_ver tableitem doubtr"><div class="td1">性　　别:</div><div class="greent">{sex}</div></div>\
+								<div class="item_ver tableitem"><div class="td1">手机号码:</div><div class="greent">{phone}</div></div>\
+								<div class="item_ver tableitem doubtr"><div class="td1">就诊时间:</div><div class="greent">{date}</div></div>\
+								<div class="item_ver tableitem"><div class="td1">就诊科室:</div><div class="greent">消化内科</div></div>\
+								<div class="item_ver tableitem doubtr"><div class="td1">就诊序号:</div><div class="greent">{med_card_no}</div></div>\
+								<div class="item_ver tableitem"><div class="td1">挂号费用:</div><div class="greent">{fee}</div></div>\
+							</div>\
+							</div>\
+						</div> \
+						<div href="{cancel_reg}" class="btn greenbt">取消挂号</div>',comp.info);
+		return html;
+	}
+	
+	this.InspectionSheetBlock_to_html = function(comp){
+		var html = '<div class="rig_suc_notice" style="height:0.5em;"></div>';
+		html +=nano('<div class="stick">\
+						<div class="box_ver table4">\
+							<div class="item_ver tableitem"><div class="td1">患者姓名:</div><div class="greent">{name}</div></div>\
+							<div class="item_ver tableitem doubtr"><div class="td1">性　　别:</div><div class="greent">男</div></div>\
+							<div class="item_ver tableitem"><div class="td1">手机号码:</div><div class="greent">18422332948</div></div>\
+							<div class="item_ver tableitem doubtr"><div class="td1">就诊时间:</div><div class="greent">2013年11月25日 下午</div></div>\
+							<div class="item_ver tableitem"><div class="td1">就诊科室:</div><div class="greent">消化内科</div></div>\
+							<div class="item_ver tableitem doubtr"><div class="td1">就诊序号:</div><div class="greent">001325</div></div>\
+							<div class="item_ver tableitem"><div class="td1">挂号费用:</div><div class="greent">{number}</div></div>\
+						</div>\
+						<hr style="color:#ccc;" />',comp);
+		html +='</div>';
+		return html;
+		
+	}
+}
+
+ui_hospital.init();

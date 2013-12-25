@@ -1,0 +1,476 @@
+Index: page.css
+===================================================================
+--- page.css	(revision 97)
++++ page.css	(working copy)
+@@ -4,13 +4,9 @@
+ html,body,p,ul{
+ 	margin:0;
+ 	padding:0;
+-	height: 99.9%;
+-	font-family:"微软雅黑","黑体","Arial";
+-}
++	font-family:"微软雅黑","黑体","Arial";}
+ body{
+-	overflow-x: hidden;
+-	height: 99.9%;
+-}
++	overflow-x: hidden;}
+ a{
+ 	text-decoration:none;}
+ ul{
+@@ -21,7 +17,6 @@
+ 	margin:0px;}
+ .page {
+ 	width: 100%;
+-	min-height: 100%;
+ 	position: absolute;
+ 	overflow: visible;
+ 	overflow-x: hidden;
+@@ -51,6 +46,7 @@
+ 	-webkit-box-flex: 1;
+ 	border-radius: 5px;
+ 	border:none;
++	text-align:center;
+ 	color: white;
+ 	font-size: 1em;
+ 	line-height: 2em;
+@@ -65,21 +61,20 @@
+ 	text-align:center;}
+ .action:active{
+ 	-webkit-box-shadow:inset 0 0px 5px rgba(0,0,0,0.6);}	
+-.header .compitem{/*兼容解决头部不统一问题*/
++.header .compitem,.header .com_HeaderBarBlock{/*兼容解决头部不统一问题*/
+ 	-webkit-box-flex:1;
+-	display:-webkit-box;}	
++	display:-webkit-box;}
+ 
+ .header {
+ 	background:#4eb25c;
+ 	height:2.8em;
+-	box-shadow:0px 1px 2px rgba(0,0,0,0.4);
++	/*box-shadow:0px 1px 2px rgba(0,0,0,0.4); 头部的阴影，在ios7风格化后不需要这个*/
+ 	display:-webkit-box;}
+ .content {
+ 	padding-top:2.8em;
+ 	padding-bottom:2.5em;
+ 	overflow: visible;
+-	overflow-x: hidden;
+-}
++	overflow-x: hidden;}
+ .footer {
+ 	bottom: -1px;
+ 	padding-bottom: 1px;
+@@ -95,6 +90,9 @@
+ 	line-height:2.5em;
+ 	font-size:1.2em;
+ 	color:white;}
++.header_left .btn,.header_right .btn{
++	display:inline-block;
++	width:2em;}
+ 	
+ /*友谊医院通用组件样式*/
+ .greenbt{
+@@ -112,77 +110,74 @@
+ .input_text{
+ 	border:none;}
+ 
+-
++.lbtitle{
++	padding-left:0.7em;
++	font-size:0.9em;
++	line-height:1.3em;
++	border-left:#5aa6e3 4px solid;}
++.top1{
++	margin-top:1em;}
++	
++	
++/*loader样式*/
++#loading_text{
++	font-size:0.8em;
++	text-align:center;}
+ .ui-loader-verbose {
+-width: 12.5em;
+-filter: Alpha(Opacity=88);
+-opacity: .88;
+-box-shadow: 0 1px 1px -1px #fff;
+-height: auto;
+-margin-left: -6.875em;
+-margin-top: -2.6875em;
+-padding: .625em;
+-}
++	width: 12.5em;
++	filter: Alpha(Opacity=60);
++	opacity: 0.6;
++	box-shadow: 0 1px 1px -1px #fff;}
+ .ui-loader {
+-display: none;
+-z-index: 9999999;
+-position: fixed;
+-top: 50%;
+-left: 50%;
+-border: 0;
+-}
++	display: none;
++	z-index: 9999999;
++	position: fixed;
++	width:100%;
++	height:100%;
++	top: -1px;
++	left: -1px;
++	border: none;
++	background:#E8E8E8;}
+ .ui-body-a {
+-border-width: 1px;
+-border-style: solid;
+-}
++	border-width: 1px;
++	border-style: solid;}
+ .ui-loader .ui-icon-loading {
+-background-color: #000;
+-display: block;
+-margin: 0;
+-width: 2.75em;
+-height: 2.75em;
+-padding: .0625em;
+--webkit-border-radius: 2.25em;
+-border-radius: 2.25em;
+-}
++	display: block;
++	margin-top:20em;
++	width: 3em;
++	height: 3em;
++	-webkit-border-radius: 2.25em;
++	border-radius: 2.25em;}
+ .ui-loader-verbose .ui-icon-loading {
+-margin: 0 auto .625em;
+-filter: Alpha(Opacity=75);
+-opacity: .75;
+-}
++	margin: 0 auto;
++	filter: Alpha(Opacity=90);
++	opacity: .9;
++	margin-top:50%;}
+ .ui-icon-loading {
+-background: url(../../../image/cms/hospital/ajax-loader.gif);
+-background-size: 2.875em 2.875em;
++	background: url(../../../image/cms/hospital/ajax-loader.gif);
++	background-size: 3em 3em;}
++.ui-json-loading .ui-loader,.ui-data-loading .ui-loader,.ui-post-loading .ui-loader{
++	display: block;
+ }
+-.ui-json-loading .ui-loader {
+-display: block;
+-}
+-.ui-data-loading .ui-loader {
+-display: block;
+-}
+-
+ .ui-toast {
+-display: none;
+-z-index: 9999999;
+-position: fixed;
+-top: 50%;
+-left: 50%;
+-border: 0;
+-}
+-
++	display: none;
++	z-index: 9999999;
++	position: fixed;
++	top: 50%;
++	left: 50%;
++	border: 0;}
+ .ui-link-active {
+-border: 1px solid #2373a5;
+-background: #5393c5;
+-font-weight: 700;
+-color: #fff;
+-cursor: pointer;
+-text-shadow: 0 1px 0 #3373a5;
+-text-decoration: none;
+-background-image: -webkit-gradient(linear,left top,left bottom,from(#5393c5),to(#6facd5));
+-background-image: -webkit-linear-gradient(#5393c5,#6facd5);
+-background-image: -moz-linear-gradient(#5393c5,#6facd5);
+-background-image: -ms-linear-gradient(#5393c5,#6facd5);
+-background-image: -o-linear-gradient(#5393c5,#6facd5);
+-background-image: linear-gradient(#5393c5,#6facd5);
+-font-family: Helvetica,Arial,sans-serif;
+-}
++	background: #5393c5;
++	font-weight: 700;
++	color: #fff;
++	cursor: pointer;
++	text-shadow: 0 1px 0 #3373a5;
++	text-decoration: none;
++	background-image: -webkit-gradient(linear,left top,left bottom,from(#5393c5),to(#6facd5));
++	background-image: -webkit-linear-gradient(#5393c5,#6facd5);
++	background-image: -moz-linear-gradient(#5393c5,#6facd5);
++	background-image: -ms-linear-gradient(#5393c5,#6facd5);
++	background-image: -o-linear-gradient(#5393c5,#6facd5);
++	background-image: linear-gradient(#5393c5,#6facd5);
++	font-family: Helvetica,Arial,sans-serif;}
++
+Index: component.css
+===================================================================
+--- component.css	(revision 97)
++++ component.css	(working copy)
+@@ -205,7 +205,6 @@
+ .steptext div.nowstep{
+ 	color:white;}
+ .singlelist li{
+-	display:-webkit-box;
+ 	padding:0.5em;
+ 	height:2em;
+ 	line-height:2em;
+@@ -215,14 +214,14 @@
+ 	box-shadow:inset 0px 0px 1px rgba(0,0,0,0.4)}	
+ .singlelist li a{
+ 	display:block;
+-	-webkit-box-flex:100;
++	float:left;
+ 	text-align:left;
+ 	padding-left:0.5em;}
+ .singlelist li img{
+ 	height:1em;
+ 	margin-top:0.6em;
+ 	display:block;
+-	-webkit-box-flex:1;
++	float:right;
+ 	padding-right:1em;}
+ 	
+ /*挂号时间*/
+@@ -332,10 +331,10 @@
+ 	
+ /*挂号成功*/
+ .stick{
+-	background: white url(../../../image/cms/hospital/sticktop.jpg) top repeat-x;}
++	background: white url(../../../image/cms/hospital/sticktop.jpg) top repeat-x;
++	background-size:1.2em;}
+ .stick .table2{
+ 	padding: 4em 3em 0em 3em;
+-	background-size:5em;
+ 	line-height: 2em;}
+ .rig_suc_notice{
+ 	color: #ffbc31;
+@@ -550,6 +549,7 @@
+ 	text-align:center;
+ 	-webkit-box-flex:8;}
+ .numinfo .num{
++	color:white;
+ 	max-width:3.3em;
+ 	-webkit-box-flex:3;}
+ .numinfo+.time{
+@@ -558,13 +558,200 @@
+ 	padding-left:1em;
+ 	color:#b4b4b4;
+ 	-webkit-box-flex: 2;}
++/*我的叫号*/
++.mynum{
++	border-bottom:solid #c8c8c8 1px;}
++.belong{
++	height:3em;
++	line-height:3em;
++	display:-webkit-box;
++	background: #ecf0f6;}
++.belong .text{
++	padding-left:0.5em;
++	border-left:#5aa6e3 5px solid;}
++.belong .text2{
++	border-left:#cb57f6 5px solid;}
++.belong .time{
++	font-size: 0.8em;
++	color: #b4b4b4;
++	padding-left: 2em;}
++	
+ 
++/*科室医生——科室列表*/
++.search{
++	display:-webkit-box;
++	background:#ecf0f6;
++	padding:0.5em;}
++.search .searchtext{
++	border:none;
++	margin-right: 1em;
++	display: block;
++	width: 65%;
++	height: 2.3em;
++	line-height: 2.3em;
++	background:white url(../../../image/cms/hospital/search.png)no-repeat;
++	background-size: auto 80%;
++	background-position:0.5em center;
++	padding-left:2.5em;}
++.search .searchbtn{
++	background:#4eb25c;}
++/*科室医生——医生列表*/
++.comlist1 li{
++	overflow:hidden;
++	zoom:1;
++	padding:0.8em;
++	height:auto;
++	border-bottom: #ccc solid 1px;}
++.comlist1 .pictext{
++	width:94%;
++	float:left;
++	display:-webkit-box;}
++.pictext img{
++	display:block;
++	height:5em;}
++.pictext .doctor{
++	padding-left:0.5em;
++	-webkit-box-flex:1;}
++.pictext .doctor .name{
++	font-size:1em;}
++.pictext .doctor .name span{
++	color:#4eb25c;
++	font-size:1.2em;
++	padding-right:0.5em;}
++.pictext .doctor .info{
++	padding-top:0.3em;}
++.comlist1 .rightarr{
++	height:5em;
++	width:5%;
++	float:right;
++	line-height:5em;}
++.comlist1 .rightarr img{
++	width:0.8em;
++	height:auto;
++	margin-top:2em;}
++	
++/*医师详情页面*/
++.avatar{
++	padding:0.6em;
++	display:-webkit-box;}
++.avatar img{
++	display:block;
++	height:6em;
++	width:auto;}
++.avatar .text{
++	line-height:1.8em;
++	padding-left:1em;}
++.avatar .text .name{
++	font-size:1.2em;
++	padding-top:1em;}
++.doc_info_item .title{
++	padding:0.5em 0em;
++	text-align:left;
++	border-bottom:#ccc solid 1px;}
++.doc_info_item .context{
++	padding:0.5em 1.8em;}
++	
++	
++/*取报告单*/
++.iostab{
++	height:1.8em;
++	background:#4eb25c;
++	line-height:1.5em;
++	display:-webkit-box;
++	padding:1em 1.5em;
++	text-align:center;}
++.iostab div{
++	color:white;
++	-webkit-box-flex:1;}
++.iostab .tabfirst{
++	border:#FFF solid 2px;
++	border-bottom-left-radius:6px;
++	border-top-left-radius:6px;}
++.iostab .tablast{
++	border:#FFF solid 2px;
++	border-left:none;
++	border-bottom-right-radius:6px;
++	border-top-right-radius:6px;}
++.iostab .seltab{
++	background:white;
++	color:#4eb25c;}
++.tabbody{
++	padding:1em;}
++.name_input{
++	line-height: 3.5em;
++	border-radius: 5px;
++	border: #c8c8c8 solid 1px;
++	height: 3.5em;
++	background:url(../../../image/cms/hospital/useheader1.png) 1em center no-repeat;
++	background-size:2em 2em;
++	padding-left:3.5em;}
++.name_input input{
++	line-height:2.5em;
++	width:98%;
++	font-size:1.2em;}
++.num_input{
++	-webkit-box-flex:2;
++	line-height: 3.5em;
++	border-radius: 5px;
++	border: #c8c8c8 solid 1px;
++	height: 3.5em;
++	background:url(../../../image/cms/hospital/noticenum.png) 1em center no-repeat;
++	background-size:2em 2em;
++	padding-left:3.5em;}
++.num_input input{
++	border:none;
++	font-size:1.2em;
++	line-height:2.5em;
++	width:98%;}
++.camero_input{	
++	margin-top:1em;
++	display:-webkit-box;}
++.btn_camero{
++	margin-left:1em;
++	width:6em;
++	background:#4eb25c;
++	border-radius:5px;
++	height:3.6em;}
++.btn_camero img{
++	margin-top: 0.7em;
++	width: 2.6em;}
++.btnbig{
++	width:100%;
++	height:2.5em;
++	line-height:2.5em;
++	font-size:1.2em;}
++.text_right{
++	padding-top:0.5em;
++	text-align:right;}
++.text_right a{
++	color:#4eb25c;}
++	
++	
++/*生成化验单*/
++.stick .table4{
++	padding: 2em;
++	line-height: 1.6em;}
++.stick .content{
++	}
++.result_title{
++	line-height:2em;
++	padding:2em 2em 0em 2em;}
++.result_text{
++	padding-left:2em;
++	line-height:1.5em;
++	background:url(../../../image/cms/hospital/leftbord.png) left center no-repeat;}
+ 
+ 
+ 
++/*医院导航*/
++.tabmid{
++	border:#FFF solid 2px;
++	border-left:none;}
+ 
+ 
+ 
++
++/*附加通用样式*/
+ .comli{
+ 	display:-webkit-box;
+ 	-webkit-box-orient:vertical;
+@@ -641,3 +828,12 @@
+ 	margin-top:0.5em;
+ 	color:white;
+ 	text-align:center;}
++
++
++
++/*请在此编写新未整理的样式*/
++
++
++/*请在此编写新未整理的样式*/
++
++

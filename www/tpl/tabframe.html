@@ -1,0 +1,34 @@
+<div class="page">
+	<div class="header fixed"></div>
+	<div class="content"></div>
+	<div class="footer fixed" style="background-color: #fff;"></div>
+	<script>
+		function tabframe_set_header(page, html)
+		{
+			$('.header', page).html(html);
+		}
+		function tabframe_set_content(page, html)
+		{
+			$('.content', page).html(html);
+		}
+		var is_footer_set = false;
+
+		function private_tabframe_set_footer(page, html)
+		{
+			is_footer_set = true;
+			$('.footer', page).html(html);
+		}
+		function tabframe_set_footer(page, html)
+		{
+			if (!is_footer_set) {
+				private_tabframe_set_footer(page, html);
+				$.app.frame_data['tabframe_footer_' + $.app.tpl_param] = html;
+			}
+		}
+
+		//载入Tab数据
+		if ($.app.frame_data['tabframe_footer_' + $.app.tpl_param]) {
+			private_tabframe_set_footer($.app.building_page, $.app.frame_data['tabframe_footer_' + $.app.tpl_param]);
+		}
+	</script>
+</div>

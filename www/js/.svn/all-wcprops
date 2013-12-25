@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/appbuilder/!svn/ver/184/framework/client/webapp/js
+END
+lib.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/appbuilder/!svn/ver/27/framework/client/webapp/js/lib.js
+END
+nano.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/appbuilder/!svn/ver/99/framework/client/webapp/js/nano.js
+END
+framework.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/appbuilder/!svn/ver/183/framework/client/webapp/js/framework.js
+END
+framework_porting.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/appbuilder/!svn/ver/181/framework/client/webapp/js/framework_porting.js
+END
+component_action.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/appbuilder/!svn/ver/182/framework/client/webapp/js/component_action.js
+END
+zepto.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/appbuilder/!svn/ver/127/framework/client/webapp/js/zepto.js
+END
+component.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/appbuilder/!svn/ver/184/framework/client/webapp/js/component.js
+END
+slider.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/appbuilder/!svn/ver/55/framework/client/webapp/js/slider.js
+END
+touch.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/appbuilder/!svn/ver/127/framework/client/webapp/js/touch.js
+END
+fastclick.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/appbuilder/!svn/ver/127/framework/client/webapp/js/fastclick.js
+END

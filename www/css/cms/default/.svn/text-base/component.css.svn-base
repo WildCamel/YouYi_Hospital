@@ -1,0 +1,11 @@
+/**组件相关的CSS写到这里，注意维护好组件间CSS的继承关系，不相关的组件的CSS属性尽量可以独立设置
+ * WebApp和AppCan公用这部分CSS
+ */
+
+.tabbar {
+	display:-webkit-box;
+}
+
+.tabbar div {
+	-webkit-box-flex:1;
+}

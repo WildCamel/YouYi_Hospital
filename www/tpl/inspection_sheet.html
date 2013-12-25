@@ -1,0 +1,76 @@
+
+<div class="page">
+	<div class="header fixed"></div>
+	<div class="content">	
+    	<div class="compitem">
+        	<div class="iostab">
+            	<div data-click="testNav(this,1)" class="tabfirst seltab">生化检验单</div>
+                <div data-click="testNav(this,2)" class="tablast">影像检查单</div>
+            </div>
+        </div>
+        <div class="tabbodycont">
+            <div class="tabbody">
+                <form action="index.php?m=webapp_hospital&c=index&a=inspection_sheet" method="get" data-submit="common_form_submit_cbk(response, url)">            	
+                    <input type="hidden" name="type" value="biochemical"/>
+                    <div class="name_input"><input type="text" name="name" class="input_text" placeholder="患者姓名:" /></div>
+                    <div class="camero_input">
+                        <div class="num_input"><input id="bi_number" type="text" name="number" class="border_input" placeholder="医嘱号码:" /></div>
+                    </div>
+                    <input type="submit" class="btn greenbt btnbig" value="提交" />
+                </form>
+                <div class="text_right"><a href="index.php?m=webapp_content&c=index&a=show&catid=20&id=55">如何获取医嘱号码</a></div>
+            </div>
+            <div class="tabbody">
+                <form action="index.php?m=webapp_hospital&c=index&a=inspection_sheet" method="get" data-submit="common_form_submit_cbk(response, url)">            	
+                    <input type="hidden" name="type" value="image"/>
+                    <div class="name_input"><input type="text" name="name" class="input_text" placeholder="患者姓名:" /></div>
+                    <div class="camero_input">
+                        <div class="num_input"><input type="text" id="image_number" name="number" class="border_input" placeholder="医嘱号码:" /></div>
+                    </div>
+                    <input type="submit" class="btn greenbt btnbig" value="提交" />
+                </form>
+                <div class="text_right">
+                	<a href="index.php?m=webapp_content&c=index&a=show&catid=20&id=56">如何获取CT医嘱号码</a><br />
+                    <a href="index.php?m=webapp_content&c=index&a=show&catid=20&id=57">如何获取X光医嘱号码</a><br />
+                    <a href="index.php?m=webapp_content&c=index&a=show&catid=20&id=58">如何获取超声医嘱号码</a><br />
+                </div>
+            </div>
+			<script>
+				function barcode_scan(target) {
+					cordova.plugins.barcodeScanner.scan(
+							function (result) {
+								target.val(result.text);
+							}, 
+							function (error) {
+								$.app.toast("Scanning failed: " + error);
+							}
+						);
+				}
+				if ($.app.client_type == 'phonegap') {
+					$('#bi_number').parent().after(nano('<div class="btn btn_camero" data-click="barcode_scan($(\'#bi_number\'))"><img src="{local_path}image/cms/{theme}/camero.png" /></div>'));
+					$('#image_number').parent().after(nano('<div class="btn btn_camero" data-click="barcode_scan($(\'#image_number\'))"><img src="{local_path}image/cms/{theme}/camero.png" /></div>'));
+				}
+			</script>
+        </div>    
+	</div>
+	<div class="footer fixed" style="background-color: #fff;"></div>
+</div>
+
+<script>
+
+function inspection_sheet_set_header(page, html)
+{
+	$('.header', page).html(html);
+}
+function inspection_sheet_set_content(page, html)
+{
+	$('.content', page).html(html);
+}
+
+function inspection_sheet_set_footer(page, html)
+{
+	$('.footer', page).html(html);
+}
+var headerbar = comp_to_html({"ui_type":"com.HeaderBarBlock","left":{"icon":"statics\/images\/hospital\/back.png","href":"index.php?m=webapp_hospital&c=index","ui_type":"com.btn"},"center":{"ui_type":"com.text","text":"\u53d6\u62a5\u544a\u5355"}});
+$.app.set_header(headerbar, 'inspection_sheet', $('.page'));
+</script>

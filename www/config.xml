@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.hello" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0"
+xmlns:gap = "http://phonegap.com/ns/1.0"
+>
+	<preference name="phonegap-version" value="3.1.0" />
+    <name>友谊医院（测试版v0.1）</name>
+    <description>
+        友谊医院App测试版，服务器端测试调试中，随时有可能不可用
+    </description>
+    <author email="liwg@high-med.com" href="http://appbuilder.studyinhand.com">
+        High-Med
+    </author>
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
+    <gap:plugin name="org.apache.cordova.inappbrowser"/>
+	<content src="index.html" />
+	<access origin="*" />
+	<icon src="icon.png" />
+	<gap:splash src="splash.png" />
+</widget>

@@ -1,0 +1,1069 @@
+/**组件相关的CSS写到这里，注意维护好组件间CSS的继承关系，不相关的组件的CSS属性尽量可以独立设置
+ * WebApp和AppCan公用这部分CSS
+ */
+
+
+/*底部导航*/ 
+.footer .tabbar {
+	display:box;
+	display:-webkit-box;
+	box-orient:horizontal;
+	-webkit-box-orient:horizontal;
+	height:2.5em;}
+.tabbar div {
+	-webkit-box-flex:1;}
+.footer .botnav{
+	box-flex:1;
+	-webkit-box-flex:1;
+	text-align:center;
+	line-height:2.5em;
+	border-left:#eee solid 1px;
+	border-right:#999 solid 1px;	
+	background-image: -webkit-linear-gradient(top, rgba(138, 138, 138, 0.4) 0%, rgba(37, 37, 37, 0.6) 100%);}
+.botnav:active{
+	-webkit-box-shadow:inset 0 1px 4px rgba(0,0,0,0.6);}
+
+
+/*首页样式*/
+.bannerpic{
+	display:block;
+	width:100%;}
+.cateitem{
+	-webkit-box-flex:1;
+	padding:1em;
+	min-height:5em;
+	border-bottom:#c8c8c8 solid 1px;
+	border-right:#c8c8c8 solid 1px;}
+.cateitem1{
+	-webkit-box-flex:1;
+	padding:0.5em;
+	border-bottom:#c8c8c8 solid 1px;}
+.cateitem img,.cateitem1 img{
+	display:block;
+	width:35%;
+	margin:0 auto;}
+.catetext{
+	text-align:center;
+	height:2em;
+	font-size:1em;
+	line-height:2em;
+	color:#4eb25c;}
+
+/*登录页*/	
+.loginbox{	
+	border-radius: 5px;
+	background-color: #E9E9E9;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	width: 90%;
+	margin: 1em auto;
+	margin-top:2em;
+	-webkit-box-shadow:0 0px 4px rgba(0,0,0,0.5);
+	padding:0.5em;}
+.loginitem{
+	-webkit-box-flex:1;
+	padding:0.2em;
+	display:-webkit-box;
+	line-height:1.4em;}
+.loginitem label{
+	display:block;
+	width:6em;
+	-webkit-box-flex:1;
+	line-height:2em;}
+.loginitem input{
+	display:block;
+	border:none;
+	line-height:normal;
+	height:2em;
+	-webkit-box-flex:5;}
+.yanzheng{
+	-webkit-box-flex:5;
+	display:-webkit-box;}
+.yanzheng input{
+	display:block;
+	width:5em;}
+.yanzheng img{
+	display:block;
+	-webkit-box-flex:1;}
+.chelogin{
+	display:-webkit-box;
+	width:90%;
+	margin:0 auto;
+	height:2em;
+	line-height:2em;}
+.chelogin .btn{
+	margin-left:0.2em;
+	background:#4eb25c;}
+.chebox{
+	margin-left:1.5em;
+	-webkit-box-flex:1;}
+
+
+
+/*注册页面*/
+	
+.loginitem .form{
+	-webkit-box-flex:8;}
+.loginitem .form .btn{
+	width:13em;
+	height:2.4em;
+	font-size:0.8em;
+	border-radius:3px;
+	padding:1px 1px;
+	background-image: -webkit-linear-gradient(top, rgba(87, 87, 87, 0.4) 0%, rgba(163, 162, 162, 0.6) 100%); 
+	-webkit-box-flex:10;}
+#mobile_div{
+	display:-webkit-box;}
+
+/*用户中心页*/
+.username{
+	display:-webkit-box;
+	width:100%;
+	border-bottom:#ccc solid 1px;}
+.userpic{
+	-webkit-box-flex:3;
+	display:-webkit-box;}
+.edituser{
+	-webkit-box-flex:1;
+	background:#ecf0f6;
+	color:#4eb25c;
+	text-align:center;
+	padding:3.5em 0.5em;}
+.userpic img{
+	height:6em;
+	width:6em;}
+.userhead{
+	border-radius: 3.2em;
+	margin-left: 1em;
+	border:#c8c8c8 solid 0.2em;
+	margin-top: 1em;
+	width: 6em;
+	height: 6em;}
+.userhead img{	
+	border-radius:3em;
+	width:6em;
+	height:6em;}
+.userinfo{
+	padding:2em;}
+.settitle{
+	padding:0.8em 0;
+	margin-top:2em;
+	background:#ecf0f6;
+	display:-webkit-box;
+	border-bottom:#c8c8c8 solid 1px;
+	color:#4eb25c;}
+.bakgreen{
+	width:0.3em;
+	background:#4eb25c;
+	margin-right:1em;}
+.change{
+	padding:0.5em 0.5em 0.3em 0.5em;
+	border-bottom:#c8c8c8 solid 1px;
+	display:-webkit-box;}
+.change img{
+	height:3em;
+	-webkit-box-flex:1;}
+.change .changetext{
+	-webkit-box-flex: 3;
+	line-height: 3em;
+	height:3em;
+	padding-left: 1em;}
+
+/*该圆圈选用canvas绘画，需要使用media兼容不同分辨率*/
+.circlediv{
+	height: 300px;
+	width: 1024px;
+	display: -webkit-box;
+	position:relative;
+	margin: 0 auto;
+	padding:1em 0em;}
+.circlediv .item{
+	-webkit-box-flex:1;}
+.circletext{
+	position: absolute;
+	left: 0;
+	top: 5em;
+	text-align:center;
+	display: -webkit-box;}
+@media screen and (max-width: 1000px) {
+.circlediv{
+	width:720px;
+	height:250px;}
+.circlediv .item{
+	width:230px;
+	height:230px;
+	-webkit-box-flex:1;}
+.circletext div{
+	width:230px;
+	height:230px;}
+.circletext{
+	top:5.5em;}
+}
+@media screen and (max-width: 720px){
+.circlediv{
+	width:620px;
+	height:220px;}	
+.circlediv .item{
+	width:200px;
+	height:200px;
+	-webkit-box-flex:1;}
+.circletext div{
+	width:200px;
+	height:200px;}
+.circletext{
+	top:4.5em;}
+}
+@media screen and (max-width: 640px) {
+.circlediv{
+	width:460px;
+	height:160px;}
+.circlediv .item{
+	width:150px;
+	height:150px;
+	-webkit-box-flex:1;}
+.circletext div{
+	width:154px;
+	height:154px;}
+.circletext{
+	top:3.5em;}
+}
+@media screen and (max-width: 480px) {
+.circlediv{
+	width:320px;
+	height:110px;}
+.circlediv .item{
+	width:103px;
+	height:103px;
+	-webkit-box-flex:1;}
+.circletext div{
+	width:103px;
+	height:103px;}
+.circletext{
+	top:2.5em;}
+}
+
+.circlediv+.btn{
+	font-size: 1.2em;
+	width: 93%;
+	border: none;
+	border-radius: 5px;
+	height: 2.3em;
+	line-height: 2.3em;
+	background: #ffbc31;
+	color: white;
+	text-align: center;
+	margin: 0 auto;}
+
+
+/*手机挂号页*/
+.scroll_block{
+	background:white url(../../../image/cms/hospital/sticktop.jpg) top left repeat-x ;
+	background-size:1.2em;
+	padding:1.6em 1em 0em 1em;
+	margin-top:0.5em;
+	line-height:1.6em;
+	transition:0.5s;
+	height:10em;
+	overflow:hidden;}
+.attention{
+	margin-bottom: 0.3em;
+	padding-bottom: 0.3em;
+	font-family: "微软雅黑";
+	font-size: 1.1em;
+	color: #ffbc31;
+	border-bottom: #c8c8c8 solid 1px;}
+.showmore{
+	text-align: center;
+	border-bottom: #c8c8c8 solid 1px;
+	background: white;
+	line-height: 1.5em;
+	padding-top:0.5em;
+	color:#4eb25c;}
+.downarr{
+	text-align:center;}
+.downarr img{
+	width:3em;}
+.state{
+	display:-webkit-box;
+	text-align:center;
+	height:3em;
+	line-height:3.7em;}
+.check img{
+	height:1.5em;}
+.state .check{
+	-webkit-box-flex:1;
+	text-align:right;}
+.state .agree{
+	-webkit-box-flex:1;
+	text-align:left;
+	line-height:3em;
+	padding-left:0.5em;}
+.verticalbtn{
+	padding:0 1em;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;}
+.verticalbtn .btn{
+	border-radius: 3px;
+	background: #4eb25c;
+	height: 2.5em;
+	line-height: 2.5em;
+	font-size: 1em;
+	margin-top: 0.5em;}
+
+
+	
+/*科室*/
+.progress{
+	padding:0.5em;
+	background: #4eb25c;}
+.step{
+	-webkit-box-flex:1;
+	text-align:center;
+	padding:0.5em 0em 0.1em 0em;}
+.step img{
+	width:80%;}
+.steptext{
+	-webkit-box-flex:1;
+	display:-webkit-box;
+	margin-top:0.4em;}
+.steptext div{
+	-webkit-box-flex:1;
+	text-align:center;
+	color:#c8c8c8;}
+.steptext div.nowstep{
+	color:white;}
+.singlelist li{
+	padding:0.5em;
+	padding-left:1em;
+	height:2em;
+	line-height:2em;
+	border-bottom:#c8c8c8 solid 1px;
+	}
+.singlelist li:nth-of-type(odd){
+	background:#ffffff url(../../../image/cms/hospital/rightarr.png) 95% no-repeat;
+	background-size:0.9em;}
+.singlelist li:nth-of-type(even){
+	background:#fafafa url(../../../image/cms/hospital/rightarr.png) 95% no-repeat;
+	background-size:0.9em;}
+.singlelist li a{
+	display:block;
+	float:left;
+	text-align:left;
+	padding-left:0.5em;}
+.singlelist li img{
+	height:1em;
+	margin-top:0.6em;
+	display:block;
+	float:right;
+	padding-right:1em;}
+
+	
+/*挂号时间*/
+.departime{
+	padding: 1em;
+	height:6.5em;
+	overflow:hidden;
+	line-height: 1.5em;}
+.hospital_DepartmentRegistrationBlock{
+	display:block;
+	width:100%;}
+.notice{
+	height: 1.5em;
+	color: #4eb25c;
+	text-align: right;
+	width: 98%;
+	line-height: 1.5em;
+	margin-top:1em;}
+.chose table{
+	width:100%;
+	line-height:2.5em;
+	text-align:center;}
+.chose table tr td{
+	border-bottom:#c8c8c8 solid 1px;}
+.chose table tr.tabtitle{
+	background:#ecf0f6;}
+.chose table tr th{
+	font-weight:normal;
+	color:#4eb25c;
+	border-bottom:#c8c8c8 solid 1px;}
+tr.nodo td{
+	background:#fafafa;
+	color:#b4b4b4;}
+.grecircle{
+	font-size: 0.7em;
+	line-height: 2.8em;
+	margin: 0.3em auto;
+	color:#4eb25c;
+	width: 2.7em;
+	height: 2.7em;
+	border-radius: 1.6em;
+	border: #4eb25c solid 0.2em;}
+
+.yelcircle{
+	font-size: 0.7em;
+	line-height: 2.7em;
+	margin: 0.3em auto;
+	color:#ffc958;
+	width: 2.7em;
+	height: 2.7em;
+	border-radius: 1.6em;
+	border: #ffc958 solid 0.2em;}
+
+
+
+
+/*个人信息确认*/
+.perinfo{
+	padding-bottom: 0.3em;
+	padding-top: 1em;
+	border-bottom: solid 1px #ccc;}
+.perinfo .title{
+	color:#4eb25c;
+	padding-top:0.5em;
+	height:1em;
+	-webkit-box-flex:10;}
+.perinfo .title .titlestyle{
+	width:0.2em;
+	background:#4eb25c;}
+.perinfo .title .text{
+	padding-left:0.4em;
+	height:1em;
+	line-height:1em;}
+.perinfo .btn{
+	-webkit-box-flex: 1;
+	width: 4em;
+	background: #ffbc31;
+	text-align: center;
+	margin-right: 1em;}
+.infoContain .infoli{
+	padding-left: 2em;
+	height: 2.5em;
+	border-bottom: #ccc solid 1px;
+	line-height: 2.5em;}
+.infoli input{
+	font-size:1em;
+	line-height:2.5em;
+	color:#4eb25c;}
+.getnum{
+	width:10em;
+	margin:0.5em;
+	background:url(../../../image/cms/hospital/textarr.png) left center no-repeat;
+	background-size:1.5em;
+	color:#4eb25c;
+	float:right;
+	padding-left:1.6em;}
+.infoContain .btn{
+	width:90%;
+	margin:0 auto;
+	margin-top:4em;
+	background:#4eb25c;
+	font-size:1.2em;
+	height:2.5em;
+	line-height:2.5em;}
+
+
+
+/*订单支付*/
+.noborder{
+	border-bottom:none;
+	background:none;}
+.settitle+.tablebox{
+	line-height: 2.5em;
+	width: 90%;
+	margin: 0 auto;
+	border: solid 1px #ccc;}
+.tablebox .tableitem{
+	padding-left: 2em;
+	border-bottom: 1px solid #ccc;}
+.greent{
+	color:#4eb25c;}
+.tableitem .td1{
+	width:6em;}
+.tablebox .doubtr{
+	background:#fafafa;}
+	
+/*挂号成功*/
+.stick{
+	background: white url(../../../image/cms/hospital/sticktop.jpg) top repeat-x;
+	background-size:1.2em;}
+.stick .table2{
+	padding: 4em 3em 0em 3em;
+	line-height: 2em;}
+.rig_suc_notice{
+	color: #ffbc31;
+	height: 4em;
+	line-height: 4em;
+	font-size: 1.2em;
+	padding-left: 1em;
+	background: #eef5ef;}
+
+
+/*个人中心——我的报告单*/
+table.report{
+	line-height:2.7em;
+	text-align:center;}
+.th{
+	background:#ecf0f6;}
+table.report td{
+	border-bottom:#ccc solid 1px;}
+
+/*修改密码*/
+.passtitle{
+	padding-left:1em;
+	height:1.5em;
+	line-height:1.5em;
+	margin-top:1em;}
+.listyle1{
+	background:url(../../../image/cms/hospital/listyle1.png) 1.5em center no-repeat;
+	background-size:0.5em;
+	padding-left:3em;}
+
+/*预约凭证*/
+.stick .table3{
+	padding: 4em 3em 0em 3em;
+	background: url(../../../image/cms/hospital/regnum.png) 85% 35% no-repeat;
+	background-size: 7em;
+	line-height: 2em;}
+.regnum{
+	color: #ffbc31;
+	font-size: 2em;
+	position: absolute;
+	left: 72%;
+	top: 40%;}
+.howuse{
+	color: #4eb25c;
+	font-size: 0.7em;
+	height: 4em;
+	line-height: 9em;
+	float: right;
+	text-align: right;}
+.howuse a{
+	color:#4eb25c;}
+	
+/*我的提问记录*/
+.question .item{
+	background:url(../../../image/cms/hospital/tiwenlibg.png) left top no-repeat;
+	background-size:auto 6em;
+	line-height:1.5em;
+	height:6em;}
+.question .item2{
+	background:url(../../../image/cms/hospital/tiwenlibg2.png) left top no-repeat;
+	background-size:auto 6em;}
+.question .item .num{
+	float:left;
+	width:2.7em;
+	color:white;
+	line-height:5.1em;
+	text-align:center;}
+.question .item .questext{
+	width:80%;
+	float:left;
+	padding:0.5em 0em;}
+.questext .info{
+	display:-webkit-box;}
+.questext .time{
+	font-size:0.8em;
+	color:#c8c8c8;}
+.mainques{
+	height:3.5em;}
+.combtn{
+	text-align: center;
+	width: 3em;
+	float: right;
+	border: #ffbc31 solid 1px;
+	color: #ffbc31;
+	height: 1.4em;
+	font-size: 0.8em;
+	line-height: 1.4em;
+	background:white;}
+.footer2{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	left:0;
+	height:4em;
+	background:rgba(255,255,255,0.9);}
+.footer2 .quesbtn{
+	margin-top:0.8em;}
+	
+/*健康资讯首页*/
+.catenav{
+	height:2.8em;
+	background:#ecf0f6;
+	position:relative;
+	border:#ccc solid 1px;}
+.catenav .nav div{
+	float:left;
+	padding:0 1em;
+	line-height:2.8em}
+.catenav .navtext .nav{
+	width:200%;
+	}
+.catenav .navsel{
+	width:2.8em;
+	position:absolute;
+	right:-1px;
+	top:0;
+	heigth:2.8em;}
+.catenav .navtext .selnav{
+	background:#d9e0ea;}
+.comlist{
+	list-style:none;
+	margin:0px;
+	padding:0px;}
+.listitem{
+	display:box;
+	display:-webkit-box;
+	padding:0.5em;
+	border-bottom:#999 solid 1px;}
+.listpic{
+	width:8em;
+	height:6em;
+	-webkit-box-flex:1;}
+.listtext{
+	font-size:1em;
+	-webkit-box-flex:3;}
+.listdes{
+	font-size:0.8em;
+	color:#666;}
+.listtile{
+	margin-bottom:0.3em;}
+.newstime{
+	font-size:0.8em;
+	color:#666;}
+.moreinfo{
+	line-height:3em;
+	height:3em;
+	text-align:center;}
+
+/*健康资讯正文页*/
+.cms_ContentBlock{
+	padding:0.2em 0.7em;}
+.cms_ContentBlock .title{
+	padding-top: 0.5em;
+	color: black;
+	text-align: left;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-weight: 500;}
+.cms_ContentBlock .comefrom{
+	display:-webkit-box;
+	color:#999;
+	font-size:0.8em;
+	padding:0.5em 0 0.8em 0;
+	border-bottom:#999 solid 1px;}
+.cms_ContentBlock .comefrom div{
+	-webkit-box-flex:1;}
+.cms_ContentBlock .comefrom div span{
+	color:#40a4e4;}
+.cms_ContentBlock .text{
+	padding-top:0.5em;
+	line-height:1.5em;}
+.compact_block_list{
+	display:-webkit-box;
+	-webkit-box-orient:vertical;}
+.text_block{
+	padding:1em;}
+.text_block p{
+	line-height:1.5em;}
+.text_block img{
+	padding:1em;}
+.text_block img[alt="map"]{
+	padding:0em;}
+
+/*健康咨询专题页*/
+.topic{
+	padding:0.7em;}
+.topic .item{
+	margin-bottom:1em;}
+.topic .pictitle{
+	position:relative;}
+.topic .pictitle img{
+	display:block;}
+.topic .pictitle .abtitle{
+	color: white;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	height: 2.5em;
+	line-height: 2.5em;
+	text-indent:1em;}
+.topic .specialinfo{
+	border:#ccc solid 1px;
+	padding:0.8em;
+	color:#707070;}
+	
+
+/*实时叫号*/
+.numinfo{
+	height:5.5em;
+	line-height:5.5em;
+	display:-webkit-box;
+	-webkit-box-flex: 6;
+	background:url(../../../image/cms/hospital/comenum.png) right no-repeat;
+	background-size:auto 5.5em;}
+.numbelong{
+	text-align:center;
+	-webkit-box-flex:8;}
+.numinfo .num{
+	color:white;
+	text-align:center;
+	max-width:4.4em;
+	min-width:4.4em;
+	-webkit-box-flex:8;}
+.numinfo+.time{
+	line-height:5.5em;
+	height:5.5em;
+	padding-left:1em;
+	color:#b4b4b4;
+	-webkit-box-flex: 2;}
+
+/*我的叫号*/
+.mynum{
+	border-bottom:solid #c8c8c8 1px;}
+.belong{
+	height:3em;
+	line-height:3em;
+	display:-webkit-box;
+	background: #ecf0f6;}
+.belong .text{
+	padding-left:0.5em;
+	border-left:#5aa6e3 5px solid;}
+.belong .text2{
+	border-left:#cb57f6 5px solid;}
+.belong .time{
+	font-size: 0.8em;
+	color: #b4b4b4;
+	padding-left: 2em;}
+.kestitle{
+	background: url(../../../image/cms/hospital/dot.png) left no-repeat,url(../../../image/cms/hospital/dot.png) right no-repeat;
+	width: 8em;
+	margin: 1em auto;
+	text-align: center;
+	padding: 1em;}
+.numbg{
+	background: url(../../../image/cms/hospital/numcircle.png) center no-repeat;
+	background-size: 3em 3em;
+	width: 4em;
+	height: 3em;
+	line-height:3em;
+	margin: 0 auto;
+	color: #ffbc31;
+	font-size: 5em;
+	text-align: center;}
+.grayt{
+	color:#dce0e7;
+	text-align:center;}
+.timecontain{
+	text-align: center;
+	height: 2em;
+	border-radius: 1em;
+	background: #ecf0f6;
+	width: 11em;
+	line-height: 2em;
+	margin: 0 auto;
+	font-size: 1.2em;
+	border: #EBEBEB solid 1px;}
+.registime{
+	width:15em;
+	font-size:1em;
+	margin-top:1em;
+	margin-bottom:1em;
+	height:2.4em;
+	line-height:2.4em;
+	border-radius:1.2em;}
+
+/*科室医生——科室列表*/
+.search{
+	display:-webkit-box;
+	background:#ecf0f6;
+	padding:0.5em;}
+.search .searchtext{
+	line-height:normal;
+	border:none;
+	margin-right: 0.5em;
+	display: block;
+	width: 70%;
+	height: 2em;
+	font-size:1em;
+	background:white url(../../../image/cms/hospital/search.png)no-repeat;
+	background-size: auto 60%;
+	background-position:0.5em center;
+	padding-left:2.5em;}
+.search .searchbtn{
+	background:#4eb25c;}
+
+/*科室医生——医生列表*/
+.comlist1 li{
+	overflow:hidden;
+	zoom:1;
+	padding:0.8em;
+	height:auto;
+	border-bottom: #ccc solid 1px;}
+.comlist1 .pictext{
+	width:94%;
+	float:left;
+	display:-webkit-box;}
+.pictext img{
+	width:4em;
+	display:block;
+	height:5em;}
+.pictext .doctor{
+	padding-left:0.5em;
+	-webkit-box-flex:1;}
+.pictext .doctor .name{
+	font-size:1em;}
+.pictext .doctor .name span{
+	color:#4eb25c;
+	font-size:1.2em;
+	padding-right:0.5em;}
+.pictext .doctor .info{
+	padding-top:0.3em;}
+.comlist1 .rightarr{
+	height:5em;
+	width:5%;
+	float:right;
+	line-height:5em;}
+.comlist1 .rightarr img{
+	width:0.8em;
+	height:auto;
+	margin-top:2em;}
+	
+/*医师详情页面*/
+.avatar{
+	padding:0.6em;
+	display:-webkit-box;}
+.avatar img{
+	display:block;
+	width:5em;
+	height:6em;}
+.avatar .text{
+	line-height:1.8em;
+	padding-left:1em;}
+.avatar .text .name{
+	font-size:1.2em;
+	padding-top:1em;}
+.doc_info_item .title{
+	padding:0.5em 0em;
+	text-align:left;
+	border-bottom:#ccc solid 1px;}
+.doc_info_item .context{
+	padding:0em;}
+	
+	
+/*取报告单*/
+.iostab{
+	height:1.8em;
+	background:#4eb25c;
+	line-height:1.6em;
+	display:-webkit-box;
+	padding:1em 1.5em;
+	text-align:center;}
+.iostab div{
+	color:white;
+	-webkit-box-flex:1;}
+.iostab .tabfirst{
+	border:#FFF solid 2px;
+	border-bottom-left-radius:6px;
+	border-top-left-radius:6px;}
+.iostab .tablast{
+	border:#FFF solid 2px;
+	border-left:none;
+	border-bottom-right-radius:6px;
+	border-top-right-radius:6px;}
+.iostab .seltab{
+	background:white;
+	color:#4eb25c;}
+.tabbody{
+	-webkit-box-flex:1;
+	padding:1em;}
+.name_input{
+	line-height: 2.5em;
+	border-radius: 5px;
+	border: #c8c8c8 solid 1px;
+	height: 2.5em;
+	background:url(../../../image/cms/hospital/useheader1.png) 1em center no-repeat;
+	background-size:1.5em 1.5em;
+	padding-left:3.5em;}
+.name_input input{
+	line-height:normal;
+	width:98%;
+	font-size:1em;}
+.num_input{
+	-webkit-box-flex:2;
+	line-height: 2.5em;
+	border-radius: 5px;
+	border: #c8c8c8 solid 1px;
+	height: 2.5em;
+	background:url(../../../image/cms/hospital/noticenum.png) 1em center no-repeat;
+	background-size:1.5em 1.5em;
+	padding-left:3.5em;}
+.num_input input{
+	border:none;
+	font-size:1em;
+	line-height:normal;
+	width:98%;}
+.camero_input{	
+	margin-top:1em;
+	display:-webkit-box;}
+.btn_camero{
+	margin-left:1em;
+	width:6em;
+	background:#4eb25c;
+	border-radius:5px;
+	height:2.6em;}
+.btn_camero img{
+	margin-top: 0.5em;
+	width: 2em;}
+.btnbig{
+	width:100%;
+	height:2.5em;
+	line-height:2.5em;
+	font-size:1em;}
+.text_right{
+	padding-top:0.5em;
+	line-height:1.5em;
+	text-align:right;}
+.text_right a{
+	color:#4eb25c;}
+.tabbodycont{
+	width:200%;
+	display:-webkit-box;
+	transition:all 0.7s}
+	
+	
+/*生成化验单*/
+.stick .table4{
+	padding: 2em;
+	line-height: 1.6em;}
+.stick .content{
+	}
+.result_title{
+	line-height:2em;
+	padding:2em 2em 0em 2em;}
+.result_text{
+	padding:1em;
+	padding-left:2em;
+	line-height:1.5em;
+	background:url(../../../image/cms/hospital/leftbord.png) left center no-repeat;}
+.result_text table{
+	font-size:0.8em;
+	width:100%;}
+
+
+/*医院导航*/
+.tabmid{
+	border:#FFF solid 2px;
+	border-left:none;}
+.tabfirst a,.tabmid a,.tablast a{
+	color:white;}
+.seltab a{
+	color:#4eb25c;}
+
+
+
+
+
+
+
+/*附加通用样式*/
+.comli{
+	display:-webkit-box;
+	padding:0.6em;
+	-webkit-box-orient:vertical;
+	border:solid 1px #dbdbdb;
+	border-top:none;}
+.comli .comuser{
+	display:-webkit-box;
+	-webkit-box-flex:1;
+	height:1.5em;
+	line-height:1.5em;}
+.comli .comuser div{
+	-webkit-box-flex:1;}
+.comuser .username{
+	color:#4eb25c;
+	width:50%;
+	border-bottom:none;
+	text-align:left;}
+.comuser .comtime{
+	color:#c8c8c8;
+	font-size:0.9em;
+	text-align:right;}
+.comli .comtext{
+	margin-top:0.4em;
+	display:-webkit-box;}
+.comli .comtext .dialoglef{
+	width:0.5em;
+	height:1.5em;
+	line-height:1.5em;
+	background:url(../../../image/cms/hospital/dialog.png) top no-repeat;
+	background-size:1em 1.5em;}
+.comli .comtext .dialogtext{
+	padding-left: 0.5em;
+	-webkit-box-flex: 1;
+	background: #edf7ee;
+	border-radius: 2px;
+	line-height: 1.8em;}
+.inparea{
+	display:block;
+	width:98%;
+	height:5em;
+	border:#4eb25c solid 1px;
+	line-height:1.5em;}	
+
+
+/*新闻页*/
+.cms_ContentBlock .title{
+	color:black;}
+	
+/*msg*/
+.msgbg{
+	overflow:hidden;
+	background:url(../../../image/cms/hospital/alertbg.png) repeat;
+	background-size:0.5em 0.5em;
+	min-height:90%;}
+.msgborder{
+	width:85%;
+	height:8em;
+	border:#fff solid 1px;
+	border-radius:2px;
+	margin:5em auto;}
+.msgcontain{
+	background: #fff;
+	width: 96%;
+	height: 92%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	margin: 0.4em auto;
+	border-radius: 2px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;}
+.msgtitle{
+	color:#4eb25c;
+	border-bottom:#4eb25c solid 1px;
+	font-size:1.1em;
+	line-height:2em;
+	padding-left:1em;}
+.msgtext{
+	font-size:1.1em;
+	padding:1em;
+	text-align:center;}
+.msgtext a{
+	color:black;}
+/*评论页*/
+.greenLb{
+	border-left:#4eb25c 4px solid;
+	padding-left:0.5em;
+	font-size:1em;
+	color:black;}
+
+
+
+
+/*请在此编写新未整理的样式*/
+
+
+/*请在此编写新未整理的样式*/
+
+
