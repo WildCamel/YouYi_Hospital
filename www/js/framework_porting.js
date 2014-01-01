@@ -90,7 +90,7 @@ $.app = $.extend($.app, new function() {
 	this.toast = function(text, time)
 	{
 		if (typeof(time) == 'undefined') {
-			time = 3000;
+			time = 3000000;
 		}
 		toast_node.text(text);
 		toast_node.show();
@@ -205,8 +205,15 @@ $.app = $.extend($.app, new function() {
 		}
 	}
 
-	this.show_msg = function($msg) {
-		alert($msg);
+	this.show_msg = function($msg, $title) {
+		if (typeof($title) == "undefined") {
+			$title = "提示";
+		}
+		if ($.app.client_type == 'phonegap') {
+			navigator.notification.alert($msg, function(){}, $title);
+		}else {
+			alert($msg);
+		}
 	}
 
 	this.port_load_page_state = function() {

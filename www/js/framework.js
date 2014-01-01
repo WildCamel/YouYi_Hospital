@@ -482,8 +482,11 @@ $.app = $.extend($.app, new function() {
 							if (storage_expire == -3) { //维持之前策略当发现没有预先储存的内容时，使用默认超时时间
 								storage_expire = $.app.default_conf['data-storage-expire'];
 							}
-							$.app.set_local_data(url, data, $.app.get_time(), storage_expire, check_type, check_time, is_prelocal);
+							if (xhr.status == 200) { //正常返回的时候才缓存
+								$.app.set_local_data(url, data, $.app.get_time(), storage_expire, check_type, check_time, is_prelocal);
+							}
 						}else {
+							//清理已缓存数据
 							$.app.del_local_data(url);
 						}
 					}

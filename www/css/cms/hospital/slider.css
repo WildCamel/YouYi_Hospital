@@ -8,6 +8,7 @@
 }
 
 .ui-slider-group {
+	width:400%;
     overflow: hidden;
     position: relative;
     white-space:nowrap;/*内容不换行*/

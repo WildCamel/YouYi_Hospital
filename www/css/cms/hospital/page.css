@@ -57,7 +57,7 @@ button{
 	right: 0;
 	width: 100%;
 	position: fixed;
-	z-index: 1000;}
+	z-index: 100;}
 .btn{
 	display:block;
 	-webkit-box-flex: 1;
@@ -66,8 +66,8 @@ button{
 	text-align:center;
 	color: white;
 	font-size: 1em;
-	line-height: 2em;
-	height: 2em;}
+	line-height: 2.5em;
+	height: 2.5em;}
 .transition {
 	-webkit-transition: all .3s ease-in-out;
 }
@@ -236,7 +236,7 @@ button{
 /*友谊医院通用组件样式*/
 .greenbt{
 	background: #4eb25c;
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
 	margin-top: 2em;
 	height:2.5em;
@@ -246,22 +246,63 @@ button{
 	line-height:2.5em;}
 .liborder{
 	border-bottom:#ccc solid 1px;}
-.input_text{
-	border:none;}
-
+.input_text,.input-text{
+	border:none;
+	border-radius:5px;
+	font-size:1.1em;
+	background:none;
+	display: block;
+	width: 100%;
+	height:2.3em;
+	line-height: normal;}
+.input_normal{	
+	width:90%;
+	padding-left:0.8em;
+	box-shadow:inset 0px 0px 3px rgba(0,0,0,0.8);
+	border-radius:5px;
+	margin:0 auto;
+	margin-top:0.8em;
+	line-height:2.5em;}
+.input_focus{
+	box-shadow:inset 0px 0px 3px #00790A;
+	border-radius:5px;}
+.spinput{
+	height:2.5em;
+	line-height:2.5em;}
 .lbtitle{
 	padding-left:0.7em;
 	font-size:0.9em;
 	line-height:1.3em;
 	border-left:#5aa6e3 4px solid;}
 .top1{
-	margin-top:1em;}
-	
-	
+	margin-top:1em;}	
+
+input[type="checkbox"]{
+	width: 2em;
+	-webkit-appearance: none;
+	background: url(../../../image/cms/hospital/checkbox1.png) center center no-repeat;
+	height: 2em;
+	background-size: 1.5em;
+	margin-right: 0.3em;
+	display:block;}
+input[type="checkbox"]+lable{
+	display:block;}
+input[type="checkbox"]:checked{
+	width: 2em;
+	-webkit-appearance: none;
+	background: url(../../../image/cms/hospital/checkbox2.png) center center no-repeat;
+	height: 2em;
+	background-size: 1.5em;
+	margin-right: 0.3em;}
+
 /*loader样式*/
 #loading_text{
 	font-size:0.8em;
-	text-align:center;}
+	text-align:center;
+	position: fixed;
+	top: 50%;
+	margin-top: 2em;
+	width: 100%;}
 .ui-loader-verbose {
 	width: 12.5em;
 	filter: Alpha(Opacity=90);
@@ -287,10 +328,13 @@ button{
 	-webkit-border-radius: 2.25em;
 	border-radius: 2.25em;}
 .ui-loader-verbose .ui-icon-loading {
-	margin: 0 auto;
+	position: fixed;
+	top: 50%;
+	left: 50%;
 	filter: Alpha(Opacity=90);
 	opacity: .9;
-	margin-top:50%;}
+	margin-left: -1.5em;
+	margin-top: -1.5em;}
 .ui-icon-loading {
 	background: url(../../../image/cms/hospital/ajax-loader.gif);
 	background-size: 3em 3em;}
@@ -298,12 +342,24 @@ button{
 	display: block;
 }
 .ui-toast {
+	top: 50%;
+	left: 50%;
+	margin-left: -5.5em;
+	margin-top: -1em;
+	width: 11em;
 	display: none;
 	z-index: 9999999;
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	border: 0;}
+	border: none;
+	height: 2em;
+	line-height: 2em;
+	font-size: 1em;
+	background: rgba(0,0,0,0.7);
+	padding: 0.3em 0.5em;
+	border-radius: 7px;
+	color: white;
+	text-align: center;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.7);}
 .ui-link-active {
 	color: #4eb25c;
 	cursor: pointer;}

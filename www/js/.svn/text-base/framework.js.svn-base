@@ -357,10 +357,14 @@ $.app = $.extend($.app, new function() {
 		var t;
 		for (var key in localStorage) {
 			t = localStorage.getItem(key);
-			if (typeof(t.storage_expire) != 'undefined') {
-				if (t.storage_expire != 0 && t.storage_expire + t.data_time < $.app.get_time()) {
-					localStorage.removeItem(key);
+			if (t) {
+				if (typeof(t.storage_expire) != 'undefined') {
+					if (t.storage_expire != 0 && t.storage_expire + t.data_time < $.app.get_time()) {
+						localStorage.removeItem(key);
+					}
 				}
+			}else {
+				localStorage.removeItem(key);
 			}
 		}
 	}
@@ -478,8 +482,11 @@ $.app = $.extend($.app, new function() {
 							if (storage_expire == -3) { //维持之前策略当发现没有预先储存的内容时，使用默认超时时间
 								storage_expire = $.app.default_conf['data-storage-expire'];
 							}
-							$.app.set_local_data(url, data, $.app.get_time(), storage_expire, check_type, check_time, is_prelocal);
+							if (xhr.status == 200) { //正常返回的时候才缓存
+								$.app.set_local_data(url, data, $.app.get_time(), storage_expire, check_type, check_time, is_prelocal);
+							}
 						}else {
+							//清理已缓存数据
 							$.app.del_local_data(url);
 						}
 					}
@@ -514,12 +521,18 @@ $.app = $.extend($.app, new function() {
 					}
 					if (!has_callback && item != null) {
 						$.app.toast('请求新数据失败，正在使用离线旧数据。', 3000);
+						if (callback) {
+							try {
+								callback(item.data);
+							}catch(e) {
+								console.log(e.stack);
+							}
+						}
+						has_callback = true;
 					}
 				}
 			});
-		}
-		//尝试获取新值失败，使用旧数据
-		if (!has_callback && item != null) {
+		}else if (!has_callback && item != null) { //尝试获取新值失败，使用旧数据
 			if (callback) {
 				try {
 					callback(item.data);
@@ -870,7 +883,7 @@ $.app = $.extend($.app, new function() {
 	this.default_conf['animation'] = this.default_conf['data-transition'];
 	this.offline_cache_on = true;	//离线缓存机制是否生效
 	this.tpl_expire = this.STORAGE_EXPIRE_NOEXPIRE;
-	this.tpl_check_type = this.CHECK_TYPE_ACTIVE;
+	this.tpl_check_type = this.CHECK_TYPE_INERT;
 	this.tpl_check_time = 0;
 
 	//设置不自定添加外层div的组件

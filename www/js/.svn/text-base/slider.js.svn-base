@@ -1,1 +1,1470 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('f h=h||{3b:\'@3b\',$:34.3i,2S:(7($){f 1O=$.19,P=[].P,25=$();25.q=1;8 7(w,19){25[0]=w;8 1O[19].10(25,P.A(17,2))}})(3i)};(7(h,$){f P=[].P,3e=/\\s+/,2O=7(){8 K},39=7(){8 L};7 2d(X,v,2g){(X||\'\').46(3e).1N(7(12){2g(12,v)})}7 3O(1s){8 V 4n(\'(?:^| )\'+1s.4l(\' \',\' .* ?\')+\'(?: |$)\')}7 2p(j){f 31=(\'\'+j).46(\'.\');8{e:31[0],1s:31.P(1).4t().3I(\' \')}}7 37(1m,j,v,R){f 2V,l;l=2p(j);l.1s&&(2V=3O(l.1s));8 1m.4j(7(M){8 M&&(!l.e||M.e===l.e)&&(!l.1s||2V.47(M.1s))&&(!v||M.27===v||M.27.3G===v)&&(!R||M.3J===R)})}7 1f(12,2s){g(!(4 2A 1f)){8 V 1f(12,2s)}2s&&$.1e(4,2s);4.12=12;8 4}1f.1H={3E:2O,2z:2O,1J:7(){4.3E=39},1G:7(){4.2z=39}};h.1o={B:7(j,v,R){f 6=4,2e;g(!v){8 4}2e=4.1D||(4.1D=[]);2d(j,v,7(j,v){f M=2p(j);M.27=v;M.3J=R;M.42=R||6;M.2x=2e.q;2e.3w(M)});8 4},2J:7(j,v,R){f 6=4;g(!v){8 4}2d(j,v,7(j,v){f 2c=7(){6.1c(j,2c);8 v.10(R||6,17)};2c.3G=v;6.B(j,2c,R)});8 4},1c:7(j,v,R){f X=4.1D;g(!X){8 4}g(!j&&!v&&!R){4.1D=[];8 4}2d(j,v,7(j,v){37(X,j,v,R).1N(7(M){1V X[M.2x]})});8 4},1b:7(F){f i=-1,u,X,2G,r,2B;g(!4.1D||!F){8 4}18 F===\'1Y\'&&(F=V 1f(F));u=P.A(17,1);F.u=u;u.4v(F);X=37(4.1D,F.12);g(X){r=X.q;26(++i<r){g((2G=F.2z())||K===(2B=X[i]).27.10(2B.42,u)){2G||(F.1G(),F.1J());4r}}}8 4}};h.1f=1f})(h,h.$);(7(h,$,G){f P=[].P,2F=1X.1H.2F,1M=7(){},3u=[\'t\',\'1t\',\'1r\'],13=(7(){f n={},2x=0,2I=\'4s\';8 7(l,m,W){f 2K=l[2I]||(l[2I]=++2x),2t=n[2K]||(n[2K]={});W!==G&&(2t[m]=W);W===1j&&1V 2t[m];8 2t[m]}})(),1o=h.1o;7 2k(l){8 2F.A(l)===\'[23 1X]\'}7 21(l,2g){l&&1X.4o(l).1N(7(m){2g(m,l[m])})}7 3q(n){4h{n=n===\'L\'?L:n===\'K\'?K:n===\'1j\'?1j:+n+\'\'===n?+n:/(?:\\{[\\s\\S]*\\}|\\[[\\s\\S]*\\])$/.47(n)?4m.2p(n):n}4p(4u){n=G}8 n}7 3r(c){f J={},24=c&&c.4i,r=24&&24.q,m,n;26(r--){n=24[r];m=n.j;g(m.2l(0,5)!==\'n-\'){4q}m=m.2l(5);n=3q(n.3a);n===G||(J[m]=n)}8 J}7 3s(j){f m=j.2l(0,1).3n()+j.2l(1),3h=$.19[m];$.19[m]=7(d){f u=P.A(17,1),1i=18 d===\'1Y\'&&d,J,l;$.4k(4,7(i,c){l=13(c,j)||V h[j](c,2k(d)?d:G);g(1i===\'4\'){J=l;8 K}1u g(1i){g(!$.2r(l[1i])){3m V 3d(\'组件没有此方法：\'+1i)}J=l[1i].10(l,u);g(J!==G&&J!==l){8 K}J=G}});8 J!==G?J:4};$.19[m].4G=7(){$.19[m]=3h;8 4}}7 2R(k,d){f 6=4;g(k.O){2R.A(6,k.O,d)}21(13(k,\'t\'),7(m,1d){1d.1N(7(w){f 1R=w[0],19=w[1];g(1R===\'*\'||($.2r(1R)&&1R.A(6,d[m]))||1R===d[m]){19.A(6)}})})}7 32(k,d){f 6=4;g(k.O){32.A(6,k.O,d)}21(13(k,\'1I\'),7(3g,2Z){g(d[3g]===K){8}21(2Z,7(m,W){f 2Y;g($.2r(W)&&(2Y=6[m])){6[m]=7(){f 1p=6.1p,J;6.1p=2Y;J=W.10(6,17);1p===G?1V 6.1p:(6.1p=1p);8 J}}1u{6[m]=W}});2Z.1l.A(6)})}7 1L(){f u=P.A(17),i=u.q,2i;26(i--){2i=2i||u[i];2k(u[i])||u.4W(i,1)}8 u.q?$.1e.10(1j,[L,{}].3c(u)):2i}7 3f(j,k,3p,c,t){f 6=4,d;g(2k(c)){t=c;c=G}t&&t.c&&(c=$(t.c));c&&(6.$c=$(c),c=6.$c[0]);d=6.T=1L(k.t,3r(c),t);6.1t=1L(k.1t,d.1t);6.1r=1L(k.1r,d.1r);6.3o=j.3n();6.C=\'.\'+6.3o+3p;6.1l(d);6.T.50=(6.$c&&6.$c.4Z()[0])?L:K;2R.A(6,k,d);32.A(6,k,d);6.2M();6.1b(\'2o\');c&&13(c,j,6)&&6.B(\'22\',7(){13(c,j,1j)});8 6}7 2v(j,23,O){g(18 O!==\'7\'){O=h.1y}f 3j=1,3v=1;7 k(c,t){g(j===\'1y\'){3m V 3d(\'1y类不能直接实例化\')}g(!(4 2A k)){8 V k(c,t)}8 3f.A(4,j,k,3j++,c,t)}$.1e(k,{2W:7(j,l){f 1I=13(k,\'1I\')||13(k,\'1I\',{});l.1l=l.1l||1M;1I[j]=l;8 k},1d:7(1d,3a,1i){f t=13(k,\'t\')||13(k,\'t\',{});t[1d]||(t[1d]=[]);t[1d].3w([3a,1i]);8 k},55:7(l){8 2v(j+\'52\'+3v++,l,k)},1e:7(l){f 1O=k.1H,2T=O.1H;3u.1N(7(w){l[w]=1L(O[w],l[w]);l[w]&&(k[w]=l[w]);1V l[w]});21(l,7(m,W){g(18 W===\'7\'&&2T[m]){1O[m]=7(){f $1g=4.$1g,J;4.$1g=7(){f u=P.A(17,1);8 2T[m].10(4,u)};J=W.10(4,17);$1g===G?(1V 4.$1g):(4.$1g=$1g);8 J}}1u{1O[m]=W}})}});k.O=O;k.1H=1X.53(O.1H);k.1e(23);8 k}h.45=7(j,23,O){h[j]=2v(j,23,O);3s(j)};h.54=7(l,k){k=18 k===\'1Y\'?h[k]||1M:k;k=k||h.1y;8 l 2A k};h.1y=2v(\'1y\',{1l:1M,2M:1M,1T:7(){8 4.$c},B:1o.B,2J:1o.2J,1c:1o.1c,1b:7(j){f F=18 j===\'1Y\'?V h.1f(j):j,u=[F].3c(P.A(17,1)),2n=4.T[F.12],$c=4.1T();g(2n&&$.2r(2n)){K===2n.10(4,u)&&(F.1G(),F.1J())}1o.1b.10(4,u);$c&&$c.51(F,(u.4X(),u));8 4},1r:7(2m,n){f 1n=4.1t;1n=18 2m===\'1Y\'?1n[2m]:((n=2m),1n);8 n||~1n.4Y(\'<%\')?$.56(1n,n):1n},22:7(){4.$c&&4.$c.1c(4.C);4.1b(\'22\');4.1c();4.5c=L}},1X);$.14=h})(h,h.$);(7(h,$,G){f 2a=$.48.2a,2D=$.48.2D,35=\' 35(0)\';h.45(\'1k\',{t:{U:K,z:5e,9:0,1F:{D:\'.14-1q-3x\'}},1t:{w:\'<2f 3F="14-1q-w"><a 44="<%= 44 %>">\'+\'<5d 5b="<%= 5a %>" 57="" /></a>\'+\'<% g( 40 ) { %><p><%= 40 %></p><% } %>\'+\'</2f>\'},2M:7(){f 6=4,$c=6.1T(),d=6.T;6.9=d.9;6.41($c,d);6.2L($c,6.9);6.1W.B(2D+6.C,$.2P(6.3Y,6));$(34).B(\'3Z\'+6.C,7(){6.2L($c,6.9)})},41:7($c,d){f 1F=d.1F,E=d.E||1,Q,D;D=$c.3B(1F.D);g(!D.q){D=$(\'<2f></2f>\');g(!d.4a){g($c.58(\'59\')){4.$c=D.4U($c);D=$c;$c=4.$c}1u{D.2E($c.1B())}}1u{4.43(D,d.4a)}D.3K($c)}g((Q=D.1B()).q<E+1){d.U=K}26(d.U&&D.1B().q<3*E){D.2E(Q.4E())}4.q=D.1B().q;4.1C=(4.1W=D).2w(\'14-1q-3x\').1B().2w(\'14-1q-w\').3U();4.1b(\'3y.3A\',$c.2w(\'14-1q\'),d)},43:7(D,Q){f i=0,r=Q.q;28(;i<r;i++){D.2E(4.1r(\'w\',Q[i]))}},2L:7($c,9,4g){f 6=4,o;g(!4g&&(o=$c.o())===6.o){8}6.o=o;6.4d(o,9);6.4f=$c.4f();6.1b(\'o.4F\')},4d:7(o,9){f Q=4.1C,i=0,w,r;4.29=V 3H(Q.q);28(r=Q.q;i<r;i++){w=Q[i];w.1S.4c+=\'o:\'+o+\'36;\'+\'4w:\'+(i*-o)+\'36;\';w.4V(\'n-9\',i);4.1a(i,i<9?-o:i>9?o:0,0)}4.1W.4H(\'o\',o*r)},1a:7(9,1z,z,4b){f 15=4.29,Q=4.1C;g(15[9]===1z||!Q[9]){8}4.2q(9,1z,z);15[9]=1z;4b&&Q[9].4D},2q:7(9,1z,z){f 1P=4.1C[9],1S=1P&&1P.1S;g(!1S){8 K}1S.4c+=2a+\'4C-1Z:\'+z+\'4y;\'+2a+\'4x: 4z(\'+1z+\'36, 0)\'+35+\';\'},1v:7(9,1m){f r;1m=1m||4.1C;r=1m.q;8(9%r+r)%1m.q},3Y:7(e){g(~~e.4A.4B(\'n-9\')!==4.9){8}4.1b(\'3W\',4.9)},2y:7(Z,Y,16,o,z,d){f 6=4,I;I=6.1v(Z-16*Y);g(!d.U){16=11.1A(Z-I)/(Z-I)}4.1a(I,-16*o,0,L);4.1a(Z,o*16,z);4.1a(I,0,z);4.9=I;8 4.1b(\'1P\',I,Z)},2h:7(I,z){g(4.9===I||4.9===4.1v(I)){8 4}f d=4.T,9=4.9,Y=11.1A(9-I),16=Y/(9-I),o=4.o;z=z||d.z;8 4.2y(9,Y,16,o,z,d)},4I:7(){g(4.T.U||4.9>0){4.2h(4.9-1)}8 4},4J:7(){g(4.T.U||4.9+1<4.q){4.2h(4.9+1)}8 4},4Q:7(){8 4.9},22:7(){4.1W.1c(4.C);$(34).1c(\'3Z\'+4.C);8 4.$1g(\'22\')}})})(h,h.$);(7(h,$,G){$.1e(L,h.1k,{1t:{H:\'<p 3F="14-1q-H"><%= V 3H( r + 1 )\'+\'.3I("<b></b>") %></p>\'},t:{H:L,1F:{H:\'.14-1q-H\'}}});h.1k.1d(\'H\',L,7(){f 2Q=7(I,Z){f H=4.3L;18 Z===\'G\'||h.2S(H[Z%4.q],\'4R\',\'14-3D-3z\');h.2S(H[I%4.q],\'2w\',\'14-3D-3z\')};4.B(\'3y.3A\',7(e,$c,d){f H=$c.3B(d.1F.H);g(!H.q){H=4.1r(\'H\',{r:4.q});H=$(H).3K($c)}4.3L=H.1B().3U()});4.B(\'1P\',7(e,I,Z){2Q.A(4,I,Z)});4.B(\'2o\',7(){2Q.A(4,4.9)})})})(h,h.$);(7(h,$){$.1e(L,h.1k,{t:{3X:L,3S:4S}});h.1k.2W(\'4T\',{1l:7(){f 6=4;6.B(\'3W 2o\',6.2U).B(\'4P\',6.30);6.1T().B(\'2C\'+6.C,$.2P(6.30,6)).B(\'2b\'+6.C,$.2P(6.2U,6))},2U:7(){f 6=4,d=6.T;g(d.3X&&!6.1w){6.1w=4O(7(){6.2h(6.9+1);6.1w=1j},d.3S)}8 6},30:7(){f 6=4;g(6.1w){4K(6.1w);6.1w=1j}8 6}})})(h,h.$);(7(h,$,G){f 2X={2C:\'3M\',33:\'3N\',2b:\'2N\',38:\'2N\',3Q:\'3P\'},1K,1Q,N,1U;$.1e(h.1k.t,{1G:K,3V:K});h.1k.2W(\'4L\',{1l:7(){f 6=4,$c=6.1T();6.20=7(e){6.T.1G&&e.1G();8 2X[e.12]&&6[2X[e.12]].A(6,e)};6.B(\'2o\',7(){$c.B(\'2C\'+6.C,6.20);6.1W.B(\'3Q\'+6.C,6.20)})},3P:7(){8!1U},3M:7(e){g(e.2j.q>1){8 K}f 6=4,1E=e.2j[0],d=6.T,C=6.C,1x;1Q={x:1E.3T,y:1E.3C,49:+V 4e()};N={};1U=K;1K=G;1x=d.E||1;6.1a(d.U?6.1v(6.9-1x):6.9-1x,-6.o,0,L);6.1a(d.U?6.1v(6.9+1x):6.9+1x,6.o,0,L);6.$c.B(\'33\'+C+\' 2b\'+C+\' 38\'+C,6.20)},3N:7(e){g(e.2j.q>1||e.3R&&e.3R!==1){8 K}f d=4.T,E=d.E||1,1E=e.2j[0],9=4.9,i,r,1h,15;d.3V&&e.1J();N.x=1E.3T-1Q.x;N.y=1E.3C-1Q.y;g(18 1K===\'G\'){1K=11.1A(N.x)<11.1A(N.y)}g(!1K){e.1J();g(!d.U){N.x/=(!9&&N.x>0||9===4.1C.q-1&&N.x<0)?(11.1A(N.x)/4.o+1):1}15=4.29;28(i=9-E,r=9+2*E;i<r;i++){1h=d.U?4.1v(i):i;4.2q(1h,N.x+15[1h],0)}1U=L}},2N:7(){4.$c.1c(\'33\'+4.C+\' 2b\'+4.C+\' 38\'+4.C,4.20);g(!1U){8}f 6=4,d=6.T,E=d.E||1,9=6.9,15=6.29,1Z=+V 4e()-1Q.49,2u=11.1A(N.x),3k=!d.U&&(!9&&N.x>0||9===15.q-E&&N.x<0),16=N.x>0?1:-1,z,Y,i,r,1h;g(1Z<3t){z=2u/1Z;Y=11.4M(11.3l(z*E*1.2),E)}1u{Y=11.3l(2u/(6.2H||6.o))}g(Y&&!3k){6.2y(9,Y,16,6.o,d.z,d,L);g(E>1&&1Z>=3t&&11.4N(2u/6.2H)!==Y){6.9<9?6.1a(6.9-1,-6.2H,d.z):6.1a(6.9+E,6.o,d.z)}}1u{28(i=9-E,r=9+2*E;i<r;i++){1h=d.U?6.1v(i):i;6.2q(1h,15[1h],d.z)}}}})})(h,h.$);',62,325,'||||this||me|function|return|index|||el|opts||var|if|gmu||name|klass|obj|key|data|width||length|len||options|args|callback|item|||speed|call|on|eventNs|container|viewNum|evt|undefined|dots|to|ret|false|true|handler|delta|superClass|slice|items|context||_options|loop|new|val|events|diff|from|apply|Math|type|record|ui|slidePos|dir|arguments|typeof|fn|_move|trigger|off|option|extend|Event|super|pos|method|null|Slider|_init|arr|tpl|event|origin|slider|tpl2html|ns|template|else|_circle|_timer|num|Base|dist|abs|children|_items|_events|touche|selector|stopPropagation|prototype|plugins|preventDefault|isScrolling|mergeObj|blankFn|forEach|proto|slide|start|condition|style|getEl|moved|delete|_container|Object|string|duration|_handler|eachObject|destroy|object|attrs|instance|while|cb|for|_slidePos|cssPrefix|touchend|once|eachEvent|set|div|iterator|slideTo|last|touches|isPlainObject|substring|subpart|opEvent|ready|parse|_translate|isFunction|props|store|absDeltaX|createClass|addClass|id|_slide|isPropagationStopped|instanceof|ev|touchstart|transitionEnd|append|toString|stoped|perWidth|ikey|one|dkey|_initWidth|_create|_onEnd|returnFalse|proxy|updateDots|loadOption|staticCall|superProto|resume|matcher|register|map|oringFn|plugin|stop|parts|loadPlugins|touchmove|window|translateZ|px|findHandlers|touchcancel|returnTrue|value|version|concat|Error|separator|bootstrap|opt|old|Zepto|uuid|isPastBounds|round|throw|toLowerCase|widgetName|uid|parseData|getDomOptions|zeptolize|250|staticlist|suid|push|group|done|active|dom|find|pageY|state|isDefaultPrevented|class|_cb|Array|join|ctx|appendTo|_dots|_onStart|_onMove|matcherFor|_onClick|click|scale|interval|pageX|toArray|disableScroll|slideend|autoPlay|_tansitionEnd|ortchange|title|_initDom|ctx2|_createItems|href|define|split|test|fx|time|content|immediate|cssText|_arrange|Date|height|force|try|attributes|filter|each|replace|JSON|RegExp|keys|catch|continue|break|_gid|sort|ex|unshift|left|transform|ms|translate|target|getAttribute|transition|clientLeft|clone|change|noConflict|css|prev|next|clearTimeout|touch|min|ceil|setTimeout|destory|getIndex|removeClass|2500|autoplay|insertAfter|setAttribute|splice|shift|indexOf|parent|setup|triggerHandler|Sub|create|isWidget|inherits|parseTpl|alt|is|ul|pic|src|destroyed|img|400'.split('|'),0,{}))
+/**
+ * @file 模板解析
+ * @import zepto.js
+ * @module GMU
+ */
+(function( $, undefined ) {
+    
+    /**
+     * 解析模版tpl。当data未传入时返回编译结果函数；当某个template需要多次解析时，建议保存编译结果函数，然后调用此函数来得到结果。
+     * 
+     * @method $.parseTpl
+     * @grammar $.parseTpl(str, data)  ⇒ string
+     * @grammar $.parseTpl(str)  ⇒ Function
+     * @param {String} str 模板
+     * @param {Object} data 数据
+     * @example var str = "<p><%=name%></p>",
+     * obj = {name: 'ajean'};
+     * console.log($.parseTpl(str, data)); // => <p>ajean</p>
+     */
+    $.parseTpl = function( str, data ) {
+        var tmpl = 'var __p=[];' + 'with(obj||{}){__p.push(\'' +
+                str.replace( /\\/g, '\\\\' )
+                .replace( /'/g, '\\\'' )
+                .replace( /<%=([\s\S]+?)%>/g, function( match, code ) {
+                    return '\',' + code.replace( /\\'/, '\'' ) + ',\'';
+                } )
+                .replace( /<%([\s\S]+?)%>/g, function( match, code ) {
+                    return '\');' + code.replace( /\\'/, '\'' )
+                            .replace( /[\r\n\t]/g, ' ' ) + '__p.push(\'';
+                } )
+                .replace( /\r/g, '\\r' )
+                .replace( /\n/g, '\\n' )
+                .replace( /\t/g, '\\t' ) +
+                '\');}return __p.join("");',
+
+            /* jsbint evil:true */
+            func = new Function( 'obj', tmpl );
+        
+        return data ? func( data ) : func;
+    };
+})( Zepto );
+
+
+
+
+// Copyright (c) 2013, Baidu Inc. All rights reserved.
+//
+// Licensed under the BSD License
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://gmu.baidu.com/license.html
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS-IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @file 声明gmu命名空间
+ * @namespace gmu
+ * @import zepto.js
+*/
+
+/**
+ * GMU是基于zepto的轻量级mobile UI组件库，符合jquery ui使用规范，提供webapp、pad端简单易用的UI组件。为了减小代码量，提高性能，组件再插件化，兼容iOS3+ / android2.1+，支持国内主流移动端浏览器，如safari, chrome, UC, qq等。
+ * GMU由百度GMU小组开发，基于开源BSD协议，支持商业和非商业用户的免费使用和任意修改，您可以通过[get started](http://gmu.baidu.com/getstarted)快速了解。
+ *
+ * ###Quick Start###
+ * + **官网：**http://gmu.baidu.com/
+ * + **API：**http://gmu.baidu.com/doc
+ *
+ * ###历史版本###
+ *
+ * ### 2.0.5 ###
+ * + **DEMO: ** http://gmu.baidu.com/demo/2.0.5
+ * + **API：** http://gmu.baidu.com/doc/2.0.5
+ * + **下载：** http://gmu.baidu.com/download/2.0.5
+ *
+ * @module GMU
+ * @title GMU API 文档
+ */
+var gmu = gmu || {
+    version: '@version',
+    $: window.Zepto,
+
+    /**
+     * 调用此方法，可以减小重复实例化Zepto的开销。所有通过此方法调用的，都将公用一个Zepto实例，
+     * 如果想减少Zepto实例创建的开销，就用此方法。
+     * @method staticCall
+     * @grammar gmu.staticCall( dom, fnName, args... )
+     * @param  {DOM} elem Dom对象
+     * @param  {String} fn Zepto方法名。
+     * @param {*} * zepto中对应的方法参数。
+     * @example
+     * // 复制dom的className给dom2, 调用的是zepto的方法，但是只会实例化一次Zepto类。
+     * var dom = document.getElementById( '#test' );
+     *
+     * var className = gmu.staticCall( dom, 'attr', 'class' );
+     * console.log( className );
+     *
+     * var dom2 = document.getElementById( '#test2' );
+     * gmu.staticCall( dom, 'addClass', className );
+     */
+    staticCall: (function( $ ) {
+        var proto = $.fn,
+            slice = [].slice,
+
+            // 公用此zepto实例
+            instance = $();
+
+        instance.length = 1;
+
+        return function( item, fn ) {
+            instance[ 0 ] = item;
+            return proto[ fn ].apply( instance, slice.call( arguments, 2 ) );
+        };
+    })( Zepto )
+};
+
+
+/**
+ * @file Event相关, 给widget提供事件行为。也可以给其他对象提供事件行为。
+ * @import core/gmu.js
+ * @module GMU
+ */
+(function( gmu, $ ) {
+    var slice = [].slice,
+        separator = /\s+/,
+
+        returnFalse = function() {
+            return false;
+        },
+
+        returnTrue = function() {
+            return true;
+        };
+
+    function eachEvent( events, callback, iterator ) {
+
+        // 不支持对象，只支持多个event用空格隔开
+        (events || '').split( separator ).forEach(function( type ) {
+            iterator( type, callback );
+        });
+    }
+
+    // 生成匹配namespace正则
+    function matcherFor( ns ) {
+        return new RegExp( '(?:^| )' + ns.replace( ' ', ' .* ?' ) + '(?: |$)' );
+    }
+
+    // 分离event name和event namespace
+    function parse( name ) {
+        var parts = ('' + name).split( '.' );
+
+        return {
+            e: parts[ 0 ],
+            ns: parts.slice( 1 ).sort().join( ' ' )
+        };
+    }
+
+    function findHandlers( arr, name, callback, context ) {
+        var matcher,
+            obj;
+
+        obj = parse( name );
+        obj.ns && (matcher = matcherFor( obj.ns ));
+        return arr.filter(function( handler ) {
+            return handler &&
+                    (!obj.e || handler.e === obj.e) &&
+                    (!obj.ns || matcher.test( handler.ns )) &&
+                    (!callback || handler.cb === callback ||
+                    handler.cb._cb === callback) &&
+                    (!context || handler.ctx === context);
+        });
+    }
+
+    /**
+     * Event类，结合gmu.event一起使用, 可以使任何对象具有事件行为。包含基本`preventDefault()`, `stopPropagation()`方法。
+     * 考虑到此事件没有Dom冒泡概念，所以没有`stopImmediatePropagation()`方法。而`stopProgapation()`的作用就是
+     * 让之后的handler都不执行。
+     *
+     * @class Event
+     * @constructor
+     * ```javascript
+     * var obj = {};
+     *
+     * $.extend( obj, gmu.event );
+     *
+     * var etv = gmu.Event( 'beforeshow' );
+     * obj.trigger( etv );
+     *
+     * if ( etv.isDefaultPrevented() ) {
+     *     console.log( 'before show has been prevented!' );
+     * }
+     * ```
+     * @grammar new gmu.Event( name[, props]) => instance
+     * @param {String} type 事件名字
+     * @param {Object} [props] 属性对象，将被复制进event对象。
+     */
+    function Event( type, props ) {
+        if ( !(this instanceof Event) ) {
+            return new Event( type, props );
+        }
+
+        props && $.extend( this, props );
+        this.type = type;
+
+        return this;
+    }
+
+    Event.prototype = {
+
+        /**
+         * @method isDefaultPrevented
+         * @grammar e.isDefaultPrevented() => Boolean
+         * @desc 判断此事件是否被阻止
+         */
+        isDefaultPrevented: returnFalse,
+
+        /**
+         * @method isPropagationStopped
+         * @grammar e.isPropagationStopped() => Boolean
+         * @desc 判断此事件是否被停止蔓延
+         */
+        isPropagationStopped: returnFalse,
+
+        /**
+         * @method preventDefault
+         * @grammar e.preventDefault() => undefined
+         * @desc 阻止事件默认行为
+         */
+        preventDefault: function() {
+            this.isDefaultPrevented = returnTrue;
+        },
+
+        /**
+         * @method stopPropagation
+         * @grammar e.stopPropagation() => undefined
+         * @desc 阻止事件蔓延
+         */
+        stopPropagation: function() {
+            this.isPropagationStopped = returnTrue;
+        }
+    };
+
+    /**
+     * @class event
+     * @static
+     * @description event对象，包含一套event操作方法。可以将此对象扩张到任意对象，来增加事件行为。
+     *
+     * ```javascript
+     * var myobj = {};
+     *
+     * $.extend( myobj, gmu.event );
+     *
+     * myobj.on( 'eventname', function( e, var1, var2, var3 ) {
+     *     console.log( 'event handler' );
+     *     console.log( var1, var2, var3 );    // =>1 2 3
+     * } );
+     *
+     * myobj.trigger( 'eventname', 1, 2, 3 );
+     * ```
+     */
+    gmu.event = {
+
+        /**
+         * 绑定事件。
+         * @method on
+         * @grammar on( name, fn[, context] ) => self
+         * @param  {String}   name     事件名
+         * @param  {Function} callback 事件处理器
+         * @param  {Object}   context  事件处理器的上下文。
+         * @return {self} 返回自身，方便链式
+         * @chainable
+         */
+        on: function( name, callback, context ) {
+            var me = this,
+                set;
+
+            if ( !callback ) {
+                return this;
+            }
+
+            set = this._events || (this._events = []);
+
+            eachEvent( name, callback, function( name, callback ) {
+                var handler = parse( name );
+
+                handler.cb = callback;
+                handler.ctx = context;
+                handler.ctx2 = context || me;
+                handler.id = set.length;
+                set.push( handler );
+            } );
+
+            return this;
+        },
+
+        /**
+         * 绑定事件，且当handler执行完后，自动解除绑定。
+         * @method one
+         * @grammar one( name, fn[, context] ) => self
+         * @param  {String}   name     事件名
+         * @param  {Function} callback 事件处理器
+         * @param  {Object}   context  事件处理器的上下文。
+         * @return {self} 返回自身，方便链式
+         * @chainable
+         */
+        one: function( name, callback, context ) {
+            var me = this;
+
+            if ( !callback ) {
+                return this;
+            }
+
+            eachEvent( name, callback, function( name, callback ) {
+                var once = function() {
+                        me.off( name, once );
+                        return callback.apply( context || me, arguments );
+                    };
+
+                once._cb = callback;
+                me.on( name, once, context );
+            } );
+
+            return this;
+        },
+
+        /**
+         * 解除事件绑定
+         * @method off
+         * @grammar off( name[, fn[, context] ] ) => self
+         * @param  {String}   name     事件名
+         * @param  {Function} callback 事件处理器
+         * @param  {Object}   context  事件处理器的上下文。
+         * @return {self} 返回自身，方便链式
+         * @chainable
+         */
+        off: function( name, callback, context ) {
+            var events = this._events;
+
+            if ( !events ) {
+                return this;
+            }
+
+            if ( !name && !callback && !context ) {
+                this._events = [];
+                return this;
+            }
+
+            eachEvent( name, callback, function( name, callback ) {
+                findHandlers( events, name, callback, context )
+                        .forEach(function( handler ) {
+                            delete events[ handler.id ];
+                        });
+            } );
+
+            return this;
+        },
+
+        /**
+         * 触发事件
+         * @method trigger
+         * @grammar trigger( name[, ...] ) => self
+         * @param  {String | Event }   evt     事件名或gmu.Event对象实例
+         * @param  {*} * 任意参数
+         * @return {self} 返回自身，方便链式
+         * @chainable
+         */
+        trigger: function( evt ) {
+            var i = -1,
+                args,
+                events,
+                stoped,
+                len,
+                ev;
+
+            if ( !this._events || !evt ) {
+                return this;
+            }
+
+            typeof evt === 'string' && (evt = new Event( evt ));
+
+            args = slice.call( arguments, 1 );
+            evt.args = args;    // handler中可以直接通过e.args获取trigger数据
+            args.unshift( evt );
+
+            events = findHandlers( this._events, evt.type );
+
+            if ( events ) {
+                len = events.length;
+
+                while ( ++i < len ) {
+                    if ( (stoped = evt.isPropagationStopped()) ||  false ===
+                            (ev = events[ i ]).cb.apply( ev.ctx2, args )
+                            ) {
+
+                        // 如果return false则相当于stopPropagation()和preventDefault();
+                        stoped || (evt.stopPropagation(), evt.preventDefault());
+                        break;
+                    }
+                }
+            }
+
+            return this;
+        }
+    };
+
+    // expose
+    gmu.Event = Event;
+})( gmu, gmu.$ );
+
+
+/**
+ * @file gmu底层，定义了创建gmu组件的方法
+ * @import core/gmu.js, core/event.js, extend/parseTpl.js
+ * @module GMU
+ */
+
+(function( gmu, $, undefined ) {
+    var slice = [].slice,
+        toString = Object.prototype.toString,
+        blankFn = function() {},
+
+        // 挂到组件类上的属性、方法
+        staticlist = [ 'options', 'template', 'tpl2html' ],
+
+        // 存储和读取数据到指定对象，任何对象包括dom对象
+        // 注意：数据不直接存储在object上，而是存在内部闭包中，通过_gid关联
+        // record( object, key ) 获取object对应的key值
+        // record( object, key, value ) 设置object对应的key值
+        // record( object, key, null ) 删除数据
+        record = (function() {
+            var data = {},
+                id = 0,
+                ikey = '_gid';    // internal key.
+
+            return function( obj, key, val ) {
+                var dkey = obj[ ikey ] || (obj[ ikey ] = ++id),
+                    store = data[ dkey ] || (data[ dkey ] = {});
+
+                val !== undefined && (store[ key ] = val);
+                val === null && delete store[ key ];
+
+                return store[ key ];
+            };
+        })(),
+
+        event = gmu.event;
+
+    function isPlainObject( obj ) {
+        return toString.call( obj ) === '[object Object]';
+    }
+
+    // 遍历对象
+    function eachObject( obj, iterator ) {
+        obj && Object.keys( obj ).forEach(function( key ) {
+            iterator( key, obj[ key ] );
+        });
+    }
+
+    // 从某个元素上读取某个属性。
+    function parseData( data ) {
+        try {    // JSON.parse可能报错
+
+            // 当data===null表示，没有此属性
+            data = data === 'true' ? true :
+                    data === 'false' ? false : data === 'null' ? null :
+
+                    // 如果是数字类型，则将字符串类型转成数字类型
+                    +data + '' === data ? +data :
+                    /(?:\{[\s\S]*\}|\[[\s\S]*\])$/.test( data ) ?
+                    JSON.parse( data ) : data;
+        } catch ( ex ) {
+            data = undefined;
+        }
+
+        return data;
+    }
+
+    // 从DOM节点上获取配置项
+    function getDomOptions( el ) {
+        var ret = {},
+            attrs = el && el.attributes,
+            len = attrs && attrs.length,
+            key,
+            data;
+
+        while ( len-- ) {
+            data = attrs[ len ];
+            key = data.name;
+
+            if ( key.substring(0, 5) !== 'data-' ) {
+                continue;
+            }
+
+            key = key.substring( 5 );
+            data = parseData( data.value );
+
+            data === undefined || (ret[ key ] = data);
+        }
+
+        return ret;
+    }
+
+    // 在$.fn上挂对应的组件方法呢
+    // $('#btn').button( options );实例化组件
+    // $('#btn').button( 'select' ); 调用实例方法
+    // $('#btn').button( 'this' ); 取组件实例
+    // 此方法遵循get first set all原则
+    function zeptolize( name ) {
+        var key = name.substring( 0, 1 ).toLowerCase() + name.substring( 1 ),
+            old = $.fn[ key ];
+
+        $.fn[ key ] = function( opts ) {
+            var args = slice.call( arguments, 1 ),
+                method = typeof opts === 'string' && opts,
+                ret,
+                obj;
+
+            $.each( this, function( i, el ) {
+
+                // 从缓存中取，没有则创建一个
+                obj = record( el, name ) || new gmu[ name ]( el,
+                        isPlainObject( opts ) ? opts : undefined );
+
+                // 取实例
+                if ( method === 'this' ) {
+                    ret = obj;
+                    return false;    // 断开each循环
+                } else if ( method ) {
+
+                    // 当取的方法不存在时，抛出错误信息
+                    if ( !$.isFunction( obj[ method ] ) ) {
+                        throw new Error( '组件没有此方法：' + method );
+                    }
+
+                    ret = obj[ method ].apply( obj, args );
+
+                    // 断定它是getter性质的方法，所以需要断开each循环，把结果返回
+                    if ( ret !== undefined && ret !== obj ) {
+                        return false;
+                    }
+
+                    // ret为obj时为无效值，为了不影响后面的返回
+                    ret = undefined;
+                }
+            } );
+
+            return ret !== undefined ? ret : this;
+        };
+
+        /*
+         * NO CONFLICT
+         * var gmuPanel = $.fn.panel.noConflict();
+         * gmuPanel.call(test, 'fnname');
+         */
+        $.fn[ key ].noConflict = function() {
+            $.fn[ key ] = old;
+            return this;
+        };
+    }
+
+    // 加载注册的option
+    function loadOption( klass, opts ) {
+        var me = this;
+
+        // 先加载父级的
+        if ( klass.superClass ) {
+            loadOption.call( me, klass.superClass, opts );
+        }
+
+        eachObject( record( klass, 'options' ), function( key, option ) {
+            option.forEach(function( item ) {
+                var condition = item[ 0 ],
+                    fn = item[ 1 ];
+
+                if ( condition === '*' ||
+                        ($.isFunction( condition ) &&
+                        condition.call( me, opts[ key ] )) ||
+                        condition === opts[ key ] ) {
+
+                    fn.call( me );
+                }
+            });
+        } );
+    }
+
+    // 加载注册的插件
+    function loadPlugins( klass, opts ) {
+        var me = this;
+
+        // 先加载父级的
+        if ( klass.superClass ) {
+            loadPlugins.call( me, klass.superClass, opts );
+        }
+
+        eachObject( record( klass, 'plugins' ), function( opt, plugin ) {
+
+            // 如果配置项关闭了，则不启用此插件
+            if ( opts[ opt ] === false ) {
+                return;
+            }
+
+            eachObject( plugin, function( key, val ) {
+                var oringFn;
+
+                if ( $.isFunction( val ) && (oringFn = me[ key ]) ) {
+                    me[ key ] = function() {
+                        var origin = me.origin,
+                            ret;
+
+                        me.origin = oringFn;
+                        ret = val.apply( me, arguments );
+                        origin === undefined ? delete me.origin :
+                                (me.origin = origin);
+
+                        return ret;
+                    };
+                } else {
+                    me[ key ] = val;
+                }
+            } );
+
+            plugin._init.call( me );
+        } );
+    }
+
+    // 合并对象
+    function mergeObj() {
+        var args = slice.call( arguments ),
+            i = args.length,
+            last;
+
+        while ( i-- ) {
+            last = last || args[ i ];
+            isPlainObject( args[ i ] ) || args.splice( i, 1 );
+        }
+
+        return args.length ?
+                $.extend.apply( null, [ true, {} ].concat( args ) ) : last; // 深拷贝，options中某项为object时，用例中不能用==判断
+    }
+
+    // 初始化widget. 隐藏具体细节，因为如果放在构造器中的话，是可以看到方法体内容的
+    // 同时此方法可以公用。
+    function bootstrap( name, klass, uid, el, options ) {
+        var me = this,
+            opts;
+
+        if ( isPlainObject( el ) ) {
+            options = el;
+            el = undefined;
+        }
+
+        // options中存在el时，覆盖el
+        options && options.el && (el = $( options.el ));
+        el && (me.$el = $( el ), el = me.$el[ 0 ]);
+
+        opts = me._options = mergeObj( klass.options,
+                getDomOptions( el ), options );
+
+        me.template = mergeObj( klass.template, opts.template );
+
+        me.tpl2html = mergeObj( klass.tpl2html, opts.tpl2html );
+
+        // 生成eventNs widgetName
+        me.widgetName = name.toLowerCase();
+        me.eventNs = '.' + me.widgetName + uid;
+
+        me._init( opts );
+
+        // 设置setup参数，只有传入的$el在DOM中，才认为是setup模式
+        me._options.setup = (me.$el && me.$el.parent()[ 0 ]) ? true: false;
+
+        loadOption.call( me, klass, opts );
+        loadPlugins.call( me, klass, opts );
+
+        // 进行创建DOM等操作
+        me._create();
+        me.trigger( 'ready' );
+
+        el && record( el, name, me ) && me.on( 'destroy', function() {
+            record( el, name, null );
+        } );
+
+        return me;
+    }
+
+    /**
+     * @desc 创建一个类，构造函数默认为init方法, superClass默认为Base
+     * @name createClass
+     * @grammar createClass(object[, superClass]) => fn
+     */
+    function createClass( name, object, superClass ) {
+        if ( typeof superClass !== 'function' ) {
+            superClass = gmu.Base;
+        }
+
+        var uuid = 1,
+            suid = 1;
+
+        function klass( el, options ) {
+            if ( name === 'Base' ) {
+                throw new Error( 'Base类不能直接实例化' );
+            }
+
+            if ( !(this instanceof klass) ) {
+                return new klass( el, options );
+            }
+
+            return bootstrap.call( this, name, klass, uuid++, el, options );
+        }
+
+        $.extend( klass, {
+
+            /**
+             * @name register
+             * @grammar klass.register({})
+             * @desc 注册插件
+             */
+            register: function( name, obj ) {
+                var plugins = record( klass, 'plugins' ) ||
+                        record( klass, 'plugins', {} );
+
+                obj._init = obj._init || blankFn;
+
+                plugins[ name ] = obj;
+                return klass;
+            },
+
+            /**
+             * @name option
+             * @grammar klass.option(option, value, method)
+             * @desc 扩充组件的配置项
+             */
+            option: function( option, value, method ) {
+                var options = record( klass, 'options' ) ||
+                        record( klass, 'options', {} );
+
+                options[ option ] || (options[ option ] = []);
+                options[ option ].push([ value, method ]);
+
+                return klass;
+            },
+
+            /**
+             * @name inherits
+             * @grammar klass.inherits({})
+             * @desc 从该类继承出一个子类，不会被挂到gmu命名空间
+             */
+            inherits: function( obj ) {
+
+                // 生成 Sub class
+                return createClass( name + 'Sub' + suid++, obj, klass );
+            },
+
+            /**
+             * @name extend
+             * @grammar klass.extend({})
+             * @desc 扩充现有组件
+             */
+            extend: function( obj ) {
+                var proto = klass.prototype,
+                    superProto = superClass.prototype;
+
+                staticlist.forEach(function( item ) {
+                    obj[ item ] = mergeObj( superClass[ item ], obj[ item ] );
+                    obj[ item ] && (klass[ item ] = obj[ item ]);
+                    delete obj[ item ];
+                });
+
+                // todo 跟plugin的origin逻辑，公用一下
+                eachObject( obj, function( key, val ) {
+                    if ( typeof val === 'function' && superProto[ key ] ) {
+                        proto[ key ] = function() {
+                            var $super = this.$super,
+                                ret;
+
+                            // todo 直接让this.$super = superProto[ key ];
+                            this.$super = function() {
+                                var args = slice.call( arguments, 1 );
+                                return superProto[ key ].apply( this, args );
+                            };
+
+                            ret = val.apply( this, arguments );
+
+                            $super === undefined ? (delete this.$super) :
+                                    (this.$super = $super);
+                            return ret;
+                        };
+                    } else {
+                        proto[ key ] = val;
+                    }
+                } );
+            }
+        } );
+
+        klass.superClass = superClass;
+        klass.prototype = Object.create( superClass.prototype );
+
+
+        /*// 可以在方法中通过this.$super(name)方法调用父级方法。如：this.$super('enable');
+        object.$super = function( name ) {
+            var fn = superClass.prototype[ name ];
+            return $.isFunction( fn ) && fn.apply( this,
+                    slice.call( arguments, 1 ) );
+        };*/
+
+        klass.extend( object );
+
+        return klass;
+    }
+
+    /**
+     * @method define
+     * @grammar gmu.define( name, object[, superClass] )
+     * @class
+     * @param {String} name 组件名字标识符。
+     * @param {Object} object
+     * @desc 定义一个gmu组件
+     * @example
+     * ####组件定义
+     * ```javascript
+     * gmu.define( 'Button', {
+     *     _create: function() {
+     *         var $el = this.getEl();
+     *
+     *         $el.addClass( 'ui-btn' );
+     *     },
+     *
+     *     show: function() {
+     *         console.log( 'show' );
+     *     }
+     * } );
+     * ```
+     *
+     * ####组件使用
+     * html部分
+     * ```html
+     * <a id='btn'>按钮</a>
+     * ```
+     *
+     * javascript部分
+     * ```javascript
+     * var btn = $('#btn').button();
+     *
+     * btn.show();    // => show
+     * ```
+     *
+     */
+    gmu.define = function( name, object, superClass ) {
+        gmu[ name ] = createClass( name, object, superClass );
+        zeptolize( name );
+    };
+
+    /**
+     * @desc 判断object是不是 widget实例, klass不传时，默认为Base基类
+     * @method isWidget
+     * @grammar gmu.isWidget( anything[, klass] ) => Boolean
+     * @param {*} anything 需要判断的对象
+     * @param {String|Class} klass 字符串或者类。
+     * @example
+     * var a = new gmu.Button();
+     *
+     * console.log( gmu.isWidget( a ) );    // => true
+     * console.log( gmu.isWidget( a, 'Dropmenu' ) );    // => false
+     */
+    gmu.isWidget = function( obj, klass ) {
+
+        // 处理字符串的case
+        klass = typeof klass === 'string' ? gmu[ klass ] || blankFn : klass;
+        klass = klass || gmu.Base;
+        return obj instanceof klass;
+    };
+
+    /**
+     * @class Base
+     * @description widget基类。不能直接使用。
+     */
+    gmu.Base = createClass( 'Base', {
+
+        /**
+         * @method _init
+         * @grammar instance._init() => instance
+         * @desc 组件的初始化方法，子类需要重写该方法
+         */
+        _init: blankFn,
+
+        /**
+         * @override
+         * @method _create
+         * @grammar instance._create() => instance
+         * @desc 组件创建DOM的方法，子类需要重写该方法
+         */
+        _create: blankFn,
+
+
+        /**
+         * @method getEl
+         * @grammar instance.getEl() => $el
+         * @desc 返回组件的$el
+         */
+        getEl: function() {
+            return this.$el;
+        },
+
+        /**
+         * @method on
+         * @grammar instance.on(name, callback, context) => self
+         * @desc 订阅事件
+         */
+        on: event.on,
+
+        /**
+         * @method one
+         * @grammar instance.one(name, callback, context) => self
+         * @desc 订阅事件（只执行一次）
+         */
+        one: event.one,
+
+        /**
+         * @method off
+         * @grammar instance.off(name, callback, context) => self
+         * @desc 解除订阅事件
+         */
+        off: event.off,
+
+        /**
+         * @method trigger
+         * @grammar instance.trigger( name ) => self
+         * @desc 派发事件, 此trigger会优先把options上的事件回调函数先执行
+         * options上回调函数可以通过调用event.stopPropagation()来阻止事件系统继续派发,
+         * 或者调用event.preventDefault()阻止后续事件执行
+         */
+        trigger: function( name ) {
+            var evt = typeof name === 'string' ? new gmu.Event( name ) : name,
+                args = [ evt ].concat( slice.call( arguments, 1 ) ),
+                opEvent = this._options[ evt.type ],
+
+                // 先存起来，否则在下面使用的时候，可能已经被destory给删除了。
+                $el = this.getEl();
+
+            if ( opEvent && $.isFunction( opEvent ) ) {
+
+                // 如果返回值是false,相当于执行stopPropagation()和preventDefault();
+                false === opEvent.apply( this, args ) &&
+                        (evt.stopPropagation(), evt.preventDefault());
+            }
+
+            event.trigger.apply( this, args );
+
+            // triggerHandler不冒泡
+            $el && $el.triggerHandler( evt, (args.shift(), args) );
+
+            return this;
+        },
+
+        /**
+         * @method tpl2html
+         * @grammar instance.tpl2html() => String
+         * @grammar instance.tpl2html( data ) => String
+         * @grammar instance.tpl2html( subpart, data ) => String
+         * @desc 将template输出成html字符串，当传入 data 时，html将通过$.parseTpl渲染。
+         * template支持指定subpart, 当无subpart时，template本身将为模板，当有subpart时，
+         * template[subpart]将作为模板输出。
+         */
+        tpl2html: function( subpart, data ) {
+            var tpl = this.template;
+
+            tpl =  typeof subpart === 'string' ? tpl[ subpart ] :
+                    ((data = subpart), tpl);
+
+            return data || ~tpl.indexOf( '<%' ) ? $.parseTpl( tpl, data ) : tpl;
+        },
+
+        /**
+         * @method destroy
+         * @grammar instance.destroy()
+         * @desc 注销组件
+         */
+        destroy: function() {
+
+            // 解绑element上的事件
+            this.$el && this.$el.off( this.eventNs );
+
+            this.trigger( 'destroy' );
+            // 解绑所有自定义事件
+            this.off();
+
+
+            this.destroyed = true;
+        }
+
+    }, Object );
+
+    // 向下兼容
+    $.ui = gmu;
+})( gmu, gmu.$ );
+
+/**
+ * @file 图片轮播组件
+ * @import extend/touch.js, extend/event.ortchange.js, core/widget.js
+ * @module GMU
+ */
+(function( gmu, $, undefined ) {
+    var cssPrefix = $.fx.cssPrefix,
+        transitionEnd = $.fx.transitionEnd,
+
+        // todo 检测3d是否支持。
+        translateZ = ' translateZ(0)';
+    
+    /**
+     * 图片轮播组件
+     *
+     * @class Slider
+     * @constructor Html部分
+     * ```html
+     * <div id="slider">
+     *   <div>
+     *       <a href="http://www.baidu.com/"><img lazyload="image1.png"></a>
+     *       <p>1,让Coron的太阳把自己晒黑—小天</p>
+     *   </div>
+     *   <div>
+     *       <a href="http://www.baidu.com/"><img lazyload="image2.png"></a>
+     *       <p>2,让Coron的太阳把自己晒黑—小天</p>
+     *   </div>
+     *   <div>
+     *       <a href="http://www.baidu.com/"><img lazyload="image3.png"></a>
+     *       <p>3,让Coron的太阳把自己晒黑—小天</p>
+     *   </div>
+     *   <div>
+     *       <a href="http://www.baidu.com/"><img lazyload="image4.png"></a>
+     *       <p>4,让Coron的太阳把自己晒黑—小天</p>
+     *   </div>
+     * </div>
+     * ```
+     *
+     * javascript部分
+     * ```javascript
+     * $('#slider').slider();
+     * ```
+     * @param {dom | zepto | selector} [el] 用来初始化Slider的元素
+     * @param {Object} [options] 组件配置项。具体参数请查看[Options](#GMU:Slider:options)
+     * @grammar $( el ).slider( options ) => zepto
+     * @grammar new gmu.Slider( el, options ) => instance
+     */
+    gmu.define( 'Slider', {
+
+        options: {
+
+            /**
+             * @property {Boolean} [loop=false] 是否连续滑动
+             * @namespace options
+             */
+            loop: false,
+            
+            /**
+             * @property {Number} [speed=400] 动画执行速度
+             * @namespace options
+             */
+            speed: 400,
+
+            /**
+             * @property {Number} [index=0] 初始位置
+             * @namespace options
+             */
+            index: 0,
+
+            /**
+             * @property {Object} [selector={container:'.ui-slider-group'}] 内部结构选择器定义
+             * @namespace options
+             */
+            selector: {
+                container: '.ui-slider-group'    // 容器的选择器
+            }
+        },
+
+        template: {
+            item: '<div class="ui-slider-item"><a href="<%= href %>">' +
+                    '<img src="<%= pic %>" alt="" /></a>' +
+                    '<% if( title ) { %><p><%= title %></p><% } %>' +
+                    '</div>'
+        },
+
+        _create: function() {
+            var me = this,
+                $el = me.getEl(),
+                opts = me._options;
+
+            me.index = opts.index;
+
+            // 初始dom结构
+            me._initDom( $el, opts );
+
+            // 更新width
+            me._initWidth( $el, me.index );
+            me._container.on( transitionEnd + me.eventNs,
+                    $.proxy( me._tansitionEnd, me ) );
+
+            // 转屏事件检测
+            $( window ).on( 'ortchange' + me.eventNs, function() {
+                me._initWidth( $el, me.index );
+            } );
+        },
+
+        _initDom: function( $el, opts ) {
+            var selector = opts.selector,
+                viewNum = opts.viewNum || 1,
+                items,
+                container;
+
+            // 检测容器节点是否指定
+            container = $el.find( selector.container );
+
+            // 没有指定容器则创建容器
+            if ( !container.length ) {
+                container = $( '<div></div>' );
+
+                // 如果没有传入content, 则将root的孩子作为可滚动item
+                if ( !opts.content ) {
+
+                    // 特殊处理直接用ul初始化slider的case
+                    if ( $el.is( 'ul' ) ) {
+                        this.$el = container.insertAfter( $el );
+                        container = $el;
+                        $el = this.$el;
+                    } else {
+                        container.append( $el.children() );
+                    }
+                } else {
+                    this._createItems( container, opts.content );
+                }
+
+                container.appendTo( $el );
+            }
+
+            // 检测是否构成循环条件
+            if ( (items = container.children()).length < viewNum + 1 ) {
+                opts.loop = false;
+            }
+
+            // 如果节点少了，需要复制几份
+            while ( opts.loop && container.children().length < 3 * viewNum ) {
+                container.append( items.clone() );
+            }
+
+            this.length = container.children().length;
+
+            this._items = (this._container = container)
+                    .addClass( 'ui-slider-group' )
+                    .children()
+                    .addClass( 'ui-slider-item' )
+                    .toArray();
+
+            this.trigger( 'done.dom', $el.addClass( 'ui-slider' ), opts );
+        },
+
+        // 根据items里面的数据挨个render插入到container中
+        _createItems: function( container, items ) {
+            var i = 0,
+                len = items.length;
+
+            for ( ; i < len; i++ ) {
+                container.append( this.tpl2html( 'item', items[ i ] ) );
+            }
+        },
+
+        _initWidth: function( $el, index, force ) {
+            var me = this,
+                width;
+
+            // width没有变化不需要重排
+            if ( !force && (width = $el.width()) === me.width ) {
+                return;
+            }
+
+            me.width = width;
+            me._arrange( width, index );
+            me.height = $el.height();
+            me.trigger( 'width.change' );
+        },
+
+        // 重排items
+        _arrange: function( width, index ) {
+            var items = this._items,
+                i = 0,
+                item,
+                len;
+
+            this._slidePos = new Array( items.length );
+
+            for ( len = items.length; i < len; i++ ) {
+                item = items[ i ];
+                
+                item.style.cssText += 'width:' + width + 'px;' +
+                        'left:' + (i * -width) + 'px;';
+                item.setAttribute( 'data-index', i );
+
+                this._move( i, i < index ? -width : i > index ? width : 0, 0 );
+            }
+
+            this._container.css( 'width', width * len );
+        },
+
+        _move: function( index, dist, speed, immediate ) {
+            var slidePos = this._slidePos,
+                items = this._items;
+
+            if ( slidePos[ index ] === dist || !items[ index ] ) {
+                return;
+            }
+
+            this._translate( index, dist, speed );
+            slidePos[ index ] = dist;    // 记录目标位置
+
+            // 强制一个reflow
+            immediate && items[ index ].clientLeft;
+        },
+
+        _translate: function( index, dist, speed ) {
+            var slide = this._items[ index ],
+                style = slide && slide.style;
+
+            if ( !style ) {
+                return false;
+            }
+
+            style.cssText += cssPrefix + 'transition-duration:' + speed + 
+                    'ms;' + cssPrefix + 'transform: translate(' + 
+                    dist + 'px, 0)' + translateZ + ';';
+        },
+
+        _circle: function( index, arr ) {
+            var len;
+
+            arr = arr || this._items;
+            len = arr.length;
+
+            return (index % len + len) % arr.length;
+        },
+
+        _tansitionEnd: function( e ) {
+
+            // ~~用来类型转换，等价于parseInt( str, 10 );
+            if ( ~~e.target.getAttribute( 'data-index' ) !== this.index ) {
+                return;
+            }
+            
+            this.trigger( 'slideend', this.index );
+        },
+
+        _slide: function( from, diff, dir, width, speed, opts ) {
+            var me = this,
+                to;
+
+            to = me._circle( from - dir * diff );
+
+            // 如果不是loop模式，以实际位置的方向为准
+            if ( !opts.loop ) {
+                dir = Math.abs( from - to ) / (from - to);
+            }
+            
+            // 调整初始位置，如果已经在位置上不会重复处理
+            this._move( to, -dir * width, 0, true );
+
+            this._move( from, width * dir, speed );
+            this._move( to, 0, speed );
+
+            this.index = to;
+            return this.trigger( 'slide', to, from );
+        },
+
+        /**
+         * 切换到第几个slide
+         * @method slideTo
+         * @chainable
+         * @param {Number} to 目标slide的序号
+         * @param {Number} [speed] 切换的速度
+         * @return {self} 返回本身
+         */
+        slideTo: function( to, speed ) {
+            if ( this.index === to || this.index === this._circle( to ) ) {
+                return this;
+            }
+
+            var opts = this._options,
+                index = this.index,
+                diff = Math.abs( index - to ),
+                
+                // 1向左，-1向右
+                dir = diff / (index - to),
+                width = this.width;
+
+            speed = speed || opts.speed;
+
+            return this._slide( index, diff, dir, width, speed, opts );
+        },
+
+        /**
+         * 切换到上一个slide
+         * @method prev
+         * @chainable
+         * @return {self} 返回本身
+         */
+        prev: function() {
+            
+            if ( this._options.loop || this.index > 0 ) {
+                this.slideTo( this.index - 1 );
+            }
+
+            return this;
+        },
+
+        /**
+         * 切换到下一个slide
+         * @method next
+         * @chainable
+         * @return {self} 返回本身
+         */
+        next: function() {
+            
+            if ( this._options.loop || this.index + 1 < this.length ) {
+                this.slideTo( this.index + 1 );
+            }
+
+            return this;
+        },
+
+        /**
+         * 返回当前显示的第几个slide
+         * @method getIndex
+         * @chainable
+         * @return {Number} 当前的silde序号
+         */
+        getIndex: function() {
+            return this.index;
+        },
+
+        /**
+         * 销毁组件
+         * @method destroy
+         */
+        destroy: function() {
+            this._container.off( this.eventNs );
+            $( window ).off( 'ortchange' + this.eventNs );
+            return this.$super( 'destroy' );
+        }
+
+        /**
+         * @event ready
+         * @param {Event} e gmu.Event对象
+         * @description 当组件初始化完后触发。
+         */
+
+        /**
+         * @event done.dom
+         * @param {Event} e gmu.Event对象
+         * @param {Zepto} $el slider元素
+         * @param {Object} opts 组件初始化时的配置项
+         * @description DOM创建完成后触发
+         */
+        
+        /**
+         * @event width.change
+         * @param {Event} e gmu.Event对象
+         * @description slider容器宽度发生变化时触发
+         */
+        
+        /**
+         * @event slideend
+         * @param {Event} e gmu.Event对象
+         * @param {Number} index 当前slide的序号
+         * @description slide切换完成后触发
+         */
+        
+        /**
+         * @event slide
+         * @param {Event} e gmu.Event对象
+         * @param {Number} to 目标slide的序号
+         * @param {Number} from 当前slide的序号
+         * @description slide切换时触发（如果切换时有动画，此事件触发时，slide不一定已经完成切换）
+         */
+        
+        /**
+         * @event destroy
+         * @param {Event} e gmu.Event对象
+         * @description 组件在销毁的时候触发
+         */
+    } );
+
+})( gmu, gmu.$ );
+
+
+/**
+ * @file 图片轮播显示点功能
+ * @import widget/slider/slider.js
+ */
+(function( gmu, $, undefined ) {
+    $.extend( true, gmu.Slider, {
+
+        template: {
+            dots: '<p class="ui-slider-dots"><%= new Array( len + 1 )' +
+                    '.join("<b></b>") %></p>'
+        },
+
+        options: {
+
+            /**
+             * @property {Boolean} [dots=true] 是否显示点
+             * @namespace options
+             * @for Slider
+             * @uses Slider.dots
+             */
+            dots: true,
+
+            /**
+             * @property {Object} [selector={dots:'.ui-slider-dots'}] 所有点父级的选择器
+             * @namespace options
+             * @for Slider
+             * @uses Slider.dots
+             */
+            selector: {
+                dots: '.ui-slider-dots'
+            }
+        }
+    } );
+
+    /**
+     * 图片轮播显示点功能
+     * @class dots
+     * @namespace Slider
+     * @pluginfor Slider
+     */
+    gmu.Slider.option( 'dots', true, function() {
+        
+        var updateDots = function( to, from ) {
+            var dots = this._dots;
+
+            typeof from === 'undefined' || gmu.staticCall( dots[
+                from % this.length ], 'removeClass', 'ui-state-active' );
+            
+            gmu.staticCall( dots[ to % this.length ], 'addClass',
+                    'ui-state-active' );
+        };
+
+        this.on( 'done.dom', function( e, $el, opts ) {
+            var dots = $el.find( opts.selector.dots );
+
+            if ( !dots.length ) {
+                dots = this.tpl2html( 'dots', {
+                    len: this.length
+                } );
+                
+                dots = $( dots ).appendTo( $el );
+            }
+
+            this._dots = dots.children().toArray();
+        } );
+
+        this.on( 'slide', function( e, to, from ) {
+            updateDots.call( this, to, from );
+        } );
+
+        this.on( 'ready', function() {
+            updateDots.call( this, this.index );
+        } );
+    } );
+})( gmu, gmu.$ );

@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 52
-/appbuilder/!svn/ver/181/framework/client/webapp/tpl
+/appbuilder/!svn/ver/206/framework/client/webapp/tpl
 END
 tabframe.html
 K 25
@@ -13,7 +13,7 @@ inspection_sheet.html
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/appbuilder/!svn/ver/181/framework/client/webapp/tpl/inspection_sheet.html
+/appbuilder/!svn/ver/206/framework/client/webapp/tpl/inspection_sheet.html
 END
 register1.html
 K 25

@@ -90,7 +90,7 @@ $.app = $.extend($.app, new function() {
 	this.toast = function(text, time)
 	{
 		if (typeof(time) == 'undefined') {
-			time = 3000;
+			time = 3000000;
 		}
 		toast_node.text(text);
 		toast_node.show();
@@ -136,7 +136,7 @@ $.app = $.extend($.app, new function() {
 	/** @brief 新窗口一般会被屏蔽，在这种模式下直接当前窗口跳转 */
 	this.port_open_new_page = function(url)
 	{
-		window.open(url, '_blank', 'location=no,closebuttoncaption=关闭');
+		window.open(url, '_blank', 'location=yes,closebuttoncaption=关闭');
 	}
 
 	/** @brief 刷新页面
@@ -171,6 +171,7 @@ $.app = $.extend($.app, new function() {
 		}
 		$.app.protect_curr_url_index = 0;
 		$.app.protect_url_stack[$.app.protect_curr_url_index] = {url:url, y:0};
+		$.app.protect_url_stack.length = 1;
 		$.app.protect_history_change_type = 'replace';
 		is_new_page = true;
 		$.app.load_page_data($.app.protect_url_stack[$.app.protect_curr_url_index].url, $.app.default_conf['animation'], -2, 2, $.app.default_conf['data-check-time']);
@@ -204,8 +205,15 @@ $.app = $.extend($.app, new function() {
 		}
 	}
 
-	this.show_msg = function($msg) {
-		alert($msg);
+	this.show_msg = function($msg, $title) {
+		if (typeof($title) == "undefined") {
+			$title = "提示";
+		}
+		if ($.app.client_type == 'phonegap') {
+			navigator.notification.alert($msg, function(){}, $title);
+		}else {
+			alert($msg);
+		}
 	}
 
 	this.port_load_page_state = function() {

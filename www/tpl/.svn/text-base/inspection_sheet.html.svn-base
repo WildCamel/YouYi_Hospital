@@ -12,9 +12,9 @@
             <div class="tabbody">
                 <form action="index.php?m=webapp_hospital&c=index&a=inspection_sheet" method="get" data-submit="common_form_submit_cbk(response, url)">            	
                     <input type="hidden" name="type" value="biochemical"/>
-                    <div class="name_input"><input type="text" name="name" class="input_text" placeholder="患者姓名:" /></div>
+                    <div class="item_ver input_normal"><input type="text" onfocus="inputFocus(this)" onblur="inputBlur(this)" name="name" class="input_text" placeholder="患者姓名:" /></div>
                     <div class="camero_input">
-                        <div class="num_input"><input id="bi_number" type="text" name="number" class="border_input" placeholder="医嘱号码:" /></div>
+                        <div class="item_ver input_normal"><input id="bi_number" type="text"  name="number" class="input_text" onfocus="inputFocus(this)" onblur="inputBlur(this)" placeholder="医嘱号码:" /></div>
                     </div>
                     <input type="submit" class="btn greenbt btnbig" value="提交" />
                 </form>
@@ -23,9 +23,9 @@
             <div class="tabbody">
                 <form action="index.php?m=webapp_hospital&c=index&a=inspection_sheet" method="get" data-submit="common_form_submit_cbk(response, url)">            	
                     <input type="hidden" name="type" value="image"/>
-                    <div class="name_input"><input type="text" name="name" class="input_text" placeholder="患者姓名:" /></div>
+                    <div class="item_ver input_normal"><input type="text" name="name" class="input_text" onfocus="inputFocus(this)" onblur="inputBlur(this)" placeholder="患者姓名:" /></div>
                     <div class="camero_input">
-                        <div class="num_input"><input type="text" id="image_number" name="number" class="border_input" placeholder="医嘱号码:" /></div>
+                        <div class="item_ver input_normal"><input type="text" id="image_number" name="number" class="input_text" onfocus="inputFocus(this)" onblur="inputBlur(this)" placeholder="医嘱号码:" /></div>
                     </div>
                     <input type="submit" class="btn greenbt btnbig" value="提交" />
                 </form>

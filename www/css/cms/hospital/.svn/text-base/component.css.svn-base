@@ -62,7 +62,6 @@
 	padding:0.5em;}
 .loginitem{
 	-webkit-box-flex:1;
-	padding:0.2em;
 	display:-webkit-box;
 	line-height:1.4em;}
 .loginitem label{
@@ -74,8 +73,29 @@
 	display:block;
 	border:none;
 	line-height:normal;
-	height:2em;
 	-webkit-box-flex:5;}
+label.ib{
+	text-align:center;
+	position:relative;
+	overflow:hidden;
+	line-height:2.5em;}
+label.ib input[type="radio"]{
+	z-index: -1;
+	height: 2.5em;
+	position: absolute;
+	-webkit-appearance: none;
+	width: 100%;
+	border-radius:5px;
+	display: block;}
+label.ib input[type="radio"]:checked{
+	z-index: -1;
+	height: 2.5em;
+	position: absolute;
+	background: #ccc;
+	-webkit-appearance: none;
+	border-radius:5px;
+	display: block;
+	width: 100%;}
 .yanzheng{
 	-webkit-box-flex:5;
 	display:-webkit-box;}
@@ -87,15 +107,16 @@
 	-webkit-box-flex:1;}
 .chelogin{
 	display:-webkit-box;
-	width:90%;
+	width:95%;
 	margin:0 auto;
-	height:2em;
-	line-height:2em;}
+	margin-top:0.5em;}
 .chelogin .btn{
 	margin-left:0.2em;
 	background:#4eb25c;}
 .chebox{
+	display:-webkit-box;
 	margin-left:1.5em;
+	line-height:2em;
 	-webkit-box-flex:1;}
 
 
@@ -105,10 +126,9 @@
 .loginitem .form{
 	-webkit-box-flex:8;}
 .loginitem .form .btn{
-	width:13em;
-	height:2.4em;
-	font-size:0.8em;
-	border-radius:3px;
+	width:23em;
+	height:2.7em;
+	font-size:0.9em;
 	padding:1px 1px;
 	background-image: -webkit-linear-gradient(top, rgba(87, 87, 87, 0.4) 0%, rgba(163, 162, 162, 0.6) 100%); 
 	-webkit-box-flex:10;}
@@ -329,7 +349,7 @@
 .steptext div{
 	-webkit-box-flex:1;
 	text-align:center;
-	color:#c8c8c8;}
+	color:rgba(255,255,255,0.5);}
 .steptext div.nowstep{
 	color:white;}
 .singlelist li{
@@ -379,10 +399,13 @@
 	line-height:2.5em;
 	text-align:center;}
 .chose table tr td{
+	line-height:1.3em;
+	padding:0.5em 0em;
 	border-bottom:#c8c8c8 solid 1px;}
 .chose table tr.tabtitle{
 	background:#ecf0f6;}
 .chose table tr th{
+	line-height:2em;
 	font-weight:normal;
 	color:#4eb25c;
 	border-bottom:#c8c8c8 solid 1px;}
@@ -445,21 +468,14 @@ tr.nodo td{
 	line-height:2.5em;
 	color:#4eb25c;}
 .getnum{
-	width:10em;
+	width:9em;
 	margin:0.5em;
 	background:url(../../../image/cms/hospital/textarr.png) left center no-repeat;
 	background-size:1.5em;
 	color:#4eb25c;
 	float:right;
 	padding-left:1.6em;}
-.infoContain .btn{
-	width:90%;
-	margin:0 auto;
-	margin-top:4em;
-	background:#4eb25c;
-	font-size:1.2em;
-	height:2.5em;
-	line-height:2.5em;}
+
 
 
 
@@ -513,10 +529,7 @@ table.report td{
 	height:1.5em;
 	line-height:1.5em;
 	margin-top:1em;}
-.listyle1{
-	background:url(../../../image/cms/hospital/listyle1.png) 1.5em center no-repeat;
-	background-size:0.5em;
-	padding-left:3em;}
+
 
 /*预约凭证*/
 .stick .table3{
@@ -632,9 +645,9 @@ table.report td{
 	font-size:0.8em;
 	color:#666;}
 .moreinfo{
-	line-height:3em;
-	height:3em;
-	text-align:center;}
+	margin-top:1em;}
+.moreinfo a{
+	color:white;}
 
 /*健康资讯正文页*/
 .cms_ContentBlock{
@@ -667,7 +680,7 @@ table.report td{
 .text_block p{
 	line-height:1.5em;}
 .text_block img{
-	padding:1em;}
+	padding:1em 0em;}
 .text_block img[alt="map"]{
 	padding:0em;}
 
@@ -793,6 +806,8 @@ table.report td{
 	background-position:0.5em center;
 	padding-left:2.5em;}
 .search .searchbtn{
+	height:2em;
+	line-height:2em;
 	background:#4eb25c;}
 
 /*科室医生——医生列表*/
@@ -918,7 +933,7 @@ table.report td{
 	margin-top: 0.5em;
 	width: 2em;}
 .btnbig{
-	width:100%;
+	width:95%;
 	height:2.5em;
 	line-height:2.5em;
 	font-size:1em;}
@@ -1057,6 +1072,48 @@ table.report td{
 	padding-left:0.5em;
 	font-size:1em;
 	color:black;}
+	
+	
+/*slider组件*/
+
+.slider{
+	width:100%;
+	overflow:hidden;
+	position:relative;}
+.group li{
+	display:block;
+	float:left;
+	width:33.3%;
+	position:relative;
+	margin:0;
+	padding:0;}
+.group li img{
+	height:10em;
+	display:block;
+	width:100%;}
+.pictitle{
+	background: rgba(0,0,0,0.6);
+	width: 100%;
+	position:absolute;
+	bottom:0;
+	height: 2em;
+	line-height: 2em;
+	color: white;}
+.dots{
+	position:absolute;
+	z-index:100;
+	bottom:0.5em;
+	right:0.5em;}
+.dots li{
+	background:url(../../../image/cms/hospital/pagination.png) left 0px no-repeat;
+	width:16px;
+	float:left;
+	height:13px;}
+.dots li.active{
+	background:url(../../../image/cms/hospital/pagination.png) left -13px no-repeat;
+	width:16px;
+	float:left;
+	height:13px;}
 
 
 

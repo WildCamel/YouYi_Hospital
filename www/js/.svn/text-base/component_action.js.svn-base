@@ -54,7 +54,7 @@ function login1_callback(response)
 	if (comp && comp.ui_type == 'cms.CmsMsgPage') {
 		$.app.show_msg(comp.info.text);
 		if (comp.info.text.indexOf('成功') >= 0) {
-			$.app.open_page('self', comp.info.href);
+			$.app.open_page('self', comp.info.href, $.app.default_conf['animation'], $.app.STORAGE_EXPIRE_KEEP);
 		}
 	}
 }
@@ -78,15 +78,15 @@ function common_form_submit_cbk(response, url)
 }
 function acceptInfo(obj){
 	if(obj.title=="pushon"){
-		$.get("http://www.baidu.com",{newsid:"1"},function(data){
+		//$.get("http://www.baidu.com",{newsid:"1"},function(data){
 			obj.src = nano('{local_path}image/cms/{theme}/radio2.png');
 			obj.title = "pushoff";
-		});
+		//});
 	}else if(obj.title=="pushoff"){
-		$.get("http://www.baidu.com",{newsid:"1"},function(data){
+		//$.get("http://www.baidu.com",{newsid:"1"},function(data){
 			obj.src = nano('{local_path}image/cms/{theme}/radio.png');
 			obj.title = "pushon";
-		});
+		//});
 	}
 	
 }
@@ -281,4 +281,65 @@ function chkgo(e,target){
 	if(check_status=="TRcheck"){
 		$.app.action_open_page(e,target);
 	}
+}
+
+
+//input框选中后的效果
+function inputFocus(obj){
+	$(obj).parent().addClass("input_focus");
+}
+function inputBlur(obj){
+	$(obj).parent().removeClass("input_focus");
+}
+
+
+function slider(){
+	var sliderpic_num = $(".group li").length;
+	var groupWidth = sliderpic_num*100+'%';
+	var picliWidth = 100/sliderpic_num + '%';
+	$(".group").css("width",groupWidth);
+	$(".group li").css("width",picliWidth);
+	
+	var maxMagin = -100*(sliderpic_num-1);
+	
+	for(var i=0;i<sliderpic_num;i++){
+		$('<li><a href="#"></a></li>').appendTo(".dots");
+	}
+	$(".dots li").first().addClass("active");
+	var nowdot = 0;
+	
+	//事件触发
+	$(".group img").on("swipeLeft",function(){
+		var preleft = $(".group").css("margin-left");
+		if( parseFloat(preleft) == maxMagin ){
+		
+		}else{
+			nowleft = parseFloat(preleft) - 100 + '%';
+			
+			$(".group").animate({//左偏移
+				"margin-left" : nowleft
+			},300,"ease-out",function(){
+				$(".dots li").eq(nowdot).removeClass("active");
+				nowdot++;
+				$(".dots li").eq(nowdot).addClass("active");
+			});	
+		}
+		
+	});
+	$(".group img").on("swipeRight",function(){
+		var preleft = $(".group").css("margin-left");
+		if(parseFloat(preleft)==0){
+		
+		}else{
+			var preleft = $(".group").css("margin-left");
+			nowleft = parseFloat(preleft) + 100 + '%';
+			$(".group").animate({
+				"margin-left" : nowleft
+			},300,"ease-out",function(){
+				$(".dots li").eq(nowdot).removeClass("active");
+				nowdot--;
+				$(".dots li").eq(nowdot).addClass("active");
+			});
+		}
+	});
 }
