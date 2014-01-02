@@ -160,7 +160,13 @@ var ui_com = new function() {
 	}
 
 	this.IframeBlock_to_html = function(comp) {
-		return nano('<iframe frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; margin-bottom: -1px;" onload="javascript:this.height=document.body.scrollHeight - this.offsetTop" src="{src}"/>', comp);
+		var screen_height = document.body.offsetHeight;
+		var header_height = $(".header").height();
+		var nav_height =$(".")
+		var iframe_height = screen_height-header_height;
+		
+		
+		return nano('<iframe frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; margin-bottom: -1px;" height="'+ iframe_height +'" src="{src}"/>', comp);
 	}
 
 	this.ColumnBlock_to_html = function(comp) {
@@ -181,12 +187,12 @@ var ui_com = new function() {
 			
 			html += '<div class="item_ver">';
 			html += '<div class="cateitem action" ' + $.app.link_attr(comp.items[i*2]) + '>\
-						<img data-aspect-ratio="1" src="'+ nano(comp.items[i*2].thumb) +'" />\
+						<img src="'+ nano(comp.items[i*2].thumb) +'" />\
 						<div class="catetext">'+ comp.items[i*2].title +'</div>\
 					</div>';
 		 	if(comp.items.length!=i*2+1){
 				html += '<div class="cateitem action" ' + $.app.link_attr(comp.items[i*2+1]) + '>\
-							<img data-aspect-ratio="1" src="'+ nano(comp.items[i*2+1].thumb) +'" />\
+							<img src="'+ nano(comp.items[i*2+1].thumb) +'" />\
 							<div class="catetext">'+ comp.items[i*2+1].title +'</div>\
 						</div>';
 			}				
@@ -203,7 +209,7 @@ var ui_com = new function() {
 			var html = '<div id="slider" class="slider"><ul class="group">';
 			
 			for (var i in comp.items) {
-				html += nano('<li ' + $.app.link_attr(comp.items[i]) + '><img data-aspect-ratio="0.4" alt="{title}" src="' + nano(comp.items[i].thumb) + '" /><div class="pictitle">{title}</div></li>', comp.items[i]);
+				html += nano('<li ' + $.app.link_attr(comp.items[i]) + '><img alt="{title}" src="' + nano(comp.items[i].thumb) + '" /><div class="pictitle">{title}</div></li>', comp.items[i]);
 				
 			}
 			html += '</ul><ul class="dots"></ul>';

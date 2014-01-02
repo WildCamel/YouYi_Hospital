@@ -422,6 +422,10 @@ $.app = $.extend($.app, new function() {
 		}
 		var item;
 		var has_callback = false;
+		if (!not_show_loader && !has_callback) {	//用户没有指定不显示loader
+			console.log('before send: ' + $.app.get_time('ms') + ' ' + url);
+			$.app.show_loader('ui-data-loading');
+		}
 		//先检查localstorage中是否有
 		if ($.app.offline_cache_on && (item = $.app.get_local_item(url))) {
 			//维持当前策略
@@ -509,16 +513,10 @@ $.app = $.extend($.app, new function() {
 					}
 				},
 				beforeSend: function(xhr, settings) {
-					if (!not_show_loader && !has_callback) {	//用户没有指定不显示loader，并且没有使用离线数据
-						console.log('before send: ' + $.app.get_time('ms') + ' ' + url);
-						$.app.show_loader('ui-data-loading');
-					}
 				},
 				complete: function(xhr, status) {
-					if (!not_show_loader) {
-						console.log('complete: ' + $.app.get_time('ms') + ' ' + url);
-						$.app.hide_loader('ui-data-loading');
-					}
+					console.log('complete: ' + $.app.get_time('ms') + ' ' + url);
+					$.app.hide_loader('ui-data-loading');
 					if (!has_callback && item != null) {
 						$.app.toast('请求新数据失败，正在使用离线旧数据。', 3000);
 						if (callback) {
@@ -532,15 +530,20 @@ $.app = $.extend($.app, new function() {
 					}
 				}
 			});
-		}else if (!has_callback && item != null) { //尝试获取新值失败，使用旧数据
-			if (callback) {
-				try {
-					callback(item.data);
-				}catch(e) {
-					console.log(e.stack);
+		}else  {
+			if (!has_callback && item != null) { //尝试获取新值失败，使用旧数据
+				if (callback) {
+					try {
+						callback(item.data);
+					}catch(e) {
+						console.log(e.stack);
+					}
 				}
+				has_callback = true;
 			}
-			has_callback = true;
+
+			console.log('complete: ' + $.app.get_time('ms') + ' ' + url);
+			$.app.hide_loader('ui-data-loading');
 		}
 
 	}
@@ -874,7 +877,7 @@ $.app = $.extend($.app, new function() {
 	this.CHECK_TYPE_INERT = 1;
 	this.CHECK_TYPE_ACTIVE = 2;
 	this.default_conf = new Array();
-	this.default_conf['data-transition'] = 'fade';
+	this.default_conf['data-transition'] = 'slide';
 	this.default_conf['data-expire'] = 604800;
 	this.default_conf['data-check-type'] = this.CHECK_TYPE_INERT;
 	this.default_conf['data-check-time'] = 0;

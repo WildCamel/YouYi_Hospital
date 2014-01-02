@@ -181,12 +181,12 @@ var ui_com = new function() {
 			
 			html += '<div class="item_ver">';
 			html += '<div class="cateitem action" ' + $.app.link_attr(comp.items[i*2]) + '>\
-						<img src="'+ nano(comp.items[i*2].thumb) +'" />\
+						<img data-aspect-ratio="1" src="'+ nano(comp.items[i*2].thumb) +'" />\
 						<div class="catetext">'+ comp.items[i*2].title +'</div>\
 					</div>';
 		 	if(comp.items.length!=i*2+1){
 				html += '<div class="cateitem action" ' + $.app.link_attr(comp.items[i*2+1]) + '>\
-							<img src="'+ nano(comp.items[i*2+1].thumb) +'" />\
+							<img data-aspect-ratio="1" src="'+ nano(comp.items[i*2+1].thumb) +'" />\
 							<div class="catetext">'+ comp.items[i*2+1].title +'</div>\
 						</div>';
 			}				
@@ -203,7 +203,7 @@ var ui_com = new function() {
 			var html = '<div id="slider" class="slider"><ul class="group">';
 			
 			for (var i in comp.items) {
-				html += nano('<li ' + $.app.link_attr(comp.items[i]) + '><img alt="{title}" src="' + nano(comp.items[i].thumb) + '" /><div class="pictitle">{title}</div></li>', comp.items[i]);
+				html += nano('<li ' + $.app.link_attr(comp.items[i]) + '><img data-aspect-ratio="0.4" alt="{title}" src="' + nano(comp.items[i].thumb) + '" /><div class="pictitle">{title}</div></li>', comp.items[i]);
 				
 			}
 			html += '</ul><ul class="dots"></ul>';
