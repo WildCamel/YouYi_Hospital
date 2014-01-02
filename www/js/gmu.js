@@ -1,3 +1,4 @@
+/*!Extend matchMedia.js*/
 /**
  * @file 媒体查询
  * @import zepto.js
@@ -75,6 +76,7 @@
     }());
 })(Zepto);
 
+/*!Extend event.ortchange.js*/
 /**
  * @file 扩展转屏事件
  * @name ortchange
@@ -101,7 +103,7 @@ $(function () {
         $(window).trigger('ortchange');
     });
 });
-
+/*!Extend parseTpl.js*/
 /**
  * @file 模板解析
  * @import zepto.js
@@ -143,7 +145,128 @@ $(function () {
         return data ? func( data ) : func;
     };
 })( Zepto );
+/*!Extend touch.js*/
+/**
+ * @file 来自zepto/touch.js, zepto自1.0后，已不默认打包此文件。
+ * @import zepto.js
+ */
+//     Zepto.js
+//     (c) 2010-2012 Thomas Fuchs
+//     Zepto.js may be freely distributed under the MIT license.
 
+;(function($){
+  var touch = {},
+    touchTimeout, tapTimeout, swipeTimeout,
+    longTapDelay = 750, longTapTimeout
+
+  function parentIfText(node) {
+    return 'tagName' in node ? node : node.parentNode
+  }
+
+  function swipeDirection(x1, x2, y1, y2) {
+    var xDelta = Math.abs(x1 - x2), yDelta = Math.abs(y1 - y2)
+    return xDelta >= yDelta ? (x1 - x2 > 0 ? 'Left' : 'Right') : (y1 - y2 > 0 ? 'Up' : 'Down')
+  }
+
+  function longTap() {
+    longTapTimeout = null
+    if (touch.last) {
+      touch.el.trigger('longTap')
+      touch = {}
+    }
+  }
+
+  function cancelLongTap() {
+    if (longTapTimeout) clearTimeout(longTapTimeout)
+    longTapTimeout = null
+  }
+
+  function cancelAll() {
+    if (touchTimeout) clearTimeout(touchTimeout)
+    if (tapTimeout) clearTimeout(tapTimeout)
+    if (swipeTimeout) clearTimeout(swipeTimeout)
+    if (longTapTimeout) clearTimeout(longTapTimeout)
+    touchTimeout = tapTimeout = swipeTimeout = longTapTimeout = null
+    touch = {}
+  }
+
+  $(document).ready(function(){
+    var now, delta
+
+    $(document.body)
+      .bind('touchstart', function(e){
+        now = Date.now()
+        delta = now - (touch.last || now)
+        touch.el = $(parentIfText(e.touches[0].target))
+        touchTimeout && clearTimeout(touchTimeout)
+        touch.x1 = e.touches[0].pageX
+        touch.y1 = e.touches[0].pageY
+        if (delta > 0 && delta <= 250) touch.isDoubleTap = true
+        touch.last = now
+        longTapTimeout = setTimeout(longTap, longTapDelay)
+      })
+      .bind('touchmove', function(e){
+        cancelLongTap()
+        touch.x2 = e.touches[0].pageX
+        touch.y2 = e.touches[0].pageY
+        if (Math.abs(touch.x1 - touch.x2) > 10)
+          e.preventDefault()
+      })
+      .bind('touchend', function(e){
+         cancelLongTap()
+
+        // swipe
+        if ((touch.x2 && Math.abs(touch.x1 - touch.x2) > 30) ||
+            (touch.y2 && Math.abs(touch.y1 - touch.y2) > 30))
+
+          swipeTimeout = setTimeout(function() {
+            touch.el.trigger('swipe')
+            touch.el.trigger('swipe' + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)))
+            touch = {}
+          }, 0)
+
+        // normal tap
+        else if ('last' in touch)
+
+          // delay by one tick so we can cancel the 'tap' event if 'scroll' fires
+          // ('tap' fires before 'scroll')
+          tapTimeout = setTimeout(function() {
+
+            // trigger universal 'tap' with the option to cancelTouch()
+            // (cancelTouch cancels processing of single vs double taps for faster 'tap' response)
+            var event = $.Event('tap')
+            event.cancelTouch = cancelAll
+            touch.el.trigger(event)
+
+            // trigger double tap immediately
+            if (touch.isDoubleTap) {
+              touch.el.trigger('doubleTap')
+              touch = {}
+            }
+
+            // trigger single tap after 250ms of inactivity
+            else {
+              touchTimeout = setTimeout(function(){
+                touchTimeout = null
+                touch.el.trigger('singleTap')
+                touch = {}
+              }, 250)
+            }
+
+          }, 0)
+
+      })
+      .bind('touchcancel', cancelAll)
+
+    $(window).bind('scroll', cancelAll)
+  })
+
+  ;['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'singleTap', 'longTap'].forEach(function(m){
+    $.fn[m] = function(callback){ return this.bind(m, callback) }
+  })
+})(Zepto);
+
+/*!Extend gmu.js*/
 // Copyright (c) 2013, Baidu Inc. All rights reserved.
 //
 // Licensed under the BSD License
@@ -219,7 +342,7 @@ var gmu = gmu || {
         };
     })( Zepto )
 };
-
+/*!Extend event.js*/
 /**
  * @file Event相关, 给widget提供事件行为。也可以给其他对象提供事件行为。
  * @import core/gmu.js
@@ -511,7 +634,7 @@ var gmu = gmu || {
     // expose
     gmu.Event = Event;
 })( gmu, gmu.$ );
-
+/*!Extend widget.js*/
 /**
  * @file gmu底层，定义了创建gmu组件的方法
  * @import core/gmu.js, core/event.js, extend/parseTpl.js
@@ -1097,8 +1220,7 @@ var gmu = gmu || {
     // 向下兼容
     $.ui = gmu;
 })( gmu, gmu.$ );
-
-
+/*!Widget slider/slider.js*/
 /**
  * @file 图片轮播组件
  * @import extend/touch.js, extend/event.ortchange.js, core/widget.js
@@ -1491,155 +1613,496 @@ var gmu = gmu || {
     } );
 
 })( gmu, gmu.$ );
-
+/*!Widget slider/$lazyloadimg.js*/
 /**
- * @file 图片轮播剪头按钮
+ * @file 图片懒加载插件
  * @import widget/slider/slider.js
  */
-(function( gmu, $, undefined ) {
-    $.extend( true, gmu.Slider, {
+(function( gmu ) {
 
-        template: {
-            prev: '<span class="ui-slider-pre"></span>',
-            next: '<span class="ui-slider-next"></span>'
+    gmu.Slider.template.item = '<div class="ui-slider-item">' +
+            '<a href="<%= href %>">' +
+            '<img lazyload="<%= pic %>" alt="" /></a>' +
+            '<% if( title ) { %><p><%= title %></p><% } %>' +
+            '</div>';
+
+    /**
+     * 图片懒加载插件
+     * @class lazyloadimg
+     * @namespace Slider
+     * @pluginfor Slider
+     */
+    gmu.Slider.register( 'lazyloadimg', {
+        _init: function() {
+            this.on( 'ready slide', this._loadItems );
         },
 
+        _loadItems: function() {
+            var opts = this._options,
+                loop = opts.loop,
+                viewNum = opts.viewNum || 1,
+                index = this.index,
+                i,
+                len;
+
+            for ( i = index - viewNum, len = index + 2 * viewNum; i < len;
+                    i++ ) {
+
+                this.loadImage( loop ? this._circle( i ) : i );
+            }
+        },
+
+        /**
+         * 加载指定item中的图片
+         * @method loadImage
+         * @param {Number} index 要加载的图片的序号
+         * @for Slider
+         * @uses Slider.lazyloadimg
+         */
+        loadImage: function( index ) {
+            var item = this._items[ index ],
+                images;
+
+            if ( !item || !(images = gmu.staticCall( item, 'find',
+                    'img[lazyload]' ), images.length) ) {
+
+                return this;
+            }
+
+            images.each(function() {
+                this.src = this.getAttribute( 'lazyload' );
+                this.removeAttribute( 'lazyload' );
+            });
+        }
+    } );
+})( gmu );
+/*!Widget slider/$dynamic.js*/
+/**
+ * @file 内容可动态修改插件
+ * 此插件扩充slider， 让内容可以动态修改，在这种模式下，dom个数跟items的个数无关，
+ * 永远是3个div轮换，对于图片集比较多的图片轮播，采用这种方式。
+ * @import widget/slider/slider.js
+ */
+(function( gmu, $ ) {
+    /**
+     * @property {Number} [edgeThrottle=0] 默认当slider滚动到第一张或者到最后一张时，会触发edge事件。但如果这个值为1时，当slider滚动倒数第二张时就会触发edge事件。以此类推。
+     * @namespace options
+     * @for Slider
+     * @uses Slider.dynamic
+     */
+    gmu.Slider.options.edgeThrottle = 0;
+
+    /**
+     * 内容可动态修改插件，此插件扩充slider， 让内容可以动态修改，在这种模式下，dom个数跟items的个数无关，永远是3个div轮换，对于图片集比较多的图片轮播，采用这种方式。
+     * @class dynamic
+     * @namespace Slider
+     * @pluginfor Slider
+     */
+    gmu.Slider.register( 'dynamic', {
+        _init: function() {
+            var me = this;
+
+            // 当滑动结束后调整
+            me.on( 'slideend', me._adjustPos );
+            me.getEl().on( 'touchstart' + me.eventNs, function() {
+                me._adjustPos();
+            } );
+        },
+
+        _create: function() {
+            var me = this,
+                opts = me._options,
+                group;
+
+            if ( !opts.content || opts.content.length < 3 ) {
+                throw new Error( '以动态模式使用slider，至少需要传入3组数据' );
+            }
+
+            opts.viewNum = 1;    // 只能处理viewNum为1的情况
+            opts.loop = false;    // 不支持loop
+
+            this._group = group = $( '<div class="ui-slider-group"></div>' );
+            me._renderItems( opts.content, opts.index, group );
+            group.appendTo( me.getEl() );
+            opts.index = me.index;
+
+            me.origin();
+            me._adjustPos( true );
+        },
+
+        trigger: function( e, to ) {
+
+            if ( e === 'slide' || e.type === 'slide' ) {
+                this._active = this._pool[ to ];
+                this._flag = true;    // 标记需要调整
+            }
+            return this.origin.apply( this, arguments );
+        },
+
+        slideTo: function( to, speed ) {
+            var index = this.getIndex();
+
+            // 一次只允许移动一张
+            if ( Math.abs( to - index ) !== 1 ) {
+                return;
+            }
+
+            this._adjustPos();
+
+            return this.origin( to + this.index - index, speed );
+        },
+
+        prev: function() {
+            var index = this.getIndex();
+
+            index > 0 && this.slideTo( index - 1 );
+
+            return this;
+        },
+
+        next: function() {
+            var index = this.getIndex();
+
+            index < this._content.length - 1 && this.slideTo( index + 1 );
+
+            return this;
+        },
+
+        // 调整位置，如果能移动的话，将当前的总是移动到中间。
+        _adjustPos: function( force, ignoreEdge ) {
+
+            if ( !force && !this._flag ) {
+                return;
+            }
+
+            var me = this,
+                opts = me._options,
+                content = me._content,
+                group = me._group,
+                index = $.inArray( me._active, content ),
+                delta = me.index - 1,
+                next = index + delta,
+                item,
+                elem;
+
+            if ( delta && next < content.length && next >= 0 ) {
+                item = content[ next ];
+                elem = $( me.tpl2html( 'item', item ) );
+                gmu.staticCall( me._items[ 1 - delta ], 'remove' );
+                group[ delta < 0 ? 'prepend' : 'append' ]( elem );
+                me.trigger( 'dom.change' );
+
+                me._pool.splice( 1 - delta, 1 );
+                me._pool[ delta < 0 ? 'unshift' : 'push' ]( item );
+
+                me.index -= delta;
+                me._items = group.children().toArray();
+                me._arrange( me.width, me.index );
+            }
+
+            // 到达边缘
+            if ( !ignoreEdge && (index === opts.edgeThrottle || index ===
+                    content.length - opts.edgeThrottle - 1) ) {
+                me.trigger( 'edge', index === opts.edgeThrottle, me._active );
+            }
+
+            me._flag = false;
+            return me;
+        },
+
+        _renderItems: function( content, index, group ) {
+            var arr = content.slice( index, index + (index > 0 ? 2 : 3) ),
+                rest = 3 - arr.length;
+
+            // 避免外部直接修改，影响内部代码
+            this._content = content.concat();
+            this._active = content[ index ];
+            rest && (arr = content.slice( index - rest, index )
+                    .concat( arr ));
+            this.index = rest;
+            this._createItems( group, this._pool = arr );
+        },
+
+        /**
+         * 获取当前显示的元素索引
+         * @method getIndex
+         * @chainable
+         * @return {Number} 当前显示的元素索引
+         * @for Slider
+         * @uses Slider.autoplay
+         */
+        getIndex: function() {
+            return $.inArray( this._active, this._content );
+        },
+
+        /**
+         * 获取当前显示的元素数据对象
+         * @method active
+         * @chainable
+         * @return {Number} 当前显示的元素索引
+         * @for Slider
+         * @uses Slider.autoplay
+         */
+        active: function() {
+            return this._active;
+        },
+
+         /**
+         * 获取内容或者更新内容，直接换掉content中数据，然后重新渲染新设置的内容。在需要延时扩充图片集的情况下使用。
+         * @method content
+         * @chainable
+         * @return {Number} 当前显示的元素索引
+         * @for Slider
+         * @uses Slider.autoplay
+         */
+        content: function( content ) {
+
+            // getter
+            if ( !$.isArray( content ) ) {
+                return this._content.concat();
+            }
+
+            var me = this,
+                active = me._active,
+                index = $.inArray( active, content ),
+                group = this._group.empty();
+
+            ~index || (index = 0);
+            me._renderItems( content, index, group );
+            me._items = group.children().toArray();
+            me._arrange( me.width, me.index );
+
+            me._adjustPos( false, true );
+            me.trigger( 'dom.change' );
+        }
+    } );
+})( gmu, gmu.$ );
+/*!Widget slider/$autoplay.js*/
+/**
+ * @file 自动播放插件
+ * @import widget/slider/slider.js
+ */
+(function( gmu, $ ) {
+    $.extend( true, gmu.Slider, {
         options: {
             /**
-             * @property {Boolean} [arrow=true] 是否显示点
+             * @property {Boolean} [autoPlay=true] 是否开启自动播放
              * @namespace options
              * @for Slider
-             * @uses Slider.arrow
+             * @uses Slider.autoplay
              */
-            arrow: true,
-
+            autoPlay: true,
             /**
-             * @property {Object} [select={prev:'.ui-slider-pre',next:'.ui-slider-next'}] 上一张和下一张按钮的选择器
+             * @property {Number} [interval=4000] 自动播放的间隔时间（毫秒）
              * @namespace options
              * @for Slider
-             * @uses Slider.arrow
+             * @uses Slider.autoplay
              */
-            select: {
-                prev: '.ui-slider-pre',    // 上一张按钮选择器
-                next: '.ui-slider-next'    // 下一张按钮选择器
-            }
+            interval: 4000
         }
     } );
 
     /**
-     * 图片轮播剪头按钮
-     * @class arrow
+     * 自动播放插件
+     * @class autoplay
      * @namespace Slider
      * @pluginfor Slider
      */
-    gmu.Slider.option( 'arrow', true, function() {
-        var me = this,
-            arr = [ 'prev', 'next' ];
+    gmu.Slider.register( 'autoplay', {
+        _init: function() {
+            var me = this;
+            me.on( 'slideend ready', me.resume )
 
-        this.on( 'done.dom', function( e, $el, opts ) {
-            var selector = opts.selector;
+                    // 清除timer
+                    .on( 'destory', me.stop );
 
-            arr.forEach(function( name ) {
-                var item = $el.find( selector[ name ] );
-                item.length || $el.append( item = $( me.tpl2html( name ) ) );
-                me[ '_' + name ] = item;
-            });
-        } );
+            // 避免滑动时，自动切换
+            me.getEl()
+                    .on( 'touchstart' + me.eventNs, $.proxy( me.stop, me ) )
+                    .on( 'touchend' + me.eventNs, $.proxy( me.resume, me ) );
+        },
 
-        this.on( 'ready', function() {
-            arr.forEach(function( name ) {
-                me[ '_' + name ].on( 'tap' + me.eventNs, function() {
-                    me[ name ].call( me );
-                } );
-            });
-        } );
+        /**
+         * 恢复自动播放。
+         * @method resume
+         * @chainable
+         * @return {self} 返回本身
+         * @for Slider
+         * @uses Slider.autoplay
+         */
+        resume: function() {
+            var me = this,
+                opts = me._options;
 
-        this.on( 'destroy', function() {
-            me._prev.off( me.eventNs );
-            me._next.off( me.eventNs );
-        } );
+            if ( opts.autoPlay && !me._timer ) {
+                me._timer = setTimeout( function() {
+                    me.slideTo( me.index + 1 );
+                    me._timer = null;
+                }, opts.interval );
+            }
+            return me;
+        },
+
+        /**
+         * 停止自动播放
+         * @method stop
+         * @chainable
+         * @return {self} 返回本身
+         * @for Slider
+         * @uses Slider.autoplay
+         */
+        stop: function() {
+            var me = this;
+
+            if ( me._timer ) {
+                clearTimeout( me._timer );
+                me._timer = null;
+            }
+            return me;
+        }
     } );
 })( gmu, gmu.$ );
-
-
+/*!Widget slider/$multiview.js*/
 /**
  * @file 图片轮播显示点功能
  * @import widget/slider/slider.js
  */
 (function( gmu, $, undefined ) {
-    $.extend( true, gmu.Slider, {
-
-        template: {
-            dots: '<p class="ui-slider-dots"><%= new Array( len + 1 )' +
-                    '.join("<b></b>") %></p>'
-        },
-
-        options: {
-
-            /**
-             * @property {Boolean} [dots=true] 是否显示点
-             * @namespace options
-             * @for Slider
-             * @uses Slider.dots
-             */
-            dots: true,
-
-            /**
-             * @property {Object} [selector={dots:'.ui-slider-dots'}] 所有点父级的选择器
-             * @namespace options
-             * @for Slider
-             * @uses Slider.dots
-             */
-            selector: {
-                dots: '.ui-slider-dots'
-            }
-        }
+    $.extend( gmu.Slider.options, {
+        /**
+         * @property {Number} [viewNum=2] 当slider为multiview模式时，用来指定一页显示多少个图片。
+         * @namespace options
+         * @for Slider
+         * @uses Slider.multiview
+         */
+        viewNum: 2,
+        /**
+         * @property {Number} [travelSize=2] 用来指定当操作上下导航时，一次滑动多少个张图片，如果这个值与viewNum值一致，就是一次滑动一屏的效果。
+         * @namespace options
+         * @for Slider
+         * @uses Slider.multiview
+         */
+        travelSize: 2
     } );
 
     /**
      * 图片轮播显示点功能
-     * @class dots
+     * @class multiview
      * @namespace Slider
      * @pluginfor Slider
      */
-    gmu.Slider.option( 'dots', true, function() {
-        
-        var updateDots = function( to, from ) {
-            var dots = this._dots;
+    gmu.Slider.register( 'multiview', {
+        _arrange: function( width, index ) {
+            var items = this._items,
+                viewNum = this._options.viewNum,
+                factor = index % viewNum,
+                i = 0,
+                perWidth = this.perWidth = Math.ceil( width / viewNum ),
+                item,
+                len;
 
-            typeof from === 'undefined' || gmu.staticCall( dots[
-                from % this.length ], 'removeClass', 'ui-state-active' );
-            
-            gmu.staticCall( dots[ to % this.length ], 'addClass',
-                    'ui-state-active' );
-        };
+            this._slidePos = new Array( items.length );
 
-        this.on( 'done.dom', function( e, $el, opts ) {
-            var dots = $el.find( opts.selector.dots );
+            for ( len = items.length; i < len; i++ ) {
+                item = items[ i ];
 
-            if ( !dots.length ) {
-                dots = this.tpl2html( 'dots', {
-                    len: this.length
-                } );
-                
-                dots = $( dots ).appendTo( $el );
+                item.style.cssText += 'width:' + perWidth + 'px;' +
+                        'left:' + (i * -perWidth) + 'px;';
+                item.setAttribute( 'data-index', i );
+
+                i % viewNum === factor && this._move( i,
+                        i < index ? -width : i > index ? width : 0,
+                        0, Math.min( viewNum, len - i ) );
             }
 
-            this._dots = dots.children().toArray();
-        } );
+            this._container.css( 'width', perWidth * len );
+        },
 
-        this.on( 'slide', function( e, to, from ) {
-            updateDots.call( this, to, from );
-        } );
+        _move: function( index, dist, speed, immediate, count ) {
+            var perWidth = this.perWidth,
+                opts = this._options,
+                i = 0;
 
-        this.on( 'ready', function() {
-            updateDots.call( this, this.index );
-        } );
+            count = count || opts.viewNum;
+
+            for ( ; i < count; i++ ) {
+                this.origin( opts.loop ? this._circle( index + i ) :
+                        index + i, dist + i * perWidth, speed, immediate );
+            }
+        },
+
+        _slide: function( from, diff, dir, width, speed, opts, mode ) {
+            var me = this,
+                viewNum = opts.viewNum,
+                len = this._items.length,
+                offset,
+                to;
+
+            // 当不是loop时，diff不能大于实际能移动的范围
+            opts.loop || (diff = Math.min( diff, dir > 0 ?
+                            from : len - viewNum - from ));
+
+            to = me._circle( from - dir * diff );
+
+            // 如果不是loop模式，以实际位置的方向为准
+            opts.loop || (dir = Math.abs( from - to ) / (from - to));
+
+            diff %= len;    // 处理diff大于len的情况
+
+            // 相反的距离比viewNum小，不能完成流畅的滚动。
+            if ( len - diff < viewNum ) {
+                diff = len - diff;
+                dir = -1 * dir;
+            }
+
+            offset = Math.max( 0, viewNum - diff );
+
+            // 调整初始位置，如果已经在位置上不会重复处理
+            // touchend中执行过来的，不会执行以下代码
+            if ( !mode ) {
+                this._move( to, -dir * this.perWidth *
+                        Math.min( diff, viewNum ), 0, true );
+                this._move( from + offset * dir, offset * dir *
+                        this.perWidth, 0, true );
+            }
+
+            this._move( from + offset * dir, width * dir, speed );
+            this._move( to, 0, speed );
+
+            this.index = to;
+            return this.trigger( 'slide', to, from );
+        },
+
+        prev: function() {
+            var opts = this._options,
+                travelSize = opts.travelSize;
+
+            if ( opts.loop || (this.index > 0, travelSize =
+                    Math.min( this.index, travelSize )) ) {
+
+                this.slideTo( this.index - travelSize );
+            }
+
+            return this;
+        },
+
+        next: function() {
+            var opts = this._options,
+                travelSize = opts.travelSize,
+                viewNum = opts.viewNum;
+
+            if ( opts.loop || (this.index + viewNum < this.length &&
+                    (travelSize = Math.min( this.length - 1 - this.index,
+                    travelSize ))) ) {
+
+                this.slideTo( this.index + travelSize );
+            }
+
+            return this;
+        }
     } );
 })( gmu, gmu.$ );
-
-
-
+/*!Widget slider/$touch.js*/
 /**
  * @file 图片轮播手指跟随插件
  * @import widget/slider/slider.js
@@ -1865,159 +2328,7 @@ var gmu = gmu || {
         }
     } );
 })( gmu, gmu.$ );
-
-
-
-/**
- * @file 自动播放插件
- * @import widget/slider/slider.js
- */
-(function( gmu, $ ) {
-    $.extend( true, gmu.Slider, {
-        options: {
-            /**
-             * @property {Boolean} [autoPlay=true] 是否开启自动播放
-             * @namespace options
-             * @for Slider
-             * @uses Slider.autoplay
-             */
-            autoPlay: true,
-            /**
-             * @property {Number} [interval=4000] 自动播放的间隔时间（毫秒）
-             * @namespace options
-             * @for Slider
-             * @uses Slider.autoplay
-             */
-            interval: 4000
-        }
-    } );
-
-    /**
-     * 自动播放插件
-     * @class autoplay
-     * @namespace Slider
-     * @pluginfor Slider
-     */
-    gmu.Slider.register( 'autoplay', {
-        _init: function() {
-            var me = this;
-            me.on( 'slideend ready', me.resume )
-
-                    // 清除timer
-                    .on( 'destory', me.stop );
-
-            // 避免滑动时，自动切换
-            me.getEl()
-                    .on( 'touchstart' + me.eventNs, $.proxy( me.stop, me ) )
-                    .on( 'touchend' + me.eventNs, $.proxy( me.resume, me ) );
-        },
-
-        /**
-         * 恢复自动播放。
-         * @method resume
-         * @chainable
-         * @return {self} 返回本身
-         * @for Slider
-         * @uses Slider.autoplay
-         */
-        resume: function() {
-            var me = this,
-                opts = me._options;
-
-            if ( opts.autoPlay && !me._timer ) {
-                me._timer = setTimeout( function() {
-                    me.slideTo( me.index + 1 );
-                    me._timer = null;
-                }, opts.interval );
-            }
-            return me;
-        },
-
-        /**
-         * 停止自动播放
-         * @method stop
-         * @chainable
-         * @return {self} 返回本身
-         * @for Slider
-         * @uses Slider.autoplay
-         */
-        stop: function() {
-            var me = this;
-
-            if ( me._timer ) {
-                clearTimeout( me._timer );
-                me._timer = null;
-            }
-            return me;
-        }
-    } );
-})( gmu, gmu.$ );
-
-
-/**
- * @file 图片懒加载插件
- * @import widget/slider/slider.js
- */
-(function( gmu ) {
-
-    gmu.Slider.template.item = '<div class="ui-slider-item">' +
-            '<a href="<%= href %>">' +
-            '<img lazyload="<%= pic %>" alt="" /></a>' +
-            '<% if( title ) { %><p><%= title %></p><% } %>' +
-            '</div>';
-
-    /**
-     * 图片懒加载插件
-     * @class lazyloadimg
-     * @namespace Slider
-     * @pluginfor Slider
-     */
-    gmu.Slider.register( 'lazyloadimg', {
-        _init: function() {
-            this.on( 'ready slide', this._loadItems );
-        },
-
-        _loadItems: function() {
-            var opts = this._options,
-                loop = opts.loop,
-                viewNum = opts.viewNum || 1,
-                index = this.index,
-                i,
-                len;
-
-            for ( i = index - viewNum, len = index + 2 * viewNum; i < len;
-                    i++ ) {
-
-                this.loadImage( loop ? this._circle( i ) : i );
-            }
-        },
-
-        /**
-         * 加载指定item中的图片
-         * @method loadImage
-         * @param {Number} index 要加载的图片的序号
-         * @for Slider
-         * @uses Slider.lazyloadimg
-         */
-        loadImage: function( index ) {
-            var item = this._items[ index ],
-                images;
-
-            if ( !item || !(images = gmu.staticCall( item, 'find',
-                    'img[lazyload]' ), images.length) ) {
-
-                return this;
-            }
-
-            images.each(function() {
-                this.src = this.getAttribute( 'lazyload' );
-                this.removeAttribute( 'lazyload' );
-            });
-        }
-    } );
-})( gmu );
-
-
+/*!Widget slider/imgzoom.js*/
 /**
  * @file 图片自动适应功能
  * @import widget/slider/slider.js
@@ -2065,7 +2376,6 @@ var gmu = gmu || {
                     me.height / img.naturalHeight );
             
             img.style.width = scale * img.naturalWidth + 'px';
-			//img.style.height = document.body.clientWidth/15*7 +'px';
         }
 
         me.on( 'ready dom.change', watch );
@@ -2075,3 +2385,148 @@ var gmu = gmu || {
         me.on( 'destroy', unWatch );
     } );
 })( gmu );
+/*!Widget slider/dots.js*/
+/**
+ * @file 图片轮播显示点功能
+ * @import widget/slider/slider.js
+ */
+(function( gmu, $, undefined ) {
+    $.extend( true, gmu.Slider, {
+
+        template: {
+            dots: '<p class="ui-slider-dots"><%= new Array( len + 1 )' +
+                    '.join("<b></b>") %></p>'
+        },
+
+        options: {
+
+            /**
+             * @property {Boolean} [dots=true] 是否显示点
+             * @namespace options
+             * @for Slider
+             * @uses Slider.dots
+             */
+            dots: true,
+
+            /**
+             * @property {Object} [selector={dots:'.ui-slider-dots'}] 所有点父级的选择器
+             * @namespace options
+             * @for Slider
+             * @uses Slider.dots
+             */
+            selector: {
+                dots: '.ui-slider-dots'
+            }
+        }
+    } );
+
+    /**
+     * 图片轮播显示点功能
+     * @class dots
+     * @namespace Slider
+     * @pluginfor Slider
+     */
+    gmu.Slider.option( 'dots', true, function() {
+        
+        var updateDots = function( to, from ) {
+            var dots = this._dots;
+
+            typeof from === 'undefined' || gmu.staticCall( dots[
+                from % this.length ], 'removeClass', 'ui-state-active' );
+            
+            gmu.staticCall( dots[ to % this.length ], 'addClass',
+                    'ui-state-active' );
+        };
+
+        this.on( 'done.dom', function( e, $el, opts ) {
+            var dots = $el.find( opts.selector.dots );
+
+            if ( !dots.length ) {
+                dots = this.tpl2html( 'dots', {
+                    len: this.length
+                } );
+                
+                dots = $( dots ).appendTo( $el );
+            }
+
+            this._dots = dots.children().toArray();
+        } );
+
+        this.on( 'slide', function( e, to, from ) {
+            updateDots.call( this, to, from );
+        } );
+
+        this.on( 'ready', function() {
+            updateDots.call( this, this.index );
+        } );
+    } );
+})( gmu, gmu.$ );
+/*!Widget slider/arrow.js*/
+/**
+ * @file 图片轮播剪头按钮
+ * @import widget/slider/slider.js
+ */
+(function( gmu, $, undefined ) {
+    $.extend( true, gmu.Slider, {
+
+        template: {
+            prev: '<span class="ui-slider-pre"></span>',
+            next: '<span class="ui-slider-next"></span>'
+        },
+
+        options: {
+            /**
+             * @property {Boolean} [arrow=true] 是否显示点
+             * @namespace options
+             * @for Slider
+             * @uses Slider.arrow
+             */
+            arrow: true,
+
+            /**
+             * @property {Object} [select={prev:'.ui-slider-pre',next:'.ui-slider-next'}] 上一张和下一张按钮的选择器
+             * @namespace options
+             * @for Slider
+             * @uses Slider.arrow
+             */
+            select: {
+                prev: '.ui-slider-pre',    // 上一张按钮选择器
+                next: '.ui-slider-next'    // 下一张按钮选择器
+            }
+        }
+    } );
+
+    /**
+     * 图片轮播剪头按钮
+     * @class arrow
+     * @namespace Slider
+     * @pluginfor Slider
+     */
+    gmu.Slider.option( 'arrow', true, function() {
+        var me = this,
+            arr = [ 'prev', 'next' ];
+
+        this.on( 'done.dom', function( e, $el, opts ) {
+            var selector = opts.selector;
+
+            arr.forEach(function( name ) {
+                var item = $el.find( selector[ name ] );
+                item.length || $el.append( item = $( me.tpl2html( name ) ) );
+                me[ '_' + name ] = item;
+            });
+        } );
+
+        this.on( 'ready', function() {
+            arr.forEach(function( name ) {
+                me[ '_' + name ].on( 'tap' + me.eventNs, function() {
+                    me[ name ].call( me );
+                } );
+            });
+        } );
+
+        this.on( 'destroy', function() {
+            me._prev.off( me.eventNs );
+            me._next.off( me.eventNs );
+        } );
+    } );
+})( gmu, gmu.$ );

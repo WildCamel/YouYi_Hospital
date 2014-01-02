@@ -28,7 +28,20 @@ var ui_com = new function() {
 	}
 
 	this.ShareBlock_to_html = function(comp) {
-		return 'share';
+		var html1 = '<div onclick="showshare()">分享</div>';
+		window._bd_share_config = {
+			common : {
+				bdText : comp.desc,	
+				bdDesc : comp.desc,	
+				bdUrl : comp.url, 	
+				bdPic : comp.thumb
+			},
+			share : [{
+				"bdSize" : 32
+			}],
+		}
+		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];
+		return html1;
 	}
 	
 
@@ -198,18 +211,17 @@ var ui_com = new function() {
 
 	this.BannerBlock_to_html = function(comp){
 		if(comp.items.length==1){//只有一张图的情况，也就是直接显示图片块而非图片滚动
-			var html = '<img class="bannerpic" data-aspect-ratio="0.4" src="'+nano(comp.items[0].thumb)+'" />';
+			var html = '<img class="bannerpic" src="'+nano(comp.items[0].thumb)+'" />';
 		}else{
-			var html = '<div id="slider" class="slider"><ul class="group">';
-			
+			var html = '<div data-loaded="$(e.target).slider({imgZoom:true, arrow:false})">';
 			for (var i in comp.items) {
-				html += nano('<li ' + $.app.link_attr(comp.items[i]) + '><img data-aspect-ratio="0.4" alt="{title}" src="' + nano(comp.items[i].thumb) + '" /><div class="pictitle">{title}</div></li>', comp.items[i]);
+				html += nano('<div>\
+						<a><img  ' + $.app.link_attr(comp.items[i]) + ' alt="{title}" lazyload="' + nano(comp.items[i].thumb) + '" /></a>\
+						<p>{title}</p></div>', comp.items[i]);
 				
 			}
-			html += '</ul><ul class="dots"></ul>';
 			html += '</div>';	
 		}
-		html +='<script>slider()</script>';
 		return html;
 	}
 	
@@ -498,7 +510,7 @@ var ui_cms = new function() {
 	}
 
 	this.CmsCommentFormBlock_to_html = function(comp){
-		var html = nano('<form action="' + $.app.link_attr(comp.action) + '" method="post" data-submit="common_form_submit_cbk(response, url)">\
+		var html = nano('<form action="{action}" method="post" data-submit="common_form_submit_cbk(response, url)">\
 				   <input type="hidden" name="title" value="{input.title}">\
 				   <input type="hidden" name="url" value="{input.url}">\
 				   <div class="lbtitle greenLb">我来说两句</div>\

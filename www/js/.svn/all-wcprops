@@ -1,13 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 51
-/appbuilder/!svn/ver/241/framework/client/webapp/js
+/appbuilder/!svn/ver/272/framework/client/webapp/js
 END
 lib.js
 K 25
 svn:wc:ra_dav:version-url
 V 57
 /appbuilder/!svn/ver/27/framework/client/webapp/js/lib.js
+END
+gmu.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/appbuilder/!svn/ver/262/framework/client/webapp/js/gmu.js
 END
 nano.js
 K 25
@@ -19,7 +25,13 @@ framework.js
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/appbuilder/!svn/ver/243/framework/client/webapp/js/framework.js
+/appbuilder/!svn/ver/270/framework/client/webapp/js/framework.js
+END
+fx.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/appbuilder/!svn/ver/258/framework/client/webapp/js/fx.js
 END
 framework_porting.js
 K 25
@@ -31,31 +43,37 @@ component_action.js
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/appbuilder/!svn/ver/241/framework/client/webapp/js/component_action.js
+/appbuilder/!svn/ver/272/framework/client/webapp/js/component_action.js
 END
 zepto.js
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/appbuilder/!svn/ver/240/framework/client/webapp/js/zepto.js
+/appbuilder/!svn/ver/258/framework/client/webapp/js/zepto.js
+END
+head.load.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/appbuilder/!svn/ver/261/framework/client/webapp/js/head.load.min.js
 END
 component.js
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/appbuilder/!svn/ver/243/framework/client/webapp/js/component.js
+/appbuilder/!svn/ver/272/framework/client/webapp/js/component.js
 END
 slider.js
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/appbuilder/!svn/ver/233/framework/client/webapp/js/slider.js
+/appbuilder/!svn/ver/269/framework/client/webapp/js/slider.js
 END
 touch.js
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/appbuilder/!svn/ver/236/framework/client/webapp/js/touch.js
+/appbuilder/!svn/ver/258/framework/client/webapp/js/touch.js
 END
 fastclick.js
 K 25

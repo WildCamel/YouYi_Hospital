@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/appbuilder/!svn/ver/233/framework/client/webapp/image/cms/hospital
+/appbuilder/!svn/ver/266/framework/client/webapp/image/cms/hospital
 END
 regnum.png
 K 25
@@ -81,6 +81,18 @@ svn:wc:ra_dav:version-url
 V 80
 /appbuilder/!svn/ver/78/framework/client/webapp/image/cms/hospital/checkbox1.png
 END
+newspic.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/appbuilder/!svn/ver/90/framework/client/webapp/image/cms/hospital/newspic.png
+END
+login.png
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/appbuilder/!svn/ver/179/framework/client/webapp/image/cms/hospital/login.png
+END
 ajax-loader.gif
 K 25
 svn:wc:ra_dav:version-url
@@ -93,29 +105,11 @@ svn:wc:ra_dav:version-url
 V 81
 /appbuilder/!svn/ver/179/framework/client/webapp/image/cms/hospital/checkbox2.png
 END
-login.png
-K 25
-svn:wc:ra_dav:version-url
-V 77
-/appbuilder/!svn/ver/179/framework/client/webapp/image/cms/hospital/login.png
-END
-newspic.png
-K 25
-svn:wc:ra_dav:version-url
-V 78
-/appbuilder/!svn/ver/90/framework/client/webapp/image/cms/hospital/newspic.png
-END
 checkbox3.png
 K 25
 svn:wc:ra_dav:version-url
 V 81
 /appbuilder/!svn/ver/114/framework/client/webapp/image/cms/hospital/checkbox3.png
-END
-doctor1.png
-K 25
-svn:wc:ra_dav:version-url
-V 79
-/appbuilder/!svn/ver/101/framework/client/webapp/image/cms/hospital/doctor1.png
 END
 tag.png
 K 25
@@ -123,17 +117,11 @@ svn:wc:ra_dav:version-url
 V 74
 /appbuilder/!svn/ver/78/framework/client/webapp/image/cms/hospital/tag.png
 END
-downarr.png
+doctor1.png
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/appbuilder/!svn/ver/179/framework/client/webapp/image/cms/hospital/downarr.png
-END
-news.png
-K 25
-svn:wc:ra_dav:version-url
-V 75
-/appbuilder/!svn/ver/78/framework/client/webapp/image/cms/hospital/news.png
+/appbuilder/!svn/ver/101/framework/client/webapp/image/cms/hospital/doctor1.png
 END
 changepass.png
 K 25
@@ -141,11 +129,17 @@ svn:wc:ra_dav:version-url
 V 81
 /appbuilder/!svn/ver/78/framework/client/webapp/image/cms/hospital/changepass.png
 END
-doctors.png
+news.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/appbuilder/!svn/ver/78/framework/client/webapp/image/cms/hospital/news.png
+END
+downarr.png
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/appbuilder/!svn/ver/149/framework/client/webapp/image/cms/hospital/doctors.png
+/appbuilder/!svn/ver/179/framework/client/webapp/image/cms/hospital/downarr.png
 END
 reg.png
 K 25
@@ -153,17 +147,11 @@ svn:wc:ra_dav:version-url
 V 75
 /appbuilder/!svn/ver/149/framework/client/webapp/image/cms/hospital/reg.png
 END
-alertbg.png
+doctors.png
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/appbuilder/!svn/ver/163/framework/client/webapp/image/cms/hospital/alertbg.png
-END
-radio2.png
-K 25
-svn:wc:ra_dav:version-url
-V 78
-/appbuilder/!svn/ver/115/framework/client/webapp/image/cms/hospital/radio2.png
+/appbuilder/!svn/ver/149/framework/client/webapp/image/cms/hospital/doctors.png
 END
 contextpic.png
 K 25
@@ -171,17 +159,35 @@ svn:wc:ra_dav:version-url
 V 81
 /appbuilder/!svn/ver/90/framework/client/webapp/image/cms/hospital/contextpic.png
 END
-queue.png
+radio2.png
 K 25
 svn:wc:ra_dav:version-url
-V 77
-/appbuilder/!svn/ver/149/framework/client/webapp/image/cms/hospital/queue.png
+V 78
+/appbuilder/!svn/ver/115/framework/client/webapp/image/cms/hospital/radio2.png
+END
+alertbg.png
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/appbuilder/!svn/ver/163/framework/client/webapp/image/cms/hospital/alertbg.png
 END
 headerpic.png
 K 25
 svn:wc:ra_dav:version-url
 V 81
 /appbuilder/!svn/ver/108/framework/client/webapp/image/cms/hospital/headerpic.png
+END
+queue.png
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/appbuilder/!svn/ver/149/framework/client/webapp/image/cms/hospital/queue.png
+END
+ui-slider-arrow.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/appbuilder/!svn/ver/266/framework/client/webapp/image/cms/hospital/ui-slider-arrow.png
 END
 dot.png
 K 25

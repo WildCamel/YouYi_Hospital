@@ -31,7 +31,7 @@
 }
 .ui-slider-dots {
     position: absolute;
-    bottom:6px;
+    bottom: 6px;
     right: 0;
     padding: 0 6px;
     text-align: right;

@@ -12,9 +12,9 @@ $.app = $.extend($.app, new function() {
 	}
 
 	this.rerender = function(dom_node) {
-		$.each($('[data-aspect-ratio]', dom_node), function(__index, __item) {
+		/*$.each($('[data-aspect-ratio]', dom_node), function(__index, __item) {
 			$(__item).css('height', __item.offsetWidth * __item.getAttribute('data-aspect-ratio'));
-		});
+		});*/
 		$.each(dom_node, function(index, item) {
 			item = $(item);
 			if (item.hasClass('page')) {
@@ -401,7 +401,7 @@ $.app = $.extend($.app, new function() {
 			if (error == null ) {
 				callback(data);
 			}else {
-				$.app.toast('服务器返回数据异常：' + data.substr(0, 40));
+				$.app.toast('服务器返回数据异常：' + data);
 			}
 		}, storage_expire, check_type, check_time, not_show_loader);
 	}
@@ -433,6 +433,17 @@ $.app = $.extend($.app, new function() {
 				storage_expire = item.storage_expire;
 				check_type = item.check_type;
 				check_time = item.check_time;
+			}else { //取其中更新更积极的策略
+				if (item.storage_expire < storage_expire) {
+					storage_expire = item.storage_expire;
+				}
+				if (item.check_type > check_type) {
+					check_type = item.check_type;
+				}
+				if (item.check_time < check_time) {
+					check_time = item.check_time;
+				}
+
 			}
 			if (check_type == 0 || check_type == 1 || item.is_prelocal /*存在预加载数据，直接使用。不用担心预加载数据过期问题，每次框架启动会自动清理过期数据*/) {
 				if (!has_callback) {
