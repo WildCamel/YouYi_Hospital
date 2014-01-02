@@ -3,7 +3,7 @@
 xmlns:gap = "http://phonegap.com/ns/1.0"
 >
 	<preference name="phonegap-version" value="3.1.0" />
-    <name>友谊医院（测试版v0.1）</name>
+    <name>友谊医院（测试版v0.2）</name>
     <description>
         友谊医院App测试版，服务器端测试调试中，随时有可能不可用
     </description>
