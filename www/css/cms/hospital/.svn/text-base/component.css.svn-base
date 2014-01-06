@@ -924,11 +924,12 @@ table.report td{
 	margin-top:1em;
 	display:-webkit-box;}
 .btn_camero{
-	margin-left:1em;
-	width:6em;
-	background:#4eb25c;
-	border-radius:5px;
-	height:2.6em;}
+	margin-right: 0.5em;
+	margin-top: 0.8em;
+	width: 10em;
+	background: #4eb25c;
+	border-radius: 5px;
+	height: 2.6em;}
 .btn_camero img{
 	margin-top: 0.5em;
 	width: 2em;}

@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/appbuilder/!svn/ver/266/framework/client/webapp/css/cms/hospital
+/appbuilder/!svn/ver/273/framework/client/webapp/css/cms/hospital
 END
 page.css
 K 25
@@ -13,7 +13,7 @@ component.css
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/appbuilder/!svn/ver/259/framework/client/webapp/css/cms/hospital/component.css
+/appbuilder/!svn/ver/273/framework/client/webapp/css/cms/hospital/component.css
 END
 slider.css
 K 25
