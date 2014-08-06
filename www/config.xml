@@ -17,4 +17,5 @@ xmlns:gap = "http://phonegap.com/ns/1.0"
 	<access origin="*" />
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
+    <preference name="Fullscreen" value="true" />
 </widget>
