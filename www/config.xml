@@ -35,6 +35,6 @@
 	
 	<access origin="*" />
 	<icon src="icon.png" />
-	<gap:splash src="splash.png" />
+	<gap:splash src="screen-iphone-portrait-568h-2x.png" />
 
 </widget>
